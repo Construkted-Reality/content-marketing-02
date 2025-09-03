@@ -1,45 +1,75 @@
-# Technical Context: Blog Post Idea Library System
+# Technical Context: Blog Post Generation System
 
 ## Technologies Used
-- **Python 3.x**: Primary implementation language
-- **JSON**: Data storage and configuration format
-- **Regular Expressions**: File parsing and pattern matching
-- **Hashlib**: Duplicate detection using MD5 hashing
-- **Argparse**: Command-line interface implementation
+- **Python 3.x**: Primary implementation language for blog draft generation
+- **JSON**: Data storage format for blog ideas database (80+ entries)
+- **OLLAMA API**: External AI service for content generation via HTTP requests
+- **Requests Library**: HTTP client for API communication
+- **Pathlib**: Modern file path handling and directory operations
+- **Regular Expressions**: JSON parsing and content validation
 - **Logging**: System monitoring and debugging
 
 ## Development Setup
-- Standard Python 3 environment
-- No external package dependencies required
-- Command-line interface for execution
-- JSON configuration files for customization
+- **Python 3.6+**: Required for f-string formatting and pathlib features
+- **OLLAMA Server**: External AI service running on 192.168.8.90:11434
+- **Local File System**: blog_ideas.json database and blog_post_drafts/ output
+- **Supporting Files**: context.md, crafting_compelling_titles.md, company_operation.md, content_marketing_guidance.md
+- **No Additional Dependencies**: Uses only Python standard library plus requests
 
 ## Technical Constraints
-- Must work with standard Python libraries only
-- No external dependencies beyond Python standard library
-- Must handle large files efficiently without memory issues
-- Should be cross-platform compatible (Linux, macOS, Windows)
-- Must maintain backward compatibility with existing data
+- **API Dependency**: Requires OLLAMA server availability for content generation
+- **Network Connectivity**: Must maintain stable connection to AI service
+- **File System Access**: Requires read/write permissions for JSON and markdown files
+- **Memory Efficiency**: Must handle large JSON datasets (80+ blog ideas) efficiently
+- **Error Resilience**: Must gracefully handle API failures and network issues
+- **Cross-platform Compatibility**: Works on Linux, macOS, Windows
 
 ## Dependencies
-- **Python 3.6+**: Required for f-string formatting and other features
-- **Standard Library Modules**: json, os, re, argparse, hashlib, datetime, logging
-- **No Third-party Packages**: Pure Python implementation
+- **Python 3.6+**: Core runtime environment
+- **Standard Library**: json, os, sys, pathlib, re, typing
+- **Requests Library**: HTTP client for OLLAMA API communication
+- **OLLAMA API**: External AI service for content generation
+- **File System**: Local storage for JSON database and markdown outputs
 
 ## Tool Usage Patterns
-- Command-line execution: `python3 blog_idea_unified_processor.py [options] files...`
-- JSON configuration loading: metadata_config.json
-- File I/O operations: Reading markdown files, writing JSON database
-- Logging: INFO level for normal operations, WARNING for issues
+- **Script Execution**: `python3 generate_blog_drafts_from_ideas.py`
+- **JSON Processing**: Load blog_ideas.json → Process ideas → Update JSON with results
+- **API Workflow**: Two-stage OLLAMA calls (parameter selection → content generation)
+- **File Generation**: Create markdown files with ID+title naming convention
+- **Error Handling**: Comprehensive logging and graceful failure recovery
 
 ## Integration Points
-- Existing research_content directory with markdown files
-- Future integration with content management systems
-- Potential API endpoints for programmatic access
-- Database export capabilities for other systems
+- **OLLAMA API**: HTTP POST requests to /api/generate endpoint
+- **JSON Database**: blog_ideas.json serves as persistent data store
+- **File System**: blog_post_drafts/ directory for markdown output
+- **Configuration Files**: Supporting prompt templates and guidance documents
+- **Future Integrations**: Publishing platforms, CMS systems, analytics dashboards
 
 ## Performance Considerations
-- Memory-efficient processing of large files
-- Fast duplicate detection using hash indexing
-- Minimal I/O operations during processing
-- Efficient JSON serialization/deserialization
+- **API Rate Limiting**: Sequential processing to avoid overwhelming OLLAMA service
+- **Memory Management**: Efficient JSON loading and processing for large datasets
+- **File I/O Optimization**: Minimal disk operations with batch updates
+- **Network Resilience**: Timeout handling and retry logic for API calls
+- **Processing Limits**: Testing constraints (first 5 ideas) for validation
+- **Concurrent Safety**: Single-threaded processing to maintain data integrity
+
+## API Configuration
+- **OLLAMA Host**: 192.168.8.90 (configurable)
+- **Model**: gpt-oss-120b-CTX28k (high-capacity model for quality content)
+- **Timeout**: 300 seconds for complex content generation
+- **Request Format**: JSON payload with model, prompt, and system parameters
+- **Response Handling**: JSON parsing with fallback regex extraction
+
+## Data Flow Architecture
+1. **Input**: blog_ideas.json (80 structured blog post ideas)
+2. **Processing**: Sequential idea processing with API calls
+3. **Stage 1**: Parameter selection API call → JSON update
+4. **Stage 2**: Content generation API call → File creation
+5. **Output**: Markdown files + updated JSON database
+6. **Tracking**: Article paths stored in JSON for reference
+
+## Security Considerations
+- **API Access**: Internal network communication to OLLAMA service
+- **File Permissions**: Appropriate read/write access for data files
+- **Error Exposure**: Sanitized error messages to prevent information leakage
+- **Data Validation**: Input validation for JSON structure and API responses
