@@ -15,6 +15,7 @@ import json
 import pathlib
 import re
 from typing import Dict, Any, Optional, List
+from datetime import datetime, timezone
 
 try:
     import requests
@@ -119,8 +120,8 @@ def get_batch_diversity_context(processed_ideas: list) -> str:
     return ""
 
 
-def select_parameters(idea_content: str, context_content: str, content_marketing_guidance_content: str, processed_ideas: Optional[List[dict]] = None) -> Dict[str, str]:
-    """First API call – ask the model to choose voice, piece type, etc."""
+def select_parameters(idea_content: str, context_content: str, content_marketing_guidance_content: str, titles_content: str, processed_ideas: Optional[List[dict]] = None) -> Dict[str, str]:
+    """First API call – ask the model to choose voice, piece type, etc. and generate a title."""
     if processed_ideas is None:
         processed_ideas = []
     
@@ -128,7 +129,7 @@ def select_parameters(idea_content: str, context_content: str, content_marketing
     
     first_prompt = f"""Analyze the following topic research and select the most appropriate writing parameters for content marketing.
 
-**Context Summary**: You will be given: 1) batch diversity context, 2) voice definitions, 3) content marketing guidance, 4) topic research content, 5) detailed instructions and JSON schema.
+**Context Summary**: You will be given: 1) batch diversity context, 2) voice definitions, 3) content marketing guidance, 4) topic research content, 5) title guidance, 6) detailed instructions and JSON schema.
 
 **IMPORTANT**: Vary your parameter selections across different topics. Avoid selecting identical combinations unless truly warranted by the content. Consider how this topic differs from previous topics in the batch.
 {batch_context}
@@ -140,6 +141,9 @@ Wired: {VOICE_DEFINITIONS["Wired"]}
 
 Content Marketing Context:
 {content_marketing_guidance_content}
+
+Title Guidance:
+{titles_content}
 
 Topic research content:
 {idea_content}
@@ -154,7 +158,9 @@ Use ONLY this JSON format for output (no other text):
   "target_audience": "Your chosen target audience (e.g., enterprise)",
   "technical_depth": "Your chosen technical depth (e.g., med)",
   "justification": "Explanation of why these choices were made",
-  "pain_point": "Summary of the main pain point users are experiencing"
+  "pain_point": "Summary of the main pain point users are experiencing",
+  "length": "Estimated number of words for the final article",
+  "title": "A compelling, reader-focused title following the guidance provided"
 }}
 
 Instructions:
@@ -190,6 +196,20 @@ Instructions:
 
 8. **Pain Point**: Extract detailed, specific pain points from the research content and URLs with concrete examples
 
+9. **Length**: Integer value between 800 and 3000
+   - Estimate an article length based on the amouont of source material, the amount that should be said 
+     regarding the topic that was researched and the complexity of the pain point/problem being resolved by the article
+   - 600-900 words: For simple problems that can be answered with a quick list, a straightforward definition, or a few direct steps. The solution is not deeply nuanced.
+   - 1200-1800 words: For multi-faceted problems that require more detailed explanations, examples, comparisons, or a step-by-step process. This is for topics that require evidence and elaboration to be truly helpful.
+   - 2500-3000 words: For complex, high-stakes problems that require a comprehensive, in-depth guide. These articles often cover a topic from every angle, include multiple sub-sections, and aim to be the definitive resource on the subject.
+
+10. **Title**: Generate a compelling, reader-focused title following the guidance above:
+    - Write the title from the reader's point of view
+    - Include one concrete benefit or goal
+    - Keep under 15 words if possible
+    - Be truthful and specific
+    - Optionally add target audience or constraint for relevance
+
 Output ONLY the JSON object above with your selections."""
     payload = {
         "model": DEFAULT_MODEL,
@@ -219,7 +239,6 @@ Output ONLY the JSON object above with your selections."""
 def generate_blog_post(
     idea_content: str,
     context_content: str,
-    titles_content: str,
     company_operation_content: str,
     content_marketing_guidance_content: str,  # New parameter
     selected: Dict[str, str],
@@ -236,10 +255,12 @@ def generate_blog_post(
         f"Content Marketing Context: {content_marketing_guidance_content}. "
         f"Extra context {context_content}. "
         f"Company operation details: {company_operation_content}. "
+        f"Article title is: {selected['title']}."
         f"Piece Type: {selected['piece_type']}. "
         f"Primary Goal: {selected['primary_goal']}. "
         f"Target Audience: {selected['target_audience']}. "
         f"Technical Depth: {selected['technical_depth']}. "
+        f"Article target word count length: {selected['length']} words.\n"
         f"\n\n**Core Instructions**:\n"
         f"- Mention our product, Construkted Reality, where it naturally fits as a solution to the problems discussed. Do not force it.\n"
         f"- Do not fabricate information about how Construkted Reality works or its features.\n"
@@ -255,8 +276,7 @@ def generate_blog_post(
         f"**Article Research and Draft Content**:\n{idea_content}\n\n"
         f"**Instructions**:\n"
         f"1. Visit all URLs listed in the SOURCE section of the research. Use their content to deepen your understanding of the pain points.\n"
-        f"2. Craft a new, compelling title for the article using the following guidance: {titles_content}\n"
-        f"3. Write the full blog post, addressing the extracted pain points and integrating solutions."
+        f"2. Write the full blog post, addressing the extracted pain points and integrating solutions."
     )
 
 
@@ -320,9 +340,18 @@ def update_idea_with_api_response(idea: dict, selected: dict) -> None:
     # Only update fields that were returned by the API call
     for field in ["voice", "piece_type", "marketing_post_type", "primary_goal", "target_audience", 
                   "technical_depth", "justification", "pain_point", "keywords", "length", 
-                  "sections", "call_to_action"]:
+                  "sections", "call_to_action", "title"]:
         if field in selected and selected[field]:  # Only update if field has data
             idea[field] = selected[field]
+
+
+def update_modified_at(idea: dict) -> None:
+    """
+    Set the `modified_at` key of the given idea dict to the current UTC
+    timestamp in ISO‑8601 format with microseconds (e.g. 2025-09-03T12:34:56.123456).
+    """
+    now_iso = datetime.now(timezone.utc).isoformat(timespec="microseconds")
+    idea["modified_at"] = now_iso
 
 
 def save_draft_and_update_json(idea: dict, response: str, selected: dict) -> None:
@@ -398,7 +427,7 @@ def main() -> None:
         sys.exit(0)
     
     # Process only first 5 ideas for testing (as requested)
-  #  ideas = ideas[:5]  # Uncomment this line when ready for full processing
+    ideas = ideas[:5]  # Uncomment this line when ready for full processing
     
     # Load static auxiliary files once
     context_content = read_file(CONTEXT_FILE)
@@ -440,7 +469,7 @@ def main() -> None:
         
         # --- First API call -------------------------------------------------
         content_marketing_guidance_content = read_file(CONTENT_MARKETING_GUIDANCE_FILE)
-        selected = select_parameters(idea_content, context_content, content_marketing_guidance_content, processed_ideas)
+        selected = select_parameters(idea_content, context_content, content_marketing_guidance_content, titles_content, processed_ideas)
 
         # Verify we got a voice; otherwise skip
         if not selected.get("voice"):
@@ -449,11 +478,17 @@ def main() -> None:
 
         # Echo selected parameters (mirrors Bash script output)
         print("  Selected parameters:")
-        for key in ["voice", "piece_type", "marketing_post_type", "primary_goal", "target_audience", "technical_depth"]:
+        for key in ["voice", "title", "piece_type", "marketing_post_type", "primary_goal", "target_audience", "technical_depth", "length"]:
             print(f"    {key.replace('_', ' ').title()}: {selected.get(key, '')}")
 
         # Update JSON file with API response data immediately after first API call
         update_idea_with_api_response(idea, selected)
+        
+        # ---------------------------------------------------------------
+        # STEP 3: Refresh modified_at timestamp now that the idea has been
+        #         processed (parameters selected)
+        # ---------------------------------------------------------------
+        update_modified_at(idea)
         
         # Add this idea to processed list for future diversity context
         processed_ideas.append(idea)
@@ -473,7 +508,7 @@ def main() -> None:
             # Save updated JSON file
             with open("blog_ideas.json", "w", encoding="utf-8") as f:
                 json.dump(json_data, f, indent=2, ensure_ascii=False)
-            print("  Updated JSON file with selected parameters")
+            print("  Updated JSON file with refreshed modified_at")
         except Exception as e:
             sys.stderr.write(f"Error updating JSON after first API call: {e}\n")
 
@@ -482,7 +517,6 @@ def main() -> None:
         response = generate_blog_post(
             idea_content,
             context_content,
-            titles_content,
             company_operation_content,
             content_marketing_guidance_content,
             selected,

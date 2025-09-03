@@ -1,8 +1,8 @@
 {
   "ideas": [
     {
-      "title": "Why Your Photogrammetry Models Have Holes and How to Fill Them Properly",
-      "pain_point": "Photogrammetry hobbyists repeatedly end up with meshes riddled with holes because cameras miss bottom surfaces on turntables, occlusions hide deep or overhanging geometry, insufficient photo overlap creates sparse point clouds, poor lighting hampers feature matching, and default software filters discard uncertain points. These gaps make models non‑watertight, leading to 3D‑print failures, game asset artifacts, and unreliable AEC analyses, forcing users to waste hours patching meshes in Blender or to re‑scan entirely.",
+      "title": "How you can seal holes in photogrammetry models for flawless 3D prints",
+      "pain_point": "Photogrammetry hobbyists frequently end up with 3D models riddled with holes because cameras miss the bottom of objects on turntables, occlusions hide deep or overhanging surfaces, insufficient photo overlap creates sparse point clouds, and poor lighting reduces feature‑matching reliability. Default software often discards uncertain points, leaving non‑watertight meshes. These holes cause 3D‑print failures, visual artifacts in game assets, and inaccurate analyses in AEC projects, forcing users to waste hours manually patching meshes in Blender or to redo entire scans.",
       "target_audience": "hobbyist",
       "content_details": "",
       "sources": [
@@ -12,22 +12,22 @@
       ],
       "id": "2a2ab6040f05",
       "created_at": "2025-09-03T00:15:30.250457",
-      "modified_at": "2025-09-03T00:15:30.250470",
-      "article": "blog_post_drafts/2a2ab6040f05_Why Your Photogrammetry Models Have Holes and How to Fill Them Properly.md",
+      "modified_at": "2025-09-03T19:46:58.357365+00:00",
+      "article": "blog_post_drafts/2a2ab6040f05_How you can seal holes in photogrammetry models for flawless 3D prints.md",
       "voice": "Wired",
       "piece_type": "tutorial",
       "marketing_post_type": "educational",
       "primary_goal": "troubleshoot",
       "technical_depth": "med",
       "keywords": "",
-      "length": "",
+      "length": 1500,
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic is a hands‑on, technical how‑to that explains why photogrammetry meshes develop holes and walks the reader through concrete fixes. Wired’s fast‑paced, tech‑forward voice matches the hobbyist’s appetite for actionable, jargon‑light guidance while still sounding authoritative. A tutorial format delivers step‑by‑step instructions, which is exactly what a troubleshooting piece needs. Positioning it as educational (TOFU) captures users who are just discovering the problem and looking for a clear, beginner‑friendly explanation, helping to attract new leads into the funnel. The primary goal is to troubleshoot the specific mesh‑hole issue. Hobbyists are the explicit audience, so the language stays accessible but not oversimplified, warranting a medium technical depth. This selection differs from prior batch items that leaned toward narrative or policy tones, ensuring variety across the content set."
+      "justification": "The article is a practical, step‑by‑step guide aimed at hobbyist photogrammetry users who need to fix non‑watertight meshes before 3D printing. Wired's fast‑paced, tech‑forward voice matches the troubleshooting nature of the content while keeping the language accessible. A tutorial format directly serves the educational (TOFU) funnel stage, teaching readers how to diagnose and repair holes. The primary goal is to troubleshoot the common mesh‑hole problem, and a medium technical depth is appropriate for hobbyists familiar with Blender or similar tools but not experts. This selection diversifies the batch by using a tech‑oriented voice rather than the more literary New Yorker or policy‑heavy Atlantic."
     },
     {
-      "title": "Solving the Dreaded \"Double Wall\" Effect in Your 3D Scans",
-      "pain_point": "Enterprise scanning teams repeatedly encounter the \"double wall\" effect when stitching multi‑session photogrammetry or laser‑scan datasets. Misaligned scans produce duplicated surfaces, floating geometry, and overlapping shells that appear as parallel walls or extra mesh layers. This inflates file sizes, creates rendering artifacts, skews volume and measurement calculations, and forces costly manual cleanup (deleting or merging duplicate faces). Rescanning is often impossible due to limited site access, leaving teams desperate for reliable post‑processing methods to detect, correct, and prevent these artifacts.",
+      "title": "How you can eliminate double‑wall artifacts from enterprise 3D scans in under 10 minutes",
+      "pain_point": "Enterprise scanning teams repeatedly encounter the \"double‑wall\" artifact when stitching multi‑session photogrammetry or laser‑scan datasets. Misaligned scans create duplicated surfaces, floating geometry, and overlapping shells that appear as parallel walls or extra mesh layers. This inflates file sizes, introduces rendering glitches, skews volume and measurement calculations, and forces costly manual cleanup (deleting or merging duplicate faces). Rescanning is often impossible due to limited site access, leaving teams desperate for reliable post‑processing methods to detect, correct, and prevent these artifacts.",
       "target_audience": "enterprise",
       "content_details": "",
       "sources": [
@@ -37,22 +37,22 @@
       ],
       "id": "9ffbec2e6bd6",
       "created_at": "2025-09-03T00:15:30.250497",
-      "modified_at": "2025-09-03T00:15:30.250499",
-      "article": "blog_post_drafts/9ffbec2e6bd6_Solving the Dreaded _Double Wall_ Effect in Your 3D Scans.md",
+      "modified_at": "2025-09-03T19:48:15.135192+00:00",
+      "article": "blog_post_drafts/9ffbec2e6bd6_How you can eliminate double‑wall artifacts from enterprise 3D scans in under 10 minute.md",
       "voice": "TheAtlantic",
       "piece_type": "methods deep dive",
-      "marketing_post_type": "comparison",
-      "primary_goal": "compare",
+      "marketing_post_type": "educational",
+      "primary_goal": "educate",
       "technical_depth": "high",
       "keywords": "",
-      "length": "",
+      "length": 1500,
       "sections": "",
       "call_to_action": "",
-      "justification": "The audience consists of enterprise scanning teams that need rigorous, data‑driven guidance, making the measured, analytical tone of The Atlantic a natural fit. Rather than a step‑by‑step tutorial (used previously with Wired), a methods deep dive lets us explore multiple post‑processing pipelines, algorithmic approaches, and software packages, providing a side‑by‑side comparison that supports MOFU decision‑making. Selecting a \"comparison\" marketing post type and a primary goal of \"compare\" diversifies the funnel positioning from the prior TOFU educational piece, positioning the content to help prospects evaluate solutions before committing. The enterprise audience warrants a high technical depth, and the choice of a comparison focus directly addresses their need to pick the most efficient tool or workflow for fixing the double‑wall artifact."
+      "justification": "The previous batch used the Wired voice for a tutorial aimed at hobbyists. To increase batch diversity, I selected The Atlantic, which offers a measured, data‑driven tone suited to enterprise decision‑makers who expect rigor and context. The content is a detailed, step‑by‑step remediation guide, so a \"methods deep dive\" piece type matches the complexity better than a simple tutorial. Positioning it as an educational (TOFU) post aligns with the need to raise awareness of a specific artifact and teach a reproducible fix, while the primary goal is to educate rather than merely troubleshoot, providing broader strategic insight. Enterprise readers require high technical depth, and a 1,500‑word length allows thorough coverage without overwhelming the audience."
     },
     {
-      "title": "Why Your Phone Photos Aren't Working for Photogrammetry (And How to Fix It)",
-      "pain_point": "Phone cameras automatically apply HDR, AI‑driven sharpening, heavy JPEG compression, and other post‑processing that erases the pixel‑level geometry needed for feature‑matching algorithms. Additional issues include optical image stabilization and rolling‑shutter artifacts that shift frames, default apps locking exposure, focus, and white balance causing lighting inconsistency, low‑resolution output that loses fine detail, and wide‑angle lenses introducing barrel distortion. Together these factors produce sparse, noisy point clouds and malformed 3D models, leaving hobbyists frustrated with poor results.",
+      "title": "How You Can Capture Phone Photos for Photogrammetry and Boost 3D Model Accuracy",
+      "pain_point": "Phone cameras automatically apply HDR, AI sharpening, aggressive JPEG compression, optical image stabilization, rolling‑shutter readout, and lock exposure/focus/white balance. These post‑processes strip raw pixel‑level detail and introduce geometric inconsistencies. Combined with low‑resolution sensors and wide‑angle lens distortion, the resulting images lack the stable, high‑contrast features photogrammetry algorithms need, leading to sparse, noisy point clouds and malformed 3D models. Hobbyists therefore experience frustratingly poor reconstructions despite using the same scenes.",
       "target_audience": "hobbyist",
       "content_details": "",
       "sources": [
@@ -63,22 +63,22 @@
       ],
       "id": "67448229cf6a",
       "created_at": "2025-09-03T00:15:30.250517",
-      "modified_at": "2025-09-03T00:15:30.250519",
+      "modified_at": "2025-09-03T19:49:40.470812+00:00",
       "article": "blog_post_drafts/67448229cf6a_Why Your Phone Photos Aren't Working for Photogrammetry (And How to Fix It).md",
-      "voice": "TheNewYorker",
+      "voice": "NewYorker",
       "piece_type": "explainer",
-      "marketing_post_type": "case study",
+      "marketing_post_type": "educational",
       "primary_goal": "troubleshoot",
       "technical_depth": "med",
       "keywords": "",
-      "length": "",
+      "length": 1500,
       "sections": "",
       "call_to_action": "",
-      "justification": "The audience is a hobbyist who needs a clear, engaging narrative rather than a dry tech manual, so a New Yorker‑style voice adds wit and curiosity while still delivering authority. An explainer fits the need to outline why phone photos fail and how to fix them without the step‑by‑step rigidity of a tutorial, which was already used in the previous batch. To diversify the marketing mix, a case‑study post type showcases a real hobbyist who applied the fixes and achieved a clean 3D model, providing social proof and trust‑building rather than the earlier educational or comparison pieces. The primary goal remains troubleshooting because the core user problem is technical failure, and a medium technical depth matches hobbyists who have some photography knowledge but are not experts."
+      "justification": "The topic is a technical yet hobby‑oriented problem—why phone photos fail for photogrammetry and how to fix them. To diversify from the previous Wired and Atlantic voices, I chose the New Yorker voice, which offers a sophisticated, conversational tone that can explain technical details without overwhelming a hobbyist. An explainer fits best because the article primarily clarifies underlying causes before offering actionable fixes, rather than walking step‑by‑step through a single process (tutorial) or diving deep into methodology (methods deep dive). The content serves the top of the funnel, educating hobbyists about a common pain point, so the marketing post type is Educational. The primary goal is to troubleshoot the specific issue, guiding readers toward better results. A medium technical depth matches hobbyists who have some familiarity with photogrammetry but need clearer guidance. The estimated length (≈1500 words) allows thorough explanation of camera processing effects, examples from the sources, and practical mitigation steps."
     },
     {
       "title": "Conquering Reflective and Shiny Surfaces in 3D Scanning",
-      "pain_point": "Enterprise teams repeatedly fail to acquire clean 3D scans of highly reflective, transparent, or polished surfaces. Specular highlights saturate sensor pixels, breaking feature‑matching and leaving point clouds riddled with holes, noise, and missing geometry. Automotive engineers see large gaps on glossy car bodies, jewelry designers grapple with chaotic reflections on gold and diamonds, and photographers capture background through glass instead of the object. Even high‑resolution laser scanners struggle with shiny metals and polished plastics, forcing teams into endless re‑scans, labor‑intensive post‑processing, and ad‑hoc fixes like temporary matte sprays or polarizing filters—resulting in wasted time, higher costs, and often abandoned projects.",
+      "pain_point": "Enterprise teams struggle to capture clean 3D scans of reflective, transparent, or polished surfaces. Specular highlights saturate sensor pixels, breaking feature‑matching and leaving point clouds riddled with holes, noise, and missing geometry. Automotive engineers see large gaps on glossy car bodies; jewelry designers contend with chaotic reflections on gold and diamonds; photographers capture background through glass instead of the object. Even high‑resolution laser scanners falter on shiny metals and polished plastics, forcing endless re‑scans, labor‑intensive post‑processing, and ad‑hoc fixes such as temporary matte sprays or polarizing filters—resulting in wasted time, higher costs, and often abandoned projects.",
       "target_audience": "enterprise",
       "content_details": "",
       "sources": [
@@ -92,20 +92,20 @@
       "created_at": "2025-09-03T00:15:30.250536",
       "modified_at": "2025-09-03T00:15:30.250537",
       "article": "blog_post_drafts/0a41139c28e6_Conquering Reflective and Shiny Surfaces in 3D Scanning.md",
-      "voice": "Wired",
-      "piece_type": "methods deep dive",
-      "marketing_post_type": "conversion-focused",
-      "primary_goal": "persuade",
+      "voice": "TheAtlantic",
+      "piece_type": "case study",
+      "marketing_post_type": "case study",
+      "primary_goal": "educate",
       "technical_depth": "high",
       "keywords": "",
-      "length": "",
+      "length": 2600,
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic is a technically dense problem that enterprise engineers encounter daily. Wired’s futurist, tech‑obsessed voice delivers fast‑paced, jargon‑light explanations while still sounding authoritative – ideal for a deep‑dive that will also nudge decision‑makers toward a concrete solution. A methods‑deep‑dive format lets us unpack multiple mitigation strategies (polarizing filters, matte sprays, multi‑angle capture, software post‑processing) in granular detail, matching the high technical depth expected by an enterprise audience. Positioning the piece as conversion‑focused with a persuasive goal lets us transition from troubleshooting to recommending a packaged solution (e.g., a scanner with built‑in specular‑reduction optics or a service add‑on), which diversifies the funnel placement compared to the prior TOFU/educational pieces. This combination (Wired + methods deep dive + conversion‑focused + persuade + enterprise + high) has not been used in the batch, satisfying the diversity requirement."
+      "justification": "The topic tackles a sophisticated, high‑stakes technical obstacle that enterprise teams repeatedly encounter. A case‑study format lets us illustrate real‑world solutions (e.g., matte sprays, polarizing filters, multi‑sensor rigs) while providing the depth an enterprise audience expects. The Atlantic’s analytical, data‑driven voice aligns with the need for credibility and historical context about 3D‑scanning evolution, differentiating it from the earlier Wired and New Yorker pieces and adding variety to the batch. The goal is to educate decision‑makers by showing concrete outcomes rather than merely troubleshooting steps."
     },
     {
       "title": "Understanding Why Your Photos Don't Align and How to Force Better Results",
-      "pain_point": "Enterprise photogrammetry pipelines are stalling because only 20‑30% of uploaded images successfully align, triggering generic errors in RealityCapture or Metashape. The failures stem from low‑contrast surfaces, repetitive textures (e.g., solar panels, fences), motion blur from fast‑moving drones, inaccurate GPS tags, poor camera calibration, and overly aggressive down‑sampling. Teams are forced to create manual tie‑points, extend flight schedules, delay model delivery, and see per‑model costs inflate.",
+      "pain_point": "Enterprise photogrammetry workflows stall because only 20‑30% of uploaded images align, producing generic errors in RealityCapture or Metashape. Failures stem from low‑contrast surfaces, repetitive textures (solar panels, fences), motion blur from fast‑moving drones, inaccurate GPS tags, poor camera calibration, and overly aggressive down‑sampling. Teams resort to manual tie‑point creation, extended flight schedules, delayed model delivery, and inflated per‑model costs.",
       "target_audience": "enterprise",
       "content_details": "",
       "sources": [
@@ -117,16 +117,16 @@
       "created_at": "2025-09-03T00:15:30.250552",
       "modified_at": "2025-09-03T00:15:30.250553",
       "article": "blog_post_drafts/ba9e9ebf3698_Understanding Why Your Photos Don't Align and How to Force Better Results.md",
-      "voice": "TheAtlantic",
+      "voice": "Wired",
       "piece_type": "methods deep dive",
       "marketing_post_type": "educational",
       "primary_goal": "troubleshoot",
       "technical_depth": "high",
       "keywords": "",
-      "length": "",
+      "length": 1500,
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic is a highly technical, enterprise‑level problem that requires a measured, data‑driven explanation of root causes and remediation tactics. The Atlantic’s analytical, evidence‑heavy voice aligns with the need to present detailed diagnostics and historical context (e.g., why certain sensor errors persist). A methods deep dive lets us unpack each failure mode (low‑contrast surfaces, repetitive textures, motion blur, GPS inaccuracies, calibration errors, aggressive down‑sampling) and walk through systematic fixes. Selecting an educational marketing post type positions the piece at the top‑of‑funnel for teams seeking knowledge before evaluating tools, while the primary goal of troubleshooting directly addresses the immediate pain point. This combination differs from prior entries (which used Wired for tutorial/comparison and TheNewYorker for explainer) to ensure batch diversity."
+      "justification": "The topic is a technically dense troubleshooting guide for enterprise photogrammetry pipelines, which calls for Wired's fast‑paced, tech‑forward voice that can convey complex concepts with vivid metaphors. A methods‑deep‑dive piece lets us explore the multiple root causes (low contrast, repetitive textures, motion blur, GPS inaccuracies, calibration errors, aggressive down‑sampling) and prescribe detailed, actionable remedies, matching the high technical depth expected by enterprise teams. Positioning the article as an educational (TOFU) post aligns with the need to attract leads who are searching for solutions to alignment failures, while the primary goal of troubleshooting directly addresses the urgent pain point. This selection diversifies the batch by re‑using Wired (the only voice not yet repeated) and by opting for a methods deep dive, a format not yet paired with this voice, ensuring variety across the overall content set."
     },
     {
       "title": "Fixing Terrible UV Maps and Texture Baking Issues from Photogrammetry Models",
