@@ -1,69 +1,43 @@
-# Blog Ideas Cleaner
+# Blog Idea Processor
 
-A Python script that processes markdown files containing blog post ideas with references, cleaning them by removing extraneous content and integrating URL references directly into each blog post idea.
+A Python script that processes markdown files containing blog post ideas, extracts structured data, performs deduplication, and stores everything in a JSON file with rich metadata support.
+
+## Enhanced Version
+
+An enhanced version of the processor (`blog_idea_processor_enhanced.py`) has been created to handle enriched JSON files and provide improved compatibility with the content marketing workflow. This version maintains backward compatibility while adding new features for importing and consolidating blog ideas.
 
 ## Overview
 
-This project was created to clean and reformat blog post idea files that contain:
-- Extraneous content (logos, prompts, background information)
-- Blog post ideas with numbered references `[^n]`
-- URL references listed at the bottom of the file
-
-The script transforms these files into a clean, consistent format suitable for parsing and further processing.
+This project implements a system for collecting, processing, and storing blog post ideas from various research sources. The system ingests markdown files containing blog post ideas separated by "---" separators, extracts structured data, detects and prevents duplicates, and stores all ideas in a persistent JSON database.
 
 ## Features
 
-- **Automated Processing**: Processes multiple files with a single command
-- **Reference Integration**: Automatically matches `[^n]` citations to their corresponding URLs
-- **Content Cleaning**: Removes separators, fixes headers, and cleans text
-- **Consistent Formatting**: Outputs standardized markdown structure
-- **Error Handling**: Robust processing with detailed logging
-- **Reusable**: Can process future files with similar structure
+- **Automated Processing**: Process multiple markdown files with a single command
+- **Structured Data Extraction**: Automatically parses title, pain point, target audience, content details, and sources
+- **Duplicate Detection**: Prevents processing the same blog post ideas multiple times
+- **Metadata Validation**: Validates all fields against predefined configuration
+- **Persistent Storage**: Stores processed ideas in JSON format for easy access
+- **Timestamp Tracking**: Tracks both creation and modification times for blog ideas
+- **Command-line Interface**: Simple, intuitive CLI with clear usage examples
+- **Extensible Design**: Modular architecture that's easy to extend and maintain
 
-## File Structure
+## Files
 
 ```
 content-marketing-02/
-├── blog_cleaner.py                                           # Main cleaning script
-├── README.md                                                # This file
-└── research_content/
-    ├── mobile-lidar_blog_ideas-01Sept2025.md                # Original mobile LiDAR file
-    ├── mobile-lidar_blog_ideas-01Sept2025_cleaned.md        # Cleaned mobile LiDAR file
-    ├── photogrammetry_blog_ideas-02-01Sept2025.md           # Original photogrammetry file
-    └── photogrammetry_blog_ideas-02-01Sept2025_cleaned.md   # Cleaned photogrammetry file
-```
-
-## Input Format
-
-The script expects markdown files with:
-- Blog post ideas separated by `\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#` patterns
-- Each idea containing:
-  - Title (with `## Blog Post Idea N:` format)
-  - **Pain Point:** section
-  - **Target Audience:** section  
-  - **Content Details:** section
-  - References in `[^n]` format within the content
-- URL references at the bottom in `[^n]: https://url.com` format
-
-## Output Format
-
-The script produces clean markdown files where each blog post idea follows this structure:
-
-```markdown
-## [Blog Post Title]
-
-**Pain Point:** [Description of user problem]
-
-**Target Audience:** [Description of target users]
-
-**Content Details:** [Detailed solution description]
-
-**Sources:**
-- https://url1.com
-- https://url2.com
-- https://url3.com
-
----
+├── blog_idea_processor.py          # Original processing script
+├── blog_idea_processor_enhanced.py # Enhanced processing script with JSON import capabilities
+├── metadata_config.json           # Configuration for metadata fields
+├── blog_ideas.json                # Storage file for processed blog ideas
+├── README.md                      # This file
+├── implementation_plan.md         # Implementation documentation
+└── memory-bank/                   # Project documentation
+    ├── projectbrief.md            # Project overview
+    ├── productContext.md          # Product context and requirements
+    ├── activeContext.md           # Current work focus
+    ├── systemPatterns.md          # System architecture patterns
+    ├── techContext.md             # Technical details
+    └── progress.md                # Current status and progress
 ```
 
 ## Usage
@@ -73,50 +47,132 @@ The script produces clean markdown files where each blog post idea follows this 
 Process one or more markdown files by specifying them as command line arguments:
 
 ```bash
-python3 blog_cleaner.py file1.md file2.md
+python3 blog_idea_processor.py file1.md file2.md
 ```
 
 Example with the project files:
 
 ```bash
-python3 blog_cleaner.py research_content/mobile-lidar_blog_ideas-01Sept2025.md research_content/photogrammetry_blog_ideas-02-01Sept2025.md
+python3 blog_idea_processor.py research_content/*.md
+```
+
+### Enhanced Usage
+
+The enhanced processor supports importing from enriched JSON files:
+
+```bash
+python3 blog_idea_processor_enhanced.py --enriched-json blog_ideas.json
+```
+
+Process markdown files and import existing ideas:
+
+```bash
+python3 blog_idea_processor_enhanced.py research_content/*.md --enriched-json blog_ideas.json
 ```
 
 ### Command Line Options
 
 ```bash
-python3 blog_cleaner.py [OPTIONS] INPUT_FILES...
+python3 blog_idea_processor.py [OPTIONS] INPUT_FILES...
 ```
 
 **Arguments:**
 - `INPUT_FILES`: One or more markdown files to process (required)
 
 **Options:**
-- `-o, --output-suffix SUFFIX`: Suffix to add to output filenames (default: `_cleaned`)
-- `--output-dir DIRECTORY`: Directory to save cleaned files (default: same as input file)
+- `--skip-duplicates`: Skip duplicate blog posts based on title and pain point (default: True)
+- `--output-file OUTPUT_FILE`: Output JSON file name (default: blog_ideas.json)
 - `-h, --help`: Show help message and exit
 
 ### Usage Examples
 
-**Process files with default settings:**
+**Process files with duplicate detection (default):**
 ```bash
-python3 blog_cleaner.py file1.md file2.md
+python3 blog_idea_processor.py research_content/*.md
 ```
 
-**Use custom output suffix:**
+**Process files without duplicate detection:**
 ```bash
-python3 blog_cleaner.py -o _processed file1.md file2.md
+python3 blog_idea_processor.py research_content/*.md --skip-duplicates False
 ```
 
-**Save to specific directory:**
+**Use custom output file:**
 ```bash
-python3 blog_cleaner.py --output-dir ./cleaned_files file1.md file2.md
+python3 blog_idea_processor.py research_content/*.md --output-file my_blog_ideas.json
 ```
 
-**Combine options:**
-```bash
-python3 blog_cleaner.py -o _final --output-dir ./output file1.md file2.md
+## Input Format
+
+The script expects markdown files with blog post ideas separated by `---` patterns:
+
+```markdown
+## Blog Post 1: "Title of the Blog Post"
+
+**Pain Point:** Description of the user problem
+
+**Target Audience:** Description of target users
+
+**Content Details:** Detailed solution description
+
+**Sources:**
+- https://url1.com
+- https://url2.com
+
+---
+
+## Blog Post 2: "Another Blog Post Title"
+
+**Pain Point:** Another user problem description
+
+**Target Audience:** Another target audience
+
+**Content Details:** Another solution description
+
+**Sources:**
+- https://url3.com
+
+---
 ```
+
+## Output Format
+
+The script produces a JSON file with the following structure:
+
+```json
+{
+  "ideas": [
+    {
+      "title": "Blog Post Title",
+      "pain_point": "User problem description",
+      "target_audience": "Target audience description",
+      "content_details": "Solution description",
+      "sources": ["https://url1.com", "https://url2.com"],
+      "id": "unique_hash_id",
+      "created_at": "2025-01-01T12:00:00"
+    }
+  ],
+  "last_updated": "2025-01-01T12:00:00",
+  "total_count": 80
+}
+```
+
+## Metadata Configuration
+
+The system supports rich metadata fields defined in `metadata_config.json`. These include:
+
+- **article**: The finished article
+- **voice**: Stylistic identity (TheNewYorker, TheAtlantic, Wired)
+- **piece_type**: Structural format (explainer, tutorial, etc.)
+- **marketing_post_type**: Marketing angle (educational, promotional, etc.)
+- **primary_goal**: Article objective (educate, persuade, etc.)
+- **target_audience**: Reader type (enterprise, public sector, etc.)
+- **technical_depth**: Technical detail level (low, med, high)
+- **title**: Blog post headline
+- **keywords**: SEO terms
+- **length**: Word count or section count
+- **sections**: Major headings
+- **call_to_action**: Reader action request
+- **pain_point**: Core user problem
 
 ## Requirements
 
@@ -125,58 +181,13 @@ python3 blog_cleaner.py -o _final --output-dir ./output file1.md file2.md
 
 ## How It Works
 
-1. **Reference Extraction**: Scans the file for `[^n]: URL` patterns and builds a reference mapping
-2. **Content Parsing**: Identifies the blog posts section and splits individual posts
-3. **Post Processing**: For each blog post:
-   - Extracts title, pain point, target audience, and content details
-   - Finds all `[^n]` references within the content
-   - Maps references to their corresponding URLs
-   - Removes reference markers from text
-4. **Output Generation**: Formats each post in the standardized structure
-5. **File Writing**: Saves cleaned content to new files with `_cleaned` suffix
-
-## Example Transformation
-
-### Before (Input):
-```markdown
-## Blog Post Idea 1: "Why Your Mobile LiDAR Scans Look Like a Mess"
-
-**Pain Point**: Users encounter issues with data quality[^1][^2].
-
-**Target Audience**: Mobile mapping operators
-
-**Content Details**: Solutions include proper calibration[^1].
-
-\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
-
-[^1]: https://example.com/solution1
-[^2]: https://example.com/solution2
-```
-
-### After (Output):
-```markdown
-## Why Your Mobile LiDAR Scans Look Like a Mess
-
-**Pain Point:** Users encounter issues with data quality.
-
-**Target Audience:** Mobile mapping operators
-
-**Content Details:** Solutions include proper calibration.
-
-**Sources:**
-- https://example.com/solution1
-- https://example.com/solution2
-
----
-```
-
-## Results
-
-The script successfully processed:
-- **Mobile LiDAR file**: 20 blog post ideas with 70 references
-- **Photogrammetry file**: 20 blog post ideas with 68 references
-
-All references were properly matched and integrated into their respective blog posts.
+1. **File Processing**: Reads markdown files and splits them by "---" separators
+2. **Data Extraction**: Parses each blog post into structured data fields
+3. **Validation**: Validates all fields against metadata configuration
+4. **Duplicate Detection**: Checks against existing database using title and pain point hashes
+5. **Import Functionality**: Can import from enriched JSON files with deduplication
+6. **Storage**: Saves valid, non-duplicate ideas to JSON file
+7. **Reporting**: Logs processing results and statistics
 
 ## Error Handling
 
@@ -185,44 +196,30 @@ The script includes comprehensive error handling:
 - Handles malformed content gracefully
 - Provides detailed logging of processing steps
 - Continues processing other files if one fails
+- Maintains data integrity throughout the process
 
 ## Customization
 
-### Adding New File Patterns
+### Adding New Fields
 
-To support different input formats, modify these functions:
-- `find_blog_posts_section()`: Adjust patterns for finding blog content
-- `split_blog_posts()`: Modify separator patterns
-- `parse_blog_post()`: Update section parsing logic
+To add new metadata fields, modify `metadata_config.json` with the appropriate field definition including:
+- Type specification (string, etc.)
+- Required flag
+- Allowed options (if applicable)
+- Description for documentation
 
-### Changing Output Format
+### Changing Storage Location
 
-Modify the `format_blog_post()` function to change the output structure.
-
-## Troubleshooting
-
-### Common Issues
-
-1. **No blog posts found**: Check that the input file contains the expected header patterns
-2. **Missing references**: Verify that URL references follow the `[^n]: URL` format
-3. **Encoding errors**: Ensure input files are UTF-8 encoded
-
-### Debug Mode
-
-Add debug output by modifying the logging in the `process_file()` function:
-
-```python
-print(f"Debug: Found {len(blog_posts)} blog posts")
-print(f"Debug: Blog section preview: {blog_section[:200]}...")
-```
+Use the `--output-file` option to specify a different output file name and location.
 
 ## Contributing
 
-To extend this script for other file formats:
-1. Add new pattern recognition in `find_blog_posts_section()`
-2. Update parsing logic in `parse_blog_post()`
-3. Test with sample files
-4. Update this README with new usage examples
+The system is designed to be extensible. Future enhancements could include:
+- Unit testing framework
+- Export functionality to CSV/Excel
+- Web interface for browsing ideas
+- Advanced duplicate detection algorithms
+- Bulk processing capabilities
 
 ## License
 

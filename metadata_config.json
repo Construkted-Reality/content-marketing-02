@@ -1,0 +1,115 @@
+{
+  "fields": {
+    "article": {
+      "type": "string",
+      "description": "The finished article",
+      "required": false
+    },
+    "voice": {
+      "type": "string",
+      "description": "Sets the overall stylistic identity (e.g., TheNewYorker) which determines diction, rhythm, and brand perception",
+      "required": true,
+      "options": [
+        "TheNewYorker",
+        "TheAtlantic",
+        "Wired"
+      ]
+    },
+    "piece_type": {
+      "type": "string",
+      "description": "Defines the structural format (explainer, listicle, how‑to, etc.) so the model knows how to organize the content",
+      "required": true,
+      "options": [
+        "explainer",
+        "tutorial",
+        "methods deep dive",
+        "case study",
+        "product update",
+        "standards/policy analysis",
+        "news reaction"
+      ]
+    },
+    "marketing_post_type": {
+      "type": "string",
+      "description": "Indicates the marketing angle (educational, promotional, thought‑leadership) that shapes messaging focus and CTA style",
+      "required": true,
+      "options": [
+        "Educational (TOFU): For awareness and education - focus on answering general questions, providing foundational knowledge",
+        "Comparison (MOFU): For consideration and evaluation - highlight benefits vs competitors, feature comparisons",
+        "Conversion-focused (BOFU): For decision-making and purchase - drive action, emphasize value and ROI",
+        "Case Study: For trust-building at any stage - showcase real-world results and success stories",
+        "Product Update: For awareness and conversion (TOFU/BOFU) - announce new features, improvements",
+        "Standards/Policy Analysis: For thought leadership (TOFU) - industry insights, regulatory analysis",
+        "News Reaction: For engagement (TOFU) - commentary on industry trends and developments"
+      ]
+    },
+    "primary_goal": {
+      "type": "string",
+      "description": "The single objective the article must achieve (educate, convert, inform) to keep the copy purpose‑driven and measurable",
+      "required": true,
+      "options": [
+        "educate",
+        "persuade",
+        "announce",
+        "compare",
+        "troubleshoot"
+      ]
+    },
+    "target_audience": {
+      "type": "string",
+      "description": "Broad readership definition (enterprise, SMB, developer) guiding language complexity and relevance",
+      "required": true,
+      "options": [
+        "enterprise",
+        "public sector",
+        "academic",
+        "hobbyist"
+      ]
+    },
+    "technical_depth": {
+      "type": "string",
+      "description": "Controls the level of technical detail (low, med, high) to avoid over‑ or under‑explaining for the audience",
+      "required": true,
+      "options": [
+        "low",
+        "med",
+        "high"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "description": "Concrete headline for SEO and reader capture; the model aligns the narrative to the promised promise",
+      "required": true
+    },
+    "keywords": {
+      "type": "string",
+      "description": "SEO terms the article must naturally incorporate, improving discoverability",
+      "required": false
+    },
+    "length": {
+      "type": "string",
+      "description": "Sets overall word‑count or section count, ensuring the article fits editorial limits and platform constraints",
+      "required": false
+    },
+    "sections": {
+      "type": "string",
+      "description": "Explicit major headings/sub‑headings (e.g., Problem → Causes → Impact → Solutions → Takeaways) giving the model a clear roadmap and improving readability",
+      "required": false
+    },
+    "call_to_action": {
+      "type": "string",
+      "description": "The exact action you want the reader to take after reading (download, sign‑up, contact), tying the content back to the marketing funnel",
+      "required": false
+    },
+    "pain_point": {
+      "type": "string",
+      "description": "Core user problem the article addresses, anchoring the narrative and guaranteeing relevance",
+      "required": true
+    }
+  },
+  "metadata": {
+    "created_at": "2025-01-01",
+    "version": "1.0.0",
+    "description": "Configuration for blog post idea metadata fields and validation rules"
+  }
+}
