@@ -24,8 +24,29 @@ except ImportError:
     sys.exit(1)
 
 # --- Configuration -----------------------------------------------------------
-DEFAULT_OLLAMA_HOST = "192.168.8.90"
-DEFAULT_MODEL = "gpt-oss-120b-CTX28k"
+AI_PROVIDER = "openai"   # Change between "ollama" and "openai" compatible API
+
+# OLLAMA API configuration
+OLLAMA_HOST = "192.168.8.90"
+OLLAMA_PORT = "11434"
+OLLAMA_API_PATH = "/api/generate"
+OLLAMA_MODEL = "gpt-oss-120b-CTX28k"
+
+# OpenAI API configuration
+OPENAI_HOST_IP = "192.168.8.90"
+OPENAI_PORT = "42069"
+OPENAI_API_PATH = "/v1/chat/completions"
+OPENAI_AUTH_KEY = "outsider"
+OPENAI_MODEL = "gpt-oss-120b"
+#OPENAI_MODEL = "qwen3-coder-30b-awq8"
+
+# --- Main execution ---
+if __name__ == "__main__":
+    print(f"AI Provider set to: {AI_PROVIDER}")
+    # Show the constructed OpenAI URL for debugging
+    openai_url = f"http://{OPENAI_HOST_IP}:{OPENAI_PORT}{OPENAI_API_PATH}"
+    print(f"OpenAI Host: {openai_url}")
+    print(f"OpenAI Model: {OPENAI_MODEL}")
 
 # SOURCE_FOLDER = pathlib.Path("blog_post_ideas")  # Removed - now reading from JSON
 DESTINATION_FOLDER = pathlib.Path("blog_post_drafts")
@@ -78,17 +99,33 @@ def read_file(path: pathlib.Path) -> str:
         sys.stderr.write(f"Error reading {path}: {e}\n")
         sys.exit(1)
 
-
-def post_ollama(payload: Dict[str, Any]) -> Dict[str, Any]:
-    """POST JSON payload to the OLLAMA generate endpoint and return parsed JSON."""
-    url = f"http://{DEFAULT_OLLAMA_HOST}:11434/api/generate"
-    try:
-        response = requests.post(url, json=payload, timeout=300)
-        response.raise_for_status()
-        return response.json()
-    except Exception as e:
-        sys.stderr.write(f"Error contacting OLLAMA at {url}: {e}\n")
-        sys.exit(1)
+def post_api(payload: Dict[str, Any]) -> Dict[str, Any]:
+    """Unified API request function that handles both Ollama and OpenAI APIs."""
+    if AI_PROVIDER == "openai":
+        # OpenAI API compatibility
+        headers = {
+            "Authorization": f"Bearer {OPENAI_AUTH_KEY}",
+            "Content-Type": "application/json"
+        }
+        # Build the full URL from IP, port, and path
+        url = f"http://{OPENAI_HOST_IP}:{OPENAI_PORT}{OPENAI_API_PATH}"
+        try:
+            response = requests.post(url, json=payload, headers=headers, timeout=300)
+            response.raise_for_status()
+            return response.json()
+        except Exception as e:
+            sys.stderr.write(f"Error contacting OpenAI API at {url}: {e}\n")
+            sys.exit(1)
+    else:
+        # Default to Ollama
+        url = f"http://{OLLAMA_HOST}:{OLLAMA_PORT}{OLLAMA_API_PATH}"
+        try:
+            response = requests.post(url, json=payload, timeout=300)
+            response.raise_for_status()
+            return response.json()
+        except Exception as e:
+            sys.stderr.write(f"Error contacting OLLAMA at {url}: {e}\n")
+            sys.exit(1)
 
 
 def get_batch_diversity_context(processed_ideas: list) -> str:
@@ -211,29 +248,52 @@ Instructions:
     - Optionally add target audience or constraint for relevance
 
 Output ONLY the JSON object above with your selections."""
-    payload = {
-        "model": DEFAULT_MODEL,
-        "prompt": first_prompt,
-        "stream": False,
-    }
-    result = post_ollama(payload)
-    response_text = result.get("response", "").strip()
-
-    # Try direct parsing first
-    try:
-        return json.loads(response_text)
-    except json.JSONDecodeError:
-        # Fallback: extract the longest {...} block using regex
-        match = re.search(r'\{.*\}', response_text, re.DOTALL)
-        if not match:
-            sys.stderr.write("Failed to locate JSON object in OLLAMA response.\n")
-            sys.exit(1)
-        json_candidate = match.group(0)
+    # For OpenAI compatibility, we need to use the chat/completions format
+    if AI_PROVIDER == "openai":
+        payload = {
+            "model": OPENAI_MODEL,
+            "messages": [{"role": "user", "content": first_prompt}],
+            "temperature": 0.7,
+            "stream": False,
+        }
+    else:
+        payload = {
+            "model": OLLAMA_MODEL,
+            "prompt": first_prompt,
+            "stream": False,
+        }
+    result = post_api(payload)
+    
+    # Handle OpenAI response format (different from Ollama)
+    if AI_PROVIDER == "openai":
+        # OpenAI returns a chat completion response with choices
         try:
-            return json.loads(json_candidate)
-        except json.JSONDecodeError as exc:
-            sys.stderr.write(f"JSON parsing error after regex extraction: {exc}\\n")
+            # Extract the content from the OpenAI response
+            response_text = result.get("choices", [{}])[0].get("message", {}).get("content", "").strip()
+            # Parse the JSON from the response text
+            return json.loads(response_text)
+        except (json.JSONDecodeError, IndexError) as e:
+            sys.stderr.write(f"Failed to parse OpenAI JSON response: {e}\n")
+            sys.stderr.write(f"Raw response: {result}\n")
             sys.exit(1)
+    else:
+        # Original Ollama logic for backward compatibility
+        response_text = result.get("response", "").strip()
+        # Try direct parsing first
+        try:
+            return json.loads(response_text)
+        except json.JSONDecodeError:
+            # Fallback: extract the longest {...} block using regex
+            match = re.search(r'\{.*\}', response_text, re.DOTALL)
+            if not match:
+                sys.stderr.write("Failed to locate JSON object in OLLAMA response.\n")
+                sys.exit(1)
+            json_candidate = match.group(0)
+            try:
+                return json.loads(json_candidate)
+            except json.JSONDecodeError as exc:
+                sys.stderr.write(f"JSON parsing error after regex extraction: {exc}\\n")
+                sys.exit(1)
 
 
 def generate_blog_post(
@@ -280,14 +340,40 @@ def generate_blog_post(
     )
 
 
-    payload = {
-        "model": DEFAULT_MODEL,
-        "prompt": prompt,
-        "system": system_prompt,
-        "stream": False,
-    }
-    result = post_ollama(payload)
-    return result.get("response", "")
+    # For OpenAI compatibility, we need to use the chat/completions format
+    if AI_PROVIDER == "openai":
+        payload = {
+            "model": OPENAI_MODEL,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": prompt}
+            ],
+            "temperature": 0.7,
+            "stream": False,
+        }
+    else:
+        payload = {
+            "model": OLLAMA_MODEL,
+            "prompt": prompt,
+            "system": system_prompt,
+            "stream": False,
+        }
+    result = post_api(payload)
+    
+    # Handle OpenAI response format for the second API call
+    if AI_PROVIDER == "openai":
+        # OpenAI returns a chat completion response with choices
+        try:
+            # Extract the content from the OpenAI response
+            content = result.get("choices", [{}])[0].get("message", {}).get("content", "").strip()
+            return content
+        except (IndexError, KeyError) as e:
+            sys.stderr.write(f"Failed to extract content from OpenAI response: {e}\n")
+            sys.stderr.write(f"Raw response: {result}\n")
+            return ""
+    else:
+        # Original Ollama logic for backward compatibility
+        return result.get("response", "")
 
 
 def make_output_path(base_name: str) -> pathlib.Path:
