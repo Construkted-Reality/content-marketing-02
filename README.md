@@ -25,7 +25,7 @@ This project implements a system for collecting, processing, and storing blog po
 
 ```
 content-marketing-02/
-├── blog_idea_unified_processor.py  # Main processing script
+├── 01_process_blog_ideas.py       # Main processing script
 ├── metadata_config.json           # Configuration for metadata fields
 ├── blog_ideas.json                # Storage file for processed blog ideas
 ├── README.md                      # This file
@@ -46,13 +46,13 @@ content-marketing-02/
 Process one or more markdown files by specifying them as command line arguments:
 
 ```bash
-python3 blog_idea_unified_processor.py file1.md file2.md
+python3 01_process_blog_ideas.py file1.md file2.md
 ```
 
 Example with the project files:
 
 ```bash
-python3 blog_idea_unified_processor.py research_content/*.md
+python3 01_process_blog_ideas.py research_content/*.md
 ```
 
 ### Enhanced Usage
@@ -60,44 +60,39 @@ python3 blog_idea_unified_processor.py research_content/*.md
 The enhanced processor supports importing from enriched JSON files:
 
 ```bash
-python3 blog_idea_unified_processor.py --enriched-json blog_ideas.json
+python3 01_process_blog_ideas.py --enriched-json blog_ideas.json
 ```
 
 Process markdown files and import existing ideas:
 
 ```bash
-python3 blog_idea_unified_processor.py research_content/*.md --enriched-json blog_ideas.json
+python3 01_process_blog_ideas.py research_content/*.md --enriched-json blog_ideas.json
 ```
 
 ### Command Line Options
 
 ```bash
-python3 blog_idea_unified_processor.py [OPTIONS] INPUT_FILES...
+python3 01_process_blog_ideas.py [OPTIONS] INPUT_FILES...
 ```
 
 **Arguments:**
 - `INPUT_FILES`: One or more markdown files to process (required)
 
-**Options:**
-- `--skip-duplicates`: Skip duplicate blog posts based on title and pain point (default: True)
-- `--output-file OUTPUT_FILE`: Output JSON file name (default: blog_ideas.json)
-- `-h, --help`: Show help message and exit
-
 ### Usage Examples
 
 **Process files with duplicate detection (default):**
 ```bash
-python3 blog_idea_unified_processor.py research_content/*.md
+python3 01_process_blog_ideas.py research_content/*.md
 ```
 
 **Process files without duplicate detection:**
 ```bash
-python3 blog_idea_unified_processor.py research_content/*.md --skip-duplicates False
+python3 01_process_blog_ideas.py research_content/*.md --skip-duplicates False
 ```
 
 **Use custom output file:**
 ```bash
-python3 blog_idea_unified_processor.py research_content/*.md --output-file my_blog_ideas.json
+python3 01_process_blog_ideas.py research_content/*.md --output-file my_blog_ideas.json
 ```
 
 ## Input Format

@@ -128,8 +128,11 @@ def select_parameters(idea_content: str, context_content: str, content_marketing
     
     first_prompt = f"""Analyze the following topic research and select the most appropriate writing parameters for content marketing.
 
+**Context Summary**: You will be given: 1) batch diversity context, 2) voice definitions, 3) content marketing guidance, 4) topic research content, 5) detailed instructions and JSON schema.
+
 **IMPORTANT**: Vary your parameter selections across different topics. Avoid selecting identical combinations unless truly warranted by the content. Consider how this topic differs from previous topics in the batch.
 {batch_context}
+
 Writing style descriptions:
 New Yorker: {VOICE_DEFINITIONS["TheNewYorker"]}
 The Atlantic: {VOICE_DEFINITIONS["TheAtlantic"]}
@@ -395,7 +398,7 @@ def main() -> None:
         sys.exit(0)
     
     # Process only first 5 ideas for testing (as requested)
-    ideas = ideas[:5]  # Uncomment this line when ready for full processing
+  #  ideas = ideas[:5]  # Uncomment this line when ready for full processing
     
     # Load static auxiliary files once
     context_content = read_file(CONTEXT_FILE)

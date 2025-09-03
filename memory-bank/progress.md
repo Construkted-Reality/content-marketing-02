@@ -1,7 +1,7 @@
 # Progress
 
 ## What Works
-- ✅ **Complete Script Implementation**: Successfully modified generate_blog_drafts_from_ideas.py to read from blog_ideas.json instead of markdown files
+- ✅ **Complete Script Implementation**: Successfully modified 02_generate_blog_drafts.py to read from blog_ideas.json instead of markdown files
 - ✅ **Two-Stage OLLAMA API Workflow**: Fully functional parameter selection and content generation pipeline
 - ✅ **Parameter Selection Diversity**: Fixed critical diversity issues, increased variation from ~20% to ~60%
 - ✅ **Batch-Aware Processing**: Implemented system that tracks previous selections to encourage diversity

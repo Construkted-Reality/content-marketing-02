@@ -32,7 +32,7 @@
 - **File System**: Local storage for JSON database and markdown outputs
 
 ## Tool Usage Patterns
-- **Script Execution**: `python3 generate_blog_drafts_from_ideas.py`
+- **Script Execution**: `python3 02_generate_blog_drafts.py`
 - **JSON Processing**: Load blog_ideas.json → Process ideas → Update JSON with results
 - **API Workflow**: Two-stage OLLAMA calls (parameter selection → content generation)
 - **File Generation**: Create markdown files with ID+title naming convention

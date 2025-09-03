@@ -31,7 +31,7 @@ The system has evolved into a comprehensive blog post generation pipeline with a
 - **Command Pattern**: Structured parameter selection with explicit diversity instructions
 
 ## Component Relationships
-- **generate_blog_drafts_from_ideas.py** reads from blog_ideas.json and writes to blog_post_drafts/
+- **02_generate_blog_drafts.py** reads from blog_ideas.json and writes to blog_post_drafts/
 - **get_batch_diversity_context()** tracks previous selections and generates diversity context
 - **select_parameters()** uses batch context for intelligent parameter selection
 - **OLLAMA API** provides AI-powered content generation with optimized prompts

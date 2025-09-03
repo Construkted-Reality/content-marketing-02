@@ -18,7 +18,7 @@ Successfully diagnosed and fixed critical parameter selection diversity issues i
 - **AI Model Behavior**: Understanding how prompt structure affects parameter selection consistency
 
 ## Relevant Files and Code
-- **generate_blog_drafts_from_ideas.py**: Enhanced with batch-aware selection and improved prompt structure
+- **02_generate_blog_drafts.py**: Enhanced with batch-aware selection and improved prompt structure
 - **implementation_plan.md**: Comprehensive 3-phase improvement plan with progress tracking
 - **blog_ideas.json**: Source file with 80 structured blog post ideas
 - **content_marketing_guidance.md**: Marketing strategy guidance (fixed triple injection issue)
