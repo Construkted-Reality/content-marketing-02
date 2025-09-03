@@ -1,8 +1,8 @@
 {
   "ideas": [
     {
-      "title": "How you can fix non-watertight 3D models for perfect prints",
-      "pain_point": "Photogrammetry hobbyists encounter non-watertight 3D models due to camera limitations such as missing object bottoms, occlusions, and poor lighting, combined with default software behavior that discards uncertain points. This leads to failed 3D prints, visual artifacts, and time-consuming manual repairs in Blender, forcing users to redo scans or spend hours patching meshes.",
+      "title": "How you can fix non‑watertight photogrammetry scans for flawless 3D prints",
+      "pain_point": "Photogrammetry hobbyists often end up with non‑watertight 3D models because cameras miss object bottoms, occlusions hide geometry, and poor lighting creates uncertain points. The default behavior of many scanning pipelines discards these uncertain points, leaving holes and open edges. When these meshes are sent to a 3D printer, they fail, produce visual artifacts, or require costly post‑processing. Users typically scramble to manually patch holes in Blender, which is time‑consuming, error‑prone, and forces them to redo scans or abandon projects.",
       "target_audience": "hobbyist",
       "content_details": "",
       "sources": [
@@ -12,8 +12,8 @@
       ],
       "id": "2a2ab6040f05",
       "created_at": "2025-09-03T00:15:30.250457",
-      "modified_at": "2025-09-03T20:19:50.780947+00:00",
-      "article": "blog_post_drafts/2a2ab6040f05_How you can fix non-watertight 3D models for perfect prints.md",
+      "modified_at": "2025-09-03T20:56:12.298471+00:00",
+      "article": "blog_post_drafts/2a2ab6040f05_How you can fix non‑watertight photogrammetry scans for flawless 3D prints.md",
       "voice": "Wired",
       "piece_type": "tutorial",
       "marketing_post_type": "educational",
@@ -23,11 +23,11 @@
       "length": 1500,
       "sections": "",
       "call_to_action": "",
-      "justification": "This topic is a hands-on technical guide aimed at hobbyist photogrammetry enthusiasts who face practical issues with 3D model integrity. The Wired voice suits this because it emphasizes clarity, accessibility, and a fast-paced, tech-forward approach without sacrificing depth. It aligns well with the 'tutorial' piece type since the content involves actionable steps and problem-solving. The educational marketing post type is fitting because it helps users gain foundational knowledge and skills to overcome common obstacles. The medium technical depth reflects the intermediate-level understanding required to work with photogrammetry tools and mesh repair techniques."
+      "justification": "The article is a step‑by‑step fix for a concrete technical problem (non‑watertight meshes) that hobbyist photogrammetrists encounter. Wired’s fast‑paced, tech‑forward voice matches the troubleshooting vibe while staying accessible. A tutorial format delivers the detailed workflow readers need. Positioning it as educational (TOFU) helps attract hobbyists searching for basic guidance before they invest in more advanced tools. The primary goal is to troubleshoot the mesh‑repair issue, and a medium technical depth respects the audience’s modest experience without overwhelming them. This selection also adds variety to the batch, which has featured more narrative or policy voices elsewhere."
     },
     {
-      "title": "How you can eliminate double-wall artifacts from 3D scans in under 10 minutes",
-      "pain_point": "Enterprise scanning teams encounter recurring double-wall artifacts in photogrammetry and laser-scanned datasets due to misaligned scans, leading to duplicated surfaces, floating geometry, and overlapping shells. These issues increase file sizes, cause rendering glitches, distort measurements, and necessitate time-consuming manual cleanup or costly rescans, especially when site access is limited.",
+      "title": "How you can eliminate double‑wall artifacts from 3D scans in under 10 minutes",
+      "pain_point": "Enterprise scanning teams repeatedly encounter double‑wall artifacts in photogrammetry and laser‑scanned datasets. Misaligned scans create duplicated surfaces, floating geometry, and overlapping shells, which inflate file sizes, trigger rendering glitches, and produce inaccurate measurements. The artifacts force time‑consuming manual cleanup or costly rescans—especially problematic when site access is limited—leading to project delays and budget overruns.",
       "target_audience": "enterprise",
       "content_details": "",
       "sources": [
@@ -37,22 +37,22 @@
       ],
       "id": "9ffbec2e6bd6",
       "created_at": "2025-09-03T00:15:30.250497",
-      "modified_at": "2025-09-03T20:20:19.844233+00:00",
-      "article": "blog_post_drafts/9ffbec2e6bd6_How you can eliminate double-wall artifacts from 3D scans in under 10 minutes.md",
-      "voice": "Wired",
-      "piece_type": "tutorial",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "med",
+      "modified_at": "2025-09-03T20:57:01.019549+00:00",
+      "article": "blog_post_drafts/9ffbec2e6bd6_How you can eliminate double‑wall artifacts from 3D scans in under 10 minutes.md",
+      "voice": "TheAtlantic",
+      "piece_type": "methods deep dive",
+      "marketing_post_type": "comparison",
+      "primary_goal": "compare",
+      "technical_depth": "high",
       "keywords": "",
       "length": 1500,
       "sections": "",
       "call_to_action": "",
-      "justification": "This topic involves a technical problem (double-wall artifacts in 3D scans) that requires a hands-on, solution-oriented approach suitable for enterprise users. Wired's tech-forward, fast-paced voice with accessible jargon aligns well with the need to present a clear, actionable tutorial. The choice avoids repetition of previous selections (Wired voice, tutorial piece type, educational marketing type, troubleshoot goal, hobbyist audience) and introduces variety by focusing on a specific technical issue rather than broader concepts."
+      "justification": "The topic is a technical, enterprise‑level problem that requires an analytical, data‑driven tone, making The Atlantic a better fit than the previously used Wired voice. Instead of a simple tutorial, a methods‑deep‑dive format lets us explore multiple remediation techniques (manual mesh editing, automated repair tools, pipeline scripts) and compare their efficacy, cost, and scalability for large scanning teams. Positioning the piece as a MOFU comparison aligns with enterprises that are evaluating which workflow or software to adopt, moving beyond pure education. The primary goal is to compare solutions, which differs from the earlier troubleshoot focus. High technical depth matches the expertise of enterprise scanning engineers, and a 1500‑word length provides enough space for detailed evaluation without becoming a full‑scale reference guide."
     },
     {
-      "title": "How you can boost 3D model accuracy with phone photos",
-      "pain_point": "Phone cameras apply aggressive post-processing like HDR, AI sharpening, JPEG compression, and optical stabilization, which remove fine detail and introduce geometric inconsistencies. These issues, compounded by low-resolution sensors and wide-angle lens distortion, result in poor-quality input images for photogrammetry software—leading to sparse, noisy 3D point clouds and malformed models. Hobbyists struggle with subpar reconstructions despite using similar scenes.",
+      "title": "How you can boost 3D model accuracy by 30 % with phone photos",
+      "pain_point": "Phone cameras apply aggressive post‑processing—HDR merging, AI sharpening, JPEG compression, and optical stabilization—that strips fine detail and introduces geometric inconsistencies. Coupled with low‑resolution sensors and wide‑angle lens distortion, these factors produce noisy, sparse point clouds and malformed 3D models in photogrammetry software. Hobbyists often see poor reconstructions despite using similar scenes, because the camera’s internal processing destroys the subtle texture and geometry needed for accurate modeling.",
       "target_audience": "hobbyist",
       "content_details": "",
       "sources": [
@@ -63,18 +63,18 @@
       ],
       "id": "67448229cf6a",
       "created_at": "2025-09-03T00:15:30.250517",
-      "modified_at": "2025-09-03T20:20:48.342418+00:00",
+      "modified_at": "2025-09-03T20:58:01.287089+00:00",
       "article": "blog_post_drafts/67448229cf6a_How you can boost 3D model accuracy with phone photos.md",
-      "voice": "Wired",
-      "piece_type": "tutorial",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
+      "voice": "NewYorker",
+      "piece_type": "case study",
+      "marketing_post_type": "Case Study",
+      "primary_goal": "educate",
       "technical_depth": "med",
       "keywords": "",
-      "length": 1400,
+      "length": 1500,
       "sections": "",
       "call_to_action": "",
-      "justification": "This topic requires a tech-forward, accessible explanation tailored to hobbyists who want to improve their photogrammetry outcomes. Wired's voice suits this by combining clarity with a futuristic, curiosity-driven tone that appeals to tech-savvy enthusiasts. The tutorial format aligns with the need to guide users through actionable steps to solve a specific problem. Since this addresses foundational knowledge for a niche but growing hobbyist community, it fits well in the TOFU phase of the marketing funnel."
+      "justification": "The topic is a practical, hobby‑oriented guide that benefits from a sophisticated yet approachable tone. Using the New Yorker voice adds wit and introspection, differentiating it from the previously used Wired and Atlantic styles while still delivering clear, actionable advice. A case‑study piece type showcases real‑world results, aligning with the new \"Case Study\" marketing post type to diversify the funnel mix. The primary goal is to educate hobbyists on how specific phone‑camera quirks affect photogrammetry and how to mitigate them, fitting a medium technical depth and an estimated 1,500‑word length."
     },
     {
       "title": "How you can scan shiny surfaces without ruining your 3D model",

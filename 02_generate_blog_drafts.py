@@ -43,12 +43,7 @@ OPENAI_MODEL = "gpt-oss-120b"
 # --- Main execution ---
 if __name__ == "__main__":
     print(f"AI Provider set to: {AI_PROVIDER}")
-    # Show the constructed OpenAI URL for debugging
-    openai_url = f"http://{OPENAI_HOST_IP}:{OPENAI_PORT}{OPENAI_API_PATH}"
-    print(f"OpenAI Host: {openai_url}")
-    print(f"OpenAI Model: {OPENAI_MODEL}")
 
-# SOURCE_FOLDER = pathlib.Path("blog_post_ideas")  # Removed - now reading from JSON
 DESTINATION_FOLDER = pathlib.Path("blog_post_drafts")
 
 CONTEXT_FILE = pathlib.Path("context.md")
@@ -107,7 +102,7 @@ def post_api(payload: Dict[str, Any]) -> Dict[str, Any]:
             "Authorization": f"Bearer {OPENAI_AUTH_KEY}",
             "Content-Type": "application/json"
         }
-        # Build the full URL from IP, port, and path
+        # Build the full URL from IP, port, and path for OpenAI Compliant API
         url = f"http://{OPENAI_HOST_IP}:{OPENAI_PORT}{OPENAI_API_PATH}"
         try:
             response = requests.post(url, json=payload, headers=headers, timeout=300)
@@ -117,7 +112,7 @@ def post_api(payload: Dict[str, Any]) -> Dict[str, Any]:
             sys.stderr.write(f"Error contacting OpenAI API at {url}: {e}\n")
             sys.exit(1)
     else:
-        # Default to Ollama
+        # Build the full URL from IP, port, and path for Ollama compliant API
         url = f"http://{OLLAMA_HOST}:{OLLAMA_PORT}{OLLAMA_API_PATH}"
         try:
             response = requests.post(url, json=payload, timeout=300)
@@ -512,8 +507,8 @@ def main() -> None:
         sys.stderr.write("No blog ideas found in the JSON file.\n")
         sys.exit(0)
     
-    # Process only first 5 ideas for testing (as requested)
-    ideas = ideas[:5]  # Uncomment this line when ready for full processing
+    # Process only first 5 ideas for testing 
+#    ideas = ideas[:5]  # Comment this line when ready for full processing
     
     # Load static auxiliary files once
     context_content = read_file(CONTEXT_FILE)
