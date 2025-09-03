@@ -4,7 +4,7 @@ A Python script that processes markdown files containing blog post ideas, extrac
 
 ## Enhanced Version
 
-An enhanced version of the processor (`blog_idea_processor_enhanced.py`) has been created to handle enriched JSON files and provide improved compatibility with the content marketing workflow. This version maintains backward compatibility while adding new features for importing and consolidating blog ideas.
+An enhanced version of the processor has been created to handle enriched JSON files and provide improved compatibility with the content marketing workflow. This version maintains backward compatibility while adding new features for importing and consolidating blog ideas.
 
 ## Overview
 
@@ -25,8 +25,7 @@ This project implements a system for collecting, processing, and storing blog po
 
 ```
 content-marketing-02/
-├── blog_idea_processor.py          # Original processing script
-├── blog_idea_processor_enhanced.py # Enhanced processing script with JSON import capabilities
+├── blog_idea_unified_processor.py  # Main processing script
 ├── metadata_config.json           # Configuration for metadata fields
 ├── blog_ideas.json                # Storage file for processed blog ideas
 ├── README.md                      # This file
@@ -47,13 +46,13 @@ content-marketing-02/
 Process one or more markdown files by specifying them as command line arguments:
 
 ```bash
-python3 blog_idea_processor.py file1.md file2.md
+python3 blog_idea_unified_processor.py file1.md file2.md
 ```
 
 Example with the project files:
 
 ```bash
-python3 blog_idea_processor.py research_content/*.md
+python3 blog_idea_unified_processor.py research_content/*.md
 ```
 
 ### Enhanced Usage
@@ -61,19 +60,19 @@ python3 blog_idea_processor.py research_content/*.md
 The enhanced processor supports importing from enriched JSON files:
 
 ```bash
-python3 blog_idea_processor_enhanced.py --enriched-json blog_ideas.json
+python3 blog_idea_unified_processor.py --enriched-json blog_ideas.json
 ```
 
 Process markdown files and import existing ideas:
 
 ```bash
-python3 blog_idea_processor_enhanced.py research_content/*.md --enriched-json blog_ideas.json
+python3 blog_idea_unified_processor.py research_content/*.md --enriched-json blog_ideas.json
 ```
 
 ### Command Line Options
 
 ```bash
-python3 blog_idea_processor.py [OPTIONS] INPUT_FILES...
+python3 blog_idea_unified_processor.py [OPTIONS] INPUT_FILES...
 ```
 
 **Arguments:**
@@ -88,17 +87,17 @@ python3 blog_idea_processor.py [OPTIONS] INPUT_FILES...
 
 **Process files with duplicate detection (default):**
 ```bash
-python3 blog_idea_processor.py research_content/*.md
+python3 blog_idea_unified_processor.py research_content/*.md
 ```
 
 **Process files without duplicate detection:**
 ```bash
-python3 blog_idea_processor.py research_content/*.md --skip-duplicates False
+python3 blog_idea_unified_processor.py research_content/*.md --skip-duplicates False
 ```
 
 **Use custom output file:**
 ```bash
-python3 blog_idea_processor.py research_content/*.md --output-file my_blog_ideas.json
+python3 blog_idea_unified_processor.py research_content/*.md --output-file my_blog_ideas.json
 ```
 
 ## Input Format

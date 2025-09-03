@@ -19,7 +19,7 @@ This project implements a system for collecting, processing, and storing blog po
 - JSON-based storage for easy integration and querying
 
 ## Files Created
-- blog_idea_processor.py: Main processing script
+- blog_idea_unified_processor.py: Main processing script
 - metadata_config.json: Configuration for metadata fields
 - blog_ideas.json: Storage file for processed blog ideas
 - implementation_plan.md: Documentation of implementation approach

@@ -11,7 +11,7 @@ The system will use these data structures:
 - **Storage Format**: JSON structure optimized for querying and tracking article status
 
 ## Files
-- **New file**: `blog_idea_processor.py` - Main processing script
+- **New file**: `blog_idea_unified_processor.py` - Main processing script
 - **New file**: `blog_ideas.json` - Storage file for processed blog ideas  
 - **New file**: `metadata_config.json` - Configuration for metadata fields and options
 - **New file**: `implementation_plan.md` - Documentation of the implementation plan

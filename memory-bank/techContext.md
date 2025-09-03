@@ -27,7 +27,7 @@
 - **No Third-party Packages**: Pure Python implementation
 
 ## Tool Usage Patterns
-- Command-line execution: `python3 blog_idea_processor.py [options] files...`
+- Command-line execution: `python3 blog_idea_unified_processor.py [options] files...`
 - JSON configuration loading: metadata_config.json
 - File I/O operations: Reading markdown files, writing JSON database
 - Logging: INFO level for normal operations, WARNING for issues
