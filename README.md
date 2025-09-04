@@ -26,6 +26,7 @@ This project implements a system for collecting, processing, and storing blog po
 ```
 content-marketing-02/
 ├── 01_process_blog_ideas.py       # Main processing script
+├── 02_generate_blog_drafts.py     # Blog draft generation script (NEW)
 ├── metadata_config.json           # Configuration for metadata fields
 ├── blog_ideas.json                # Storage file for processed blog ideas
 ├── README.md                      # This file
@@ -94,6 +95,56 @@ python3 01_process_blog_ideas.py research_content/*.md --skip-duplicates False
 ```bash
 python3 01_process_blog_ideas.py research_content/*.md --output-file my_blog_ideas.json
 ```
+
+## Blog Draft Generation
+
+The system now includes a second script for generating blog drafts from processed ideas:
+
+```bash
+python3 02_generate_blog_drafts.py
+```
+
+This script:
+- Reads from `blog_ideas.json`
+- Calls an LLM API twice per idea:
+  - First to select writing parameters (voice, piece type, etc.)
+  - Second to generate the full blog draft
+- Saves drafts to `blog_post_drafts/` directory
+- Updates the JSON database with article paths and metadata
+
+### Command Line Options
+
+```bash
+python3 02_generate_blog_drafts.py [OPTIONS]
+```
+
+**Options:**
+- `--force_article_gen`: Regenerate drafts even if `article_generated` is true
+- `--ideas_id ID`: Process only the idea with the given ID
+
+### Usage Examples
+
+**Generate drafts for all ideas (default behavior):**
+```bash
+python3 02_generate_blog_drafts.py
+```
+
+**Force regeneration of all drafts:**
+```bash
+python3 02_generate_blog_drafts.py --force_article_gen
+```
+
+**Process a single idea by ID:**
+```bash
+python3 02_generate_blog_drafts.py --ideas_id "2a2ab6040f05"
+```
+
+**Force regeneration of a single idea:**
+```bash
+python3 02_generate_blog_drafts.py --ideas_id "2a2ab6040f05" --force_article_gen
+```
+
+The script automatically skips ideas that have already been processed (where `article_generated` is `true`) to prevent redundant processing. Use the `--force_article_gen` flag to override this behavior and regenerate all drafts.
 
 ## Input Format
 

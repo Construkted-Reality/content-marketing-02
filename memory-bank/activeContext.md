@@ -1,28 +1,34 @@
 # Active Context
 
 ## Current Work
-Refactored the OpenAI API configuration in `02_generate_blog_drafts.py` to store only the IP address and build the full URL dynamically in the `post_api` function, mirroring the approach used for Ollama.
+Enhanced the `02_generate_blog_drafts.py` script with a new `--ideas_id` command-line flag that allows users to process a single idea from `blog_ideas.json` by its ID. Also added the `--force_article_gen` flag for regenerating articles.
 
 ## Key Technical Concepts
-- Modular configuration approach for API endpoints
-- Dynamic URL construction using separate IP, port, and path components
-- Consistent pattern matching between Ollama and OpenAI API configurations
-- Python string formatting for URL construction
+- Command-line argument parsing using `argparse`
+- Conditional processing logic based on flag state
+- JSON field checking for article generation status
+- User feedback and status messaging for different execution modes
+- Error handling for missing IDs and already-generated articles
 
 ## Relevant Files and Code
 - **File**: `02_generate_blog_drafts.py`
 - **Changes**: 
-  - Split `OPENAI_HOST` into `OPENAI_HOST_IP`, `OPENAI_PORT`, and `OPENAI_API_PATH`
-  - Modified `post_api` function to dynamically construct OpenAI URL
-  - Updated debug print statement to show constructed URL
-  - Fixed variable references to eliminate undefined variable errors
+  - Added `argparse` import and argument parser with `--force_article_gen` and `--ideas_id` flags
+  - Implemented filtering logic to process single idea when `--ideas_id` is provided
+  - Added error handling for non-existent IDs and already-generated articles
+  - Implemented skip logic in main processing loop to check `article_generated` field
+  - Added status messages for different execution modes
+  - Maintained backward compatibility with existing functionality
 
 ## Problem Solving
-- Identified and fixed Pylance errors related to undefined `OPENAI_HOST` variable
-- Maintained backward compatibility while implementing the refactoring
-- Ensured consistency with existing Ollama API pattern
+- Implemented selective processing based on `article_generated` flag in `blog_ideas.json`
+- Created clear user feedback for different execution modes
+- Added comprehensive error handling for edge cases
+- Ensured existing file naming and collision handling logic remains intact
+- Preserved all existing API call functionality and JSON update behavior
+- Added proper exit behavior after single idea processing
 
 ## Next Steps
-- Verify the refactored code works correctly with the OpenAI API
-- Test that all API calls function as expected with the new configuration approach
-- Document the change in project documentation
+- Test the new flag functionality with both enabled and disabled states
+- Verify that `article_generated` flags are properly maintained in JSON
+- Document the new features in project documentation

@@ -20,6 +20,7 @@ The system has evolved into a comprehensive blog post generation pipeline with a
 - **Dynamic Field Population**: API responses automatically populate JSON metadata fields
 - **Incremental Processing**: Testing limits allow safe validation before full production runs
 - **Error Handling**: Comprehensive error handling with graceful degradation
+- **Selective Processing**: Command-line flag for overriding article generation checks
 
 ## Design Patterns Used
 - **Pipeline Pattern**: Sequential processing through parameter selection → content generation → storage
@@ -29,6 +30,7 @@ The system has evolved into a comprehensive blog post generation pipeline with a
 - **Factory Pattern**: Dynamic file naming and path generation
 - **Memento Pattern**: Batch context tracking for diversity-aware selection
 - **Command Pattern**: Structured parameter selection with explicit diversity instructions
+- **Command Pattern**: Conditional processing based on command-line arguments
 
 ## Component Relationships
 - **02_generate_blog_drafts.py** reads from blog_ideas.json and writes to blog_post_drafts/
@@ -46,6 +48,7 @@ The system has evolved into a comprehensive blog post generation pipeline with a
 3. **Content Generation** → API Content Creation → File Writing → JSON Path Update
 4. **Error Handling** → Validation → Logging → Graceful Recovery
 5. **File Management** → Naming Convention → Directory Creation → Collision Handling
+6. **Conditional Processing** → Flag Parsing → Article Status Check → Skip/Process Decision
 
 ## Data Flow
 1. **Input**: blog_ideas.json loaded with 80 structured blog post ideas
@@ -57,6 +60,7 @@ The system has evolved into a comprehensive blog post generation pipeline with a
 7. **Stage 2 API**: Full blog post content generation using selected parameters
 8. **File Output**: Markdown files created in blog_post_drafts/ with ID+title naming
 9. **Final Update**: Article paths written back to JSON database for tracking
+10. **Flag Processing**: Command-line flag parsed to determine skip/force behavior
 
 ## Integration Points
 - **OLLAMA API**: External AI service for content generation with optimized prompts
@@ -64,6 +68,7 @@ The system has evolved into a comprehensive blog post generation pipeline with a
 - **JSON Database**: Persistent storage for idea tracking and metadata
 - **Configuration Files**: Prompt templates and guidance documents
 - **Batch Processing**: In-memory tracking of selections for diversity
+- **Command-Line Interface**: User interaction through `--force_article_gen` flag
 - **Future Integrations**: Publishing platforms, CMS systems, analytics tools
 
 ## Quality Assurance Patterns
@@ -74,6 +79,7 @@ The system has evolved into a comprehensive blog post generation pipeline with a
 - **Error Recovery**: Graceful handling of API failures and file system issues
 - **Data Integrity**: JSON updates maintain consistency and prevent corruption
 - **Prompt Structure Validation**: Ensuring balanced influence of different prompt elements
+- **Flag Validation**: Ensuring command-line arguments are properly parsed and handled
 
 ## Parameter Diversity Architecture
 - **Batch Context Tracking**: `processed_ideas` list maintains selection history
@@ -89,3 +95,4 @@ The system has evolved into a comprehensive blog post generation pipeline with a
 - **Primary Goals**: Achieved 60% variation (improved from 0%)
 - **Piece Types**: Achieved 80% variation
 - **Overall Parameter Diversity**: Increased from ~20% to ~60% while maintaining content quality
+- **Processing Efficiency**: Reduced redundant processing through article status checking

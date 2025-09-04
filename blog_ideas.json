@@ -1,8 +1,8 @@
 {
   "ideas": [
     {
-      "title": "How you can fix non‑watertight photogrammetry scans for flawless 3D prints",
-      "pain_point": "Photogrammetry hobbyists often end up with non‑watertight 3D models because cameras miss object bottoms, occlusions hide geometry, and poor lighting creates uncertain points. The default behavior of many scanning pipelines discards these uncertain points, leaving holes and open edges. When these meshes are sent to a 3D printer, they fail, produce visual artifacts, or require costly post‑processing. Users typically scramble to manually patch holes in Blender, which is time‑consuming, error‑prone, and forces them to redo scans or abandon projects.",
+      "title": "How you can fill holes in photogrammetry models for flawless 3D prints",
+      "pain_point": "Photogrammetry users often end up with incomplete meshes that contain visible holes, especially on surfaces that were not captured (e.g., the bottom of an object resting on a table) or in complex geometry with occlusions. These gaps make models unusable for 3D printing, game assets, or archival purposes. The root causes include insufficient image overlap, poor lighting, missed angles, and limitations of reconstruction algorithms. Users struggle to identify why holes appear and how to reliably fill them without compromising mesh quality, leading to frustration and wasted time.",
       "target_audience": "hobbyist",
       "content_details": "",
       "sources": [
@@ -11,9 +11,9 @@
         "https://surphaser.com/blog/how-to-enhance-3d-scan-quality-post-processing-tips/"
       ],
       "id": "2a2ab6040f05",
-      "created_at": "2025-09-03T00:15:30.250457",
-      "modified_at": "2025-09-03T20:56:12.298471+00:00",
-      "article": "blog_post_drafts/2a2ab6040f05_How you can fix non‑watertight photogrammetry scans for flawless 3D prints.md",
+      "created_at": "2025-09-03T22:28:25.545545",
+      "modified_at": "2025-09-03T22:31:45.430773",
+      "article": "blog_post_drafts/2a2ab6040f05_How you can fill holes in photogrammetry models for flawless 3D prints.md",
       "voice": "Wired",
       "piece_type": "tutorial",
       "marketing_post_type": "educational",
@@ -23,12 +23,13 @@
       "length": 1500,
       "sections": "",
       "call_to_action": "",
-      "justification": "The article is a step‑by‑step fix for a concrete technical problem (non‑watertight meshes) that hobbyist photogrammetrists encounter. Wired’s fast‑paced, tech‑forward voice matches the troubleshooting vibe while staying accessible. A tutorial format delivers the detailed workflow readers need. Positioning it as educational (TOFU) helps attract hobbyists searching for basic guidance before they invest in more advanced tools. The primary goal is to troubleshoot the mesh‑repair issue, and a medium technical depth respects the audience’s modest experience without overwhelming them. This selection also adds variety to the batch, which has featured more narrative or policy voices elsewhere."
+      "article_generated": true,
+      "justification": "The topic is a practical, step‑by‑step guide to fixing a common technical issue (holes in photogrammetry meshes). Wired’s fast‑paced, tech‑forward voice resonates with beginner‑to‑intermediate users who want clear, actionable instructions without heavy jargon. A tutorial format best matches the need to explain why holes appear and then walk the reader through concrete remediation steps. Placing the piece in the educational (TOFU) bucket attracts a broad audience searching for solutions, while the primary goal is troubleshooting the specific mesh‑gap problem. The audience is hobbyist/creative‑professional rather than enterprise, so a medium technical depth provides enough detail to be useful without overwhelming novices. An estimated 1,500‑word length allows for a thorough explanation of causes, software‑specific tips, and best‑practice post‑processing, fitting the multi‑faceted nature of the problem."
     },
     {
-      "title": "How you can eliminate double‑wall artifacts from 3D scans in under 10 minutes",
-      "pain_point": "Enterprise scanning teams repeatedly encounter double‑wall artifacts in photogrammetry and laser‑scanned datasets. Misaligned scans create duplicated surfaces, floating geometry, and overlapping shells, which inflate file sizes, trigger rendering glitches, and produce inaccurate measurements. The artifacts force time‑consuming manual cleanup or costly rescans—especially problematic when site access is limited—leading to project delays and budget overruns.",
-      "target_audience": "enterprise",
+      "title": "Solving the Dreaded \"Double Wall\" Effect in Your 3D Scans",
+      "pain_point": "Users experience misalignment issues where multiple scans don't align properly, creating doubled surfaces, floating geometry, and inconsistent meshes. This is particularly problematic when combining multiple datasets or when scanning sessions are conducted at different times.",
+      "target_audience": "Intermediate photogrammetry users, surveying professionals, and anyone working with large datasets or multi-session projects. Particularly relevant for architecture and construction professionals documenting buildings over time.",
       "content_details": "",
       "sources": [
         "https://www.reddit.com/r/blenderhelp/comments/10pgqfg/fixing_3d_photogrammetry_modeling_issues/",
@@ -36,23 +37,23 @@
         "https://www.youtube.com/watch?v=ZZut6f17Vtc"
       ],
       "id": "9ffbec2e6bd6",
-      "created_at": "2025-09-03T00:15:30.250497",
-      "modified_at": "2025-09-03T20:57:01.019549+00:00",
-      "article": "blog_post_drafts/9ffbec2e6bd6_How you can eliminate double‑wall artifacts from 3D scans in under 10 minutes.md",
-      "voice": "TheAtlantic",
-      "piece_type": "methods deep dive",
-      "marketing_post_type": "comparison",
-      "primary_goal": "compare",
-      "technical_depth": "high",
+      "created_at": "2025-09-03T22:28:25.545584",
+      "modified_at": "2025-09-03T22:28:25.545585",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
-      "length": 1500,
+      "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic is a technical, enterprise‑level problem that requires an analytical, data‑driven tone, making The Atlantic a better fit than the previously used Wired voice. Instead of a simple tutorial, a methods‑deep‑dive format lets us explore multiple remediation techniques (manual mesh editing, automated repair tools, pipeline scripts) and compare their efficacy, cost, and scalability for large scanning teams. Positioning the piece as a MOFU comparison aligns with enterprises that are evaluating which workflow or software to adopt, moving beyond pure education. The primary goal is to compare solutions, which differs from the earlier troubleshoot focus. High technical depth matches the expertise of enterprise scanning engineers, and a 1500‑word length provides enough space for detailed evaluation without becoming a full‑scale reference guide."
+      "article_generated": false
     },
     {
-      "title": "How you can boost 3D model accuracy by 30 % with phone photos",
-      "pain_point": "Phone cameras apply aggressive post‑processing—HDR merging, AI sharpening, JPEG compression, and optical stabilization—that strips fine detail and introduces geometric inconsistencies. Coupled with low‑resolution sensors and wide‑angle lens distortion, these factors produce noisy, sparse point clouds and malformed 3D models in photogrammetry software. Hobbyists often see poor reconstructions despite using similar scenes, because the camera’s internal processing destroys the subtle texture and geometry needed for accurate modeling.",
+      "title": "How you can improve photogrammetry with your phone in 10 minutes",
+      "pain_point": "Users struggle with poor photogrammetry results due to smartphone camera limitations such as aggressive automatic image processing, inconsistent lighting and exposure control, and lack of manual camera settings, leading to inaccurate 3D models despite using modern mobile devices.",
       "target_audience": "hobbyist",
       "content_details": "",
       "sources": [
@@ -62,24 +63,25 @@
         "https://www.youtube.com/watch?v=VtRLU2K7gyM"
       ],
       "id": "67448229cf6a",
-      "created_at": "2025-09-03T00:15:30.250517",
-      "modified_at": "2025-09-03T20:58:01.287089+00:00",
-      "article": "blog_post_drafts/67448229cf6a_How you can boost 3D model accuracy with phone photos.md",
-      "voice": "NewYorker",
-      "piece_type": "case study",
-      "marketing_post_type": "Case Study",
-      "primary_goal": "educate",
+      "created_at": "2025-09-03T22:28:25.545604",
+      "modified_at": "2025-09-04T08:26:04.773186",
+      "article": "blog_post_drafts/67448229cf6a_How you can improve photogrammetry with your phone in 10 minutes.md",
+      "voice": "Wired",
+      "piece_type": "explainer",
+      "marketing_post_type": "educational",
+      "primary_goal": "troubleshoot",
       "technical_depth": "med",
       "keywords": "",
-      "length": 1500,
+      "length": 1400,
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic is a practical, hobby‑oriented guide that benefits from a sophisticated yet approachable tone. Using the New Yorker voice adds wit and introspection, differentiating it from the previously used Wired and Atlantic styles while still delivering clear, actionable advice. A case‑study piece type showcases real‑world results, aligning with the new \"Case Study\" marketing post type to diversify the funnel mix. The primary goal is to educate hobbyists on how specific phone‑camera quirks affect photogrammetry and how to mitigate them, fitting a medium technical depth and an estimated 1,500‑word length."
+      "article_generated": true,
+      "justification": "This topic is a technical troubleshooting guide aimed at beginners attempting photogrammetry with smartphones. The Wired voice is ideal because it balances accessibility with a tech-forward approach, using clear language and a fast-paced rhythm that appeals to hobbyists interested in emerging technologies. The explainer format suits the need to break down why phone photos fail and how to fix them. As an educational piece, it targets the Top of Funnel (TOFU) where users are just beginning to explore photogrammetry. The medium technical depth ensures the content is neither too simplified nor overwhelming for the intended audience."
     },
     {
-      "title": "How you can scan shiny surfaces without ruining your 3D model",
-      "pain_point": "Enterprise teams face significant difficulties capturing accurate 3D scans of reflective, transparent, or polished surfaces due to specular highlights that overwhelm sensors, leading to incomplete point clouds, holes, noise, and missing geometry. This results in time-consuming re-scans, labor-intensive post-processing, and costly workarounds like temporary matte sprays or polarizing filters, ultimately causing project delays and increased costs.",
-      "target_audience": "enterprise",
+      "title": "Conquering Reflective and Shiny Surfaces in 3D Scanning",
+      "pain_point": "Highly reflective, transparent, or shiny surfaces cause significant issues in photogrammetry, resulting in incomplete scans, noise, and poor feature matching. Users struggle with objects like cars, jewelry, glass, and polished metals.",
+      "target_audience": "Product photographers, automotive professionals, jewelry designers, and anyone working with manufactured goods that have challenging surface properties.",
       "content_details": "",
       "sources": [
         "https://www.reddit.com/r/photogrammetry/comments/1f45oaf/what_am_i_doing_wrong/",
@@ -89,24 +91,24 @@
         "https://store.3dmakerpro.com/en-ca/blogs/school/top-10-3d-scanning-mistakes"
       ],
       "id": "0a41139c28e6",
-      "created_at": "2025-09-03T00:15:30.250536",
-      "modified_at": "2025-09-03T20:21:12.202252+00:00",
-      "article": "blog_post_drafts/0a41139c28e6_How you can scan shiny surfaces without ruining your 3D model.md",
-      "voice": "Wired",
-      "piece_type": "methods deep dive",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.545622",
+      "modified_at": "2025-09-03T22:28:25.545624",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
-      "length": 1500,
+      "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "This topic involves a technical challenge in 3D scanning that requires both explanation and practical solutions. The Wired voice is ideal because it balances technical accuracy with accessibility, using a fast-paced, futurist tone that appeals to enterprise professionals who are tech-savvy but may not be experts in photogrammetry or laser scanning. It allows for vivid metaphors and a 'what-it-means-for-you' framing without sacrificing clarity. The choice of 'methods deep dive' reflects the need to explore various approaches and techniques rather than simply listing solutions, aligning with the diverse batch context where previous pieces were tutorials. The educational marketing type supports awareness and foundational understanding at the TOFU stage, matching the enterprise audience’s need for problem-solving knowledge."
+      "article_generated": false
     },
     {
-      "title": "How you can improve image alignment in photogrammetry workflows",
-      "pain_point": "Enterprise photogrammetry teams face repeated image alignment failures (only 20–30% of images align properly) due to factors like low-contrast surfaces, repetitive textures, motion blur from fast-moving drones, inaccurate GPS tags, poor camera calibration, and aggressive down-sampling. These issues lead to delays in model delivery, increased manual labor, and higher per-model costs.",
-      "target_audience": "enterprise",
+      "title": "Understanding Why Your Photos Don't Align and How to Force Better Results",
+      "pain_point": "Users frequently encounter situations where photogrammetry software only aligns a small subset of their images, leaving many unused and resulting in incomplete models. This is particularly frustrating when users know they have good coverage but the software doesn't recognize it.",
+      "target_audience": "Users working with Reality Capture, Metashape, and other photogrammetry software who experience alignment failures. Particularly relevant for drone operators and architectural documentation professionals.",
       "content_details": "",
       "sources": [
         "https://www.reddit.com/r/photogrammetry/comments/1i4iffk/problems_with_reality_capture_newbie/",
@@ -114,24 +116,24 @@
         "https://www.youtube.com/watch?v=2_ulJZTYJwA"
       ],
       "id": "ba9e9ebf3698",
-      "created_at": "2025-09-03T00:15:30.250552",
-      "modified_at": "2025-09-03T20:21:40.947084+00:00",
-      "article": "blog_post_drafts/ba9e9ebf3698_How you can improve image alignment in photogrammetry workflows.md",
-      "voice": "Wired",
-      "piece_type": "tutorial",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.545639",
+      "modified_at": "2025-09-03T22:28:25.545640",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
-      "length": 1500,
+      "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "This topic involves technical troubleshooting for enterprise photogrammetry workflows, making Wired's tech-forward, fast-paced voice ideal for delivering actionable insights. The content focuses on solving a specific problem (image alignment failures) rather than broad conceptual discussion, so a tutorial format suits the instructional nature. It's positioned as educational since it aims to inform users about root causes and solutions, aligning with TOFU goals of awareness and foundational knowledge. The medium technical depth reflects the need to explain both common issues and practical fixes without overwhelming readers."
+      "article_generated": false
     },
     {
       "title": "Fixing Terrible UV Maps and Texture Baking Issues from Photogrammetry Models",
-      "pain_point": "Photogrammetry scans arrive with tangled, overlapping UV islands, dozens of auto‑generated texture maps, and uneven topology. Artists waste hours trying to isolate seams, re‑unwrap sections, and bake clean albedo, normal, and AO maps that will actually work in game engines. The chaos makes any post‑process editing—masking, detail painting, or LOD generation—practically impossible, forcing studios to either discard valuable scan data or spend prohibitive manual labor fixing the assets.",
-      "target_audience": "enterprise",
+      "pain_point": "Raw photogrammetry models come with chaotic UV layouts, multiple texture maps, and poor topology that makes editing and game engine integration nearly impossible. Users struggle to create clean, editable textures from their scanned assets.",
+      "target_audience": "Game developers, VFX artists, 3D artists preparing assets for real-time applications, and anyone needing to optimize photogrammetry models for specific workflows.",
       "content_details": "",
       "sources": [
         "https://blenderartists.org/t/photogrammetry-model-processing-mainly-uv-mapping-pains/686151",
@@ -140,24 +142,24 @@
         "https://www.youtube.com/watch?v=C_RqdNbYOjE"
       ],
       "id": "db28f8828650",
-      "created_at": "2025-09-03T00:15:30.250568",
-      "modified_at": "2025-09-03T00:15:30.250570",
-      "article": "blog_post_drafts/db28f8828650_Fixing Terrible UV Maps and Texture Baking Issues from Photogrammetry Models.md",
-      "voice": "TheNewYorker",
-      "piece_type": "tutorial",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "high",
+      "created_at": "2025-09-03T22:28:25.545655",
+      "modified_at": "2025-09-03T22:28:25.545656",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The audience—game studios, VFX pipelines, and professional 3D teams—needs a sophisticated yet approachable voice that respects their expertise while keeping the narrative engaging; The New Yorker style provides witty, conversational prose that can demystify dense technical steps. A step‑by‑step tutorial aligns with the concrete, procedural nature of fixing UV maps and baking textures. Positioning the piece as educational places it at the top of the funnel, attracting teams searching for solutions to a common bottleneck. The primary goal is troubleshooting because the core content resolves specific workflow failures. Enterprise is chosen over hobbyist to reflect the professional users who most often encounter large, complex photogrammetry assets. The technical depth is set to high to cover advanced UV unwrapping, packer settings, and texture baking nuances that only seasoned artists can apply. This combination diverges from the previous batch’s Wired‑tutorial‑educational‑troubleshoot‑hobbyist pattern, ensuring fresh voice and audience alignment."
+      "article_generated": false
     },
     {
       "title": "Managing Massive File Sizes in Photogrammetry Projects",
-      "pain_point": "Photogrammetry projects quickly generate terabytes of raw images, point clouds, and textured meshes, which overflow local SSDs, saturate network storage, and stall processing pipelines. Practitioners report running out of disk space mid‑project, spending hours moving files between drives, and facing long render times because the data isn’t organized or compressed efficiently. The core pain is a lack of scalable, streamlined workflows to ingest, store, and process massive datasets without crippling hardware or budget constraints.",
-      "target_audience": "enterprise",
+      "pain_point": "Photogrammetry projects generate enormous amounts of data that quickly overwhelm storage systems and processing capabilities. Users run out of disk space and struggle with project management across multiple datasets.",
+      "target_audience": "Professional photogrammetry practitioners, studios handling multiple projects, and anyone working with large-scale documentation projects that generate terabytes of data.",
       "content_details": "",
       "sources": [
         "https://formlabs.com/blog/photogrammetry-guide-and-software-comparison/",
@@ -166,24 +168,24 @@
         "https://www.aerotas.com/photogrammetry"
       ],
       "id": "6c6c4bcbcb42",
-      "created_at": "2025-09-03T00:15:30.250586",
-      "modified_at": "2025-09-03T00:15:30.250588",
-      "article": "blog_post_drafts/6c6c4bcbcb42_Managing Massive File Sizes in Photogrammetry Projects.md",
-      "voice": "TheAtlantic",
-      "piece_type": "case study",
-      "marketing_post_type": "case study",
-      "primary_goal": "persuade",
-      "technical_depth": "high",
+      "created_at": "2025-09-03T22:28:25.545673",
+      "modified_at": "2025-09-03T22:28:25.545674",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The audience consists of professional photogrammetry studios that need data‑driven, credibility‑building content. The Atlantic’s measured, analytical voice suits a case‑study format that can weave in statistics, workflow timelines, and ROI calculations. A case study diversifies the batch (previous pieces were tutorials, deep dives, and explainer) and aligns with a MOFU/BOFU strategy to nurture and convert leads. Persuasion is the primary goal because showcasing a real‑world success story demonstrates the value of robust data‑management practices and encourages adoption of recommended solutions. High technical depth matches the expertise of enterprise practitioners handling terabytes of imagery."
+      "article_generated": false
     },
     {
       "title": "Solving Color and Exposure Inconsistencies in Multi-Session Scans",
-      "pain_point": "When scanning large architectural or heritage sites over several days, lighting changes, camera settings drift, and inconsistent white‑balance or exposure lead to visible color shifts and exposure mismatches between image sets. These discrepancies degrade the final texture’s uniformity, cause seams in 3D models, and force time‑consuming manual correction. Professionals report issues such as clipped highlights during color calibration, inability to match photometric standards across sessions, and lack of a repeatable workflow to ensure that every capture aligns with the project’s texture‑color calibration guidelines.",
-      "target_audience": "enterprise",
+      "pain_point": "Images captured at different times or under varying lighting conditions create visible color differences and exposure mismatches that ruin the final texture quality. This is particularly problematic for large projects requiring multiple shooting sessions.",
+      "target_audience": "Architectural documentation professionals, cultural heritage specialists, and anyone working on projects that span multiple days or require consistent lighting across large areas.",
       "content_details": "",
       "sources": [
         "https://www.youtube.com/watch?v=ZZut6f17Vtc",
@@ -192,24 +194,24 @@
         "https://forum.dxo.com/t/cant-perform-color-calibration-due-to-clipping/36835"
       ],
       "id": "a6521f3cd6fd",
-      "created_at": "2025-09-03T00:15:30.250690",
-      "modified_at": "2025-09-03T00:15:30.250692",
-      "article": "blog_post_drafts/a6521f3cd6fd_Solving Color and Exposure Inconsistencies in Multi-Session Scans.md",
-      "voice": "Wired",
-      "piece_type": "methods deep dive",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "high",
+      "created_at": "2025-09-03T22:28:25.545689",
+      "modified_at": "2025-09-03T22:28:25.545690",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic is a highly technical, step‑by‑step guide to eliminating color and exposure drift across multi‑session scans – a classic troubleshooting scenario. Wired’s fast‑paced, tech‑forward voice aligns with the professional audience’s expectation for clear, actionable instructions while still sounding modern. A “methods deep dive” lets us explore calibration workflows, histogram analysis, color charts, and exposure blending in depth, which is appropriate for enterprise‑level documentation teams that need rigorous solutions. Positioning it as an educational post keeps it at the top‑of‑funnel for awareness yet provides enough depth to nurture leads who are already evaluating how to solve the problem. The primary goal is troubleshooting because the audience’s immediate pain is broken texture quality, not product comparison. Enterprise is chosen because architectural and cultural‑heritage firms typically operate at a corporate scale with formal pipelines. The technical depth is set to high to match the sophisticated tools (RAW workflow, XYZ color space, ICC profiles) and the detailed references from the source URLs."
+      "article_generated": false
     },
     {
       "title": "Automating Your Photogrammetry Workflow to Save Time and Reduce Errors",
-      "pain_point": "Users spend hours manually aligning photos, configuring lighting, and running post‑processing for each object. In batch projects—hundreds of artifacts or repeated QC scans—this manual approach leads to inconsistent results, operator fatigue, and costly re‑captures. The sources highlight that without automation, tasks such as triggering captures, exporting point clouds, and applying uniform scaling must be repeated by hand, increasing the risk of human error and extending turnaround time from minutes to hours per item.",
-      "target_audience": "public sector",
+      "pain_point": "Manual photogrammetry workflows are time-consuming and error-prone, especially for repetitive tasks or batch processing of similar objects. Users want to streamline their processes but don't know how to implement automation effectively.",
+      "target_audience": "Production studios, manufacturing quality control departments, cultural heritage institutions processing large collections, and any professional dealing with repetitive photogrammetry tasks.",
       "content_details": "",
       "sources": [
         "https://support.artec3d.com/hc/en-us/articles/115004078385-Automation-of-3D-scanning-and-processing",
@@ -217,24 +219,24 @@
         "https://www.3d-scantech.com/product/autoscan-k-3d-system/"
       ],
       "id": "f0cae3e1b1de",
-      "created_at": "2025-09-03T00:15:30.250706",
-      "modified_at": "2025-09-03T00:15:30.250707",
-      "article": "blog_post_drafts/f0cae3e1b1de_Automating Your Photogrammetry Workflow to Save Time and Reduce Errors.md",
-      "voice": "TheAtlantic",
-      "piece_type": "methods deep dive",
-      "marketing_post_type": "comparison",
-      "primary_goal": "compare",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.545704",
+      "modified_at": "2025-09-03T22:28:25.545705",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The Atlantic’s measured, data‑driven voice fits a professional audience that needs a balanced, evidence‑based analysis rather than the punchy hype of Wired. A methods deep dive lets us dissect automation pipelines (scripting, trigger‑based capture, batch processing) while still keeping the narrative structured for decision‑makers. Positioning the piece as a comparison aligns with the MOFU stage: studios, museums, and quality‑control teams are evaluating whether to adopt an integrated solution (Artec’s Automation, Measure3D’s workflow scripts, or the AutoScan‑K system). The primary goal is therefore to compare features, ROI, and error‑reduction benefits. Public‑sector institutions (museums, heritage labs) are a distinct segment from the enterprise‑focused pieces in the previous batch, adding audience diversity. A medium technical depth delivers actionable detail without overwhelming non‑engineers, matching the expertise level of managers and senior technicians."
+      "article_generated": false
     },
     {
       "title": "Quality Control Checklists: Ensuring Professional Results Every Time",
-      "pain_point": "Professional service providers and photogrammetry students frequently fail to catch quality issues until late in the workflow, leading to costly re‑work. They lack a systematic, repeatable QC framework, so problems like insufficient image overlap, poor camera calibration, high GCP residuals, or inconsistent scale appear only after dense point clouds are generated, forcing time‑intensive fixes.",
-      "target_audience": "academic",
+      "pain_point": "Users struggle to consistently produce high-quality results and often don't discover problems until late in the process when fixes are expensive and time-consuming. Many lack systematic approaches to quality control throughout their workflows.",
+      "target_audience": "Professional service providers, students learning photogrammetry, and anyone who needs to deliver consistent, high-quality results to clients or stakeholders.",
       "content_details": "",
       "sources": [
         "https://help.alteia.com/photogrammetry/quality-checks-and-statistics",
@@ -242,24 +244,24 @@
         "https://www.photomodeler.com/pm-kb/getting-the-highest-possible-accuracy/"
       ],
       "id": "f5558bed9cc1",
-      "created_at": "2025-09-03T00:15:30.250730",
-      "modified_at": "2025-09-03T00:15:30.250731",
-      "article": "blog_post_drafts/f5558bed9cc1_Quality Control Checklists_ Ensuring Professional Results Every Time.md",
-      "voice": "TheNewYorker",
-      "piece_type": "explainer",
-      "marketing_post_type": "educational",
-      "primary_goal": "educate",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.545728",
+      "modified_at": "2025-09-03T22:28:25.545730",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic is a concept‑heavy, process‑oriented guide about quality‑control checklists in photogrammetry. A New Yorker voice lets us blend sophisticated, slightly wry commentary with clear instruction—perfect for students and researchers who appreciate depth without a hard‑sell tone. An explainer differs from the many methods‑deep‑dives and tutorials used earlier, giving a broader overview rather than a step‑by‑step manual. Positioning it as educational targets the top of the funnel, drawing in learners who are searching for foundational knowledge about QC best practices. The primary goal is to educate rather than troubleshoot, because the audience needs to understand *why* checklists matter before they can apply them. Academic readers benefit from a medium technical depth: detailed enough to reference camera calibration, GCP residuals, and reprojection errors, yet not so granular that it becomes a full‑blown tutorial. This combination ensures diversity across the batch while directly addressing the identified pain points."
+      "article_generated": false
     },
     {
       "title": "Drone Photogrammetry Alignment Problems: Why Your Aerial Images Won't Connect",
-      "pain_point": "Drone operators frequently encounter misalignment of aerial images—especially when mixing nadir and oblique shots or when GPS/PPK data is inaccurate—leading to fragmented point clouds and unusable maps. The failure to correctly stitch images wastes costly flight time, forces re‑flights, and stalls project timelines across construction, agriculture, and environmental monitoring.",
-      "target_audience": "enterprise",
+      "pain_point": "Drone images often fail to align properly, especially when combining nadir (straight down) and oblique imagery, or when GPS data is inaccurate. Users get frustrated when expensive drone flights produce unusable data.",
+      "target_audience": "Drone operators, surveying professionals, mapping specialists, and anyone using UAVs for photogrammetry applications in construction, agriculture, or environmental monitoring.",
       "content_details": "",
       "sources": [
         "https://www.hammermissions.com/post/captured-vs-aligned-images-drone-photogrammetry",
@@ -268,24 +270,24 @@
         "https://www.reddit.com/r/photogrammetry/comments/131zrhi/metashape_does_not_correctly_align_drone_images/"
       ],
       "id": "8799e87a1fb1",
-      "created_at": "2025-09-03T00:15:30.250745",
-      "modified_at": "2025-09-03T00:15:30.250746",
-      "article": "blog_post_drafts/8799e87a1fb1_Drone Photogrammetry Alignment Problems_ Why Your Aerial Images Won't Connect.md",
-      "voice": "TheAtlantic",
-      "piece_type": "methods deep dive",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.545745",
+      "modified_at": "2025-09-03T22:28:25.545746",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic is a technical, data‑driven problem (drone photogrammetry alignment) that benefits from The Atlantic's measured, evidence‑based style, allowing us to embed research findings, error statistics, and workflow comparisons. A methods deep dive matches the need to walk professionals through root‑cause analysis and corrective steps, while staying distinct from the many tutorials and explainer pieces used previously. Positioning it as educational (TOFU) captures operators searching for solutions early in their research journey, and the primary goal is to troubleshoot the alignment failures they encounter. The audience is enterprise‑level surveyors and construction firms who need reliable, medium‑depth technical guidance, hence the 'med' depth level."
+      "article_generated": false
     },
     {
       "title": "Dealing with Featureless and Repetitive Surfaces in Photogrammetry",
-      "pain_point": "Uniform or repetitive textures—such as white walls, smooth manufactured parts, or architectural elements with repeating patterns—fail to generate enough distinctive feature points for reliable image alignment. This results in sparse or completely failed point clouds, jagged meshes, and reconstructions that are either low‑resolution or unusable. Users report that standard photogrammetry pipelines stall on these surfaces, producing errors like \"not enough tie points\" or \"alignment failed,\" forcing them to spend extra time re‑shooting or resorting to alternative scanning methods.",
-      "target_audience": "enterprise",
+      "pain_point": "Objects with uniform textures, repetitive patterns, or minimal surface variation fail to generate sufficient feature points for alignment, resulting in poor or failed reconstructions. Users struggle with white walls, smooth manufactured parts, and architectural elements with repetitive details.",
+      "target_audience": "Architectural photographers, product designers documenting manufactured goods, and conservators working with minimalist artworks or sculptures.",
       "content_details": "",
       "sources": [
         "https://www.agisoft.com/forum/index.php?topic=10580.0",
@@ -294,24 +296,24 @@
         "https://www.instructables.com/Shooting-for-Photogrammetry/"
       ],
       "id": "3fcb620d8f5c",
-      "created_at": "2025-09-03T00:15:30.250761",
-      "modified_at": "2025-09-03T00:15:30.250762",
-      "article": "blog_post_drafts/3fcb620d8f5c_Dealing with Featureless and Repetitive Surfaces in Photogrammetry.md",
-      "voice": "TheNewYorker",
-      "piece_type": "tutorial",
-      "marketing_post_type": "educational",
-      "primary_goal": "educate",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.545761",
+      "modified_at": "2025-09-03T22:28:25.545763",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic is a hands‑on guide to overcoming a very concrete technical obstacle in photogrammetry, which calls for a tutorial format. While the content is technical, the audience—professional architectural photographers and product designers—benefits from a sophisticated yet approachable tone that can weave in witty asides and contextual anecdotes, making The New Yorker voice a good fit. Positioning the piece as an educational, top‑of‑funnel asset aligns with the need to attract professionals who may not yet be aware of the specific pitfalls of featureless surfaces. The primary goal is to educate rather than merely troubleshoot, giving readers actionable steps they can apply immediately. An enterprise audience reflects the professional, often commercial nature of the users, and a medium technical depth ensures the guide is detailed enough for skilled practitioners without becoming an academic paper."
+      "article_generated": false
     },
     {
       "title": "Mobile Phone Camera Settings That Actually Work for Photogrammetry",
-      "pain_point": "Mobile users get wildly inconsistent photogrammetry results because default camera apps automatically enable features like HDR, AI scene detection, auto‑exposure bracketing, and aggressive image stabilization. These functions alter lighting, merge multiple exposures, and introduce motion artifacts, all of which break the strict geometric consistency photogrammetry needs. Users often follow the “point‑and‑shoot” mindset, unaware that turning off HDR, locking exposure, shooting in RAW, and using manual focus are essential for reliable 3‑D reconstructions.",
-      "target_audience": "hobbyist",
+      "pain_point": "Users with mobile phones get inconsistent results because they don't understand which camera settings to use and which automatic features are harmful to photogrammetry workflows. Many use default camera apps that actively work against photogrammetry requirements.",
+      "target_audience": "Students, hobbyists, and professionals who need to use mobile devices for photogrammetry either by choice or necessity, including field workers and travel photographers.",
       "content_details": "",
       "sources": [
         "https://pmc.ncbi.nlm.nih.gov/articles/PMC11598270/",
@@ -320,24 +322,24 @@
         "https://www.reddit.com/r/photogrammetry/comments/rn3fsv/any_tips_for_a_beginner/"
       ],
       "id": "8803cb82a8fe",
-      "created_at": "2025-09-03T00:15:30.250780",
-      "modified_at": "2025-09-03T00:15:30.250781",
-      "article": "blog_post_drafts/8803cb82a8fe_Mobile Phone Camera Settings That Actually Work for Photogrammetry.md",
-      "voice": "TheNewYorker",
-      "piece_type": "tutorial",
-      "marketing_post_type": "educational",
-      "primary_goal": "educate",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.545779",
+      "modified_at": "2025-09-03T22:28:25.545780",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic is a practical, step‑by‑step guide on configuring mobile camera settings for photogrammetry. While Wired would be a safe technical fit, the audience (students, hobbyists, field photographers) benefits from a slightly more conversational, witty tone that keeps the material approachable – the hallmark of TheNewYorker voice. Selecting a tutorial aligns with the need to walk readers through concrete settings (ISO, focus mode, HDR, RAW capture, etc.). Because the content aims to introduce foundational knowledge rather than compare products or push a purchase, an educational post‑type at the top of the funnel is appropriate. The primary goal is to educate readers on why default automatic features sabotage photogrammetry and how to fix them. Hobbyist is the most accurate audience label given the mix of casual and semi‑professional users. A medium technical depth offers enough detail for setting adjustments without overwhelming non‑engineers. This combination diverges from the previous batch’s heavy use of Wired and TheAtlantic, adding voice diversity while still matching the content’s instructional nature."
+      "article_generated": false
     },
     {
       "title": "Lighting Setups That Actually Improve Your 3D Scan Quality",
-      "pain_point": "Users consistently report that poor lighting—characterized by harsh directional shadows, uneven illumination, over‑ or under‑exposure, and color‑temperature mismatches—produces low‑contrast images with weak feature definition. This leads to noisy point clouds, reconstruction gaps, and inaccurate geometry in 3D scans, especially in controlled studio or heritage‑preservation environments where lighting is often under‑estimated.",
-      "target_audience": "enterprise",
+      "pain_point": "Poor lighting creates inconsistent imagery, harsh shadows, and inadequate feature definition that severely impacts reconstruction quality. Users often underestimate lighting's critical role in photogrammetry success.",
+      "target_audience": "Studio photographers, product documentation specialists, cultural heritage professionals, and anyone setting up controlled photogrammetry environments.",
       "content_details": "",
       "sources": [
         "https://www.instructables.com/Shooting-for-Photogrammetry/",
@@ -346,24 +348,24 @@
         "https://www.youtube.com/watch?v=TQggSy3YJYU"
       ],
       "id": "e132250b49b0",
-      "created_at": "2025-09-03T00:15:30.250800",
-      "modified_at": "2025-09-03T00:15:30.250801",
-      "article": "blog_post_drafts/e132250b49b0_Lighting Setups That Actually Improve Your 3D Scan Quality.md",
-      "voice": "Wired",
-      "piece_type": "tutorial",
-      "marketing_post_type": "educational",
-      "primary_goal": "educate",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.545797",
+      "modified_at": "2025-09-03T22:28:25.545798",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic is a hands‑on guide to configuring lighting for high‑quality photogrammetric scans. Wired’s fast‑paced, tech‑forward voice aligns with a tutorial that needs clear, actionable steps and vivid visual metaphors (e.g., treating light as the ‘neural network’ of a scan). Unlike the previous batch’s deep‑dives and case studies, this piece is a practical how‑to aimed at professional studios and corporate documentation teams, so an educational TOFU post that teaches best‑practice setups fits the funnel. The primary goal is to educate readers on eliminating common lighting pitfalls, rather than persuading or comparing products. Enterprise audiences (large studios, manufacturers, museums) need enough technical depth to implement the setups without being overwhelmed, hence a medium level of detail."
+      "article_generated": false
     },
     {
       "title": "Why Your 3D Model Looks Nothing Like Your Original Object (And How to Fix It)",
-      "pain_point": "Users report that their scanned 3D models frequently suffer from major mismatches with the physical object—incorrect scale, warped geometry, missing fine details, and unreliable measurements—making the models unsuitable for precision engineering, quality‑control inspection, or cultural‑heritage documentation.",
-      "target_audience": "public sector",
+      "pain_point": "Users experience significant discrepancies between their scanned objects and the resulting 3D models, with issues ranging from scale problems to geometric distortions and missing details. The final models don't meet accuracy requirements or visual expectations.",
+      "target_audience": "Quality control professionals, engineers requiring precise measurements, cultural heritage specialists, and anyone whose work requires accurate geometric reproduction.",
       "content_details": "",
       "sources": [
         "https://surphaser.com/blog/how-to-enhance-3d-scan-quality-post-processing-tips/",
@@ -371,24 +373,24 @@
         "https://www.geodetic.com/basics-of-photogrammetry/"
       ],
       "id": "4c98d59ba28f",
-      "created_at": "2025-09-03T00:15:30.250815",
-      "modified_at": "2025-09-03T00:15:30.250816",
-      "article": "blog_post_drafts/4c98d59ba28f_Why Your 3D Model Looks Nothing Like Your Original Object (And How to Fix It).md",
-      "voice": "TheAtlantic",
-      "piece_type": "methods deep dive",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "high",
+      "created_at": "2025-09-03T22:28:25.545812",
+      "modified_at": "2025-09-03T22:28:25.545815",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The Atlantic’s measured, data‑driven tone matches the professional, accuracy‑focused audience of quality‑control engineers and cultural‑heritage institutions. A methods deep dive lets us unpack the root causes—scale drift, geometric distortion, texture loss—and walk readers through precise post‑processing workflows, which differs from the more tutorial‑oriented pieces used previously. Positioning the content as educational places it at the top of the funnel, attracting organisations that are just becoming aware of the accuracy gap. The primary goal is troubleshooting because the core user need is fixing models that don’t match the original object. Targeting the public sector diversifies the audience mix (previously dominated by enterprise) and aligns with heritage and government labs that require strict geometric fidelity. The high technical depth reflects the complex photogrammetry and metrology concepts involved."
+      "article_generated": false
     },
     {
       "title": "Texture Baking Nightmares: When Your Photogrammetry Textures Turn Black",
-      "pain_point": "Artists repeatedly encounter texture baking failures where the resulting maps are completely black, exhibit missing regions, show seam artifacts, or have misaligned UVs. Common triggers include: using the wrong image format or color space (sRGB vs. linear), neglecting to assign proper normals or tangent data, bake settings that omit diffuse/specular channels, insufficient margin or overlap in UV islands, and incorrect cage or ray‑distance parameters causing rays to miss geometry. These issues render the photogrammetry assets unusable in real‑time engines or renderers, forcing costly re‑bakes and workflow delays.",
-      "target_audience": "enterprise",
+      "pain_point": "Users encounter various texture baking failures including completely black textures, missing texture regions, seam artifacts, and misaligned UV coordinates when transferring textures between models. These issues make models unusable for rendering or game engines.",
+      "target_audience": "Game developers, VFX artists, and 3D professionals who need to optimize photogrammetry assets for real-time or rendering applications.",
       "content_details": "",
       "sources": [
         "https://www.youtube.com/watch?v=C_RqdNbYOjE",
@@ -397,24 +399,24 @@
         "https://www.youtube.com/watch?v=aVD1ZsYUwz8"
       ],
       "id": "2e70ee636085",
-      "created_at": "2025-09-03T00:15:30.250832",
-      "modified_at": "2025-09-03T00:15:30.250833",
-      "article": "blog_post_drafts/2e70ee636085_Texture Baking Nightmares_ When Your Photogrammetry Textures Turn Black.md",
-      "voice": "Wired",
-      "piece_type": "explainer",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.545830",
+      "modified_at": "2025-09-03T22:28:25.545832",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic is a technical, pain‑point‑driven issue (black or corrupted photogrammetry bakes) that appeals to professional game and VFX pipelines, so a Wired voice—fast‑paced, tech‑forward, and solution‑oriented—matches the audience’s expectations. An explainer format lets us unpack the underlying causes (UV mis‑alignment, incorrect bake settings, gamma space, missing normals, etc.) without diving into step‑by‑step instructions, keeping the piece concise for readers searching for why the problem occurs. Positioning it as educational targets the top‑of‑funnel, capturing search traffic for “texture baking black” while still delivering actionable insight, and the primary goal is to help the reader troubleshoot. Enterprise users need a moderate technical depth: enough detail to be credible but not overwhelming, aligning with their professional expertise. This combination differs from prior entries that leaned heavily on tutorials or methods deep dives, providing fresh variety."
+      "article_generated": false
     },
     {
       "title": "Combining Ground and Drone Photos Without Going Insane",
-      "pain_point": "Users attempting to fuse drone aerial shots with ground‑level photos frequently end up with misaligned, disjointed composites. The process often breaks down because of inconsistent scale, perspective mismatches, and inadequate software workflows, leaving architectural and heritage documentation projects incomplete or riddled with stitching errors.",
-      "target_audience": "enterprise",
+      "pain_point": "Users struggle to successfully combine drone aerial imagery with ground-based photography, often ending up with disconnected components or failed alignments despite having comprehensive coverage. This is particularly frustrating for architectural and site documentation projects.",
+      "target_audience": "Architectural documenta­tion professionals, construction site managers, surveying companies, and heritage preservation specialists working on large-scale documentation projects.",
       "content_details": "",
       "sources": [
         "https://www.youtube.com/watch?v=2_ulJZTYJwA",
@@ -422,24 +424,24 @@
         "https://forums.unrealengine.com/t/problem-about-the-3d-model-from-reality-capture/1183631"
       ],
       "id": "c4a746fc8cbf",
-      "created_at": "2025-09-03T00:15:30.250852",
-      "modified_at": "2025-09-03T00:15:30.250853",
-      "article": "blog_post_drafts/c4a746fc8cbf_Combining Ground and Drone Photos Without Going Insane.md",
-      "voice": "Wired",
-      "piece_type": "tutorial",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.545849",
+      "modified_at": "2025-09-03T22:28:25.545851",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic is a hands‑on guide to merging ground‑level and drone imagery—a classic technical troubleshooting scenario. Wired’s futurist, punchy style aligns with a fast‑paced, tool‑focused tutorial that appeals to architects, construction managers, and surveyors who need actionable steps now. A tutorial delivers the step‑by‑step workflow the audience expects, while an educational post‑type positions the piece at the top‑of‑the‑funnel to attract professionals searching for solutions to alignment headaches. The primary goal is to troubleshoot the specific alignment failures, not to sell or compare products. Enterprise readers require a moderate technical depth: enough detail to implement the workflow without drowning in research‑level theory. This combination diverges from prior selections by pairing Wired with a tutorial (most prior tutorials used TheAtlantic or TheNewYorker) and by targeting the educational funnel rather than a deep methods dive."
+      "article_generated": false
     },
     {
       "title": "Project Planning That Prevents Photogrammetry Disasters",
-      "pain_point": "Project managers and business owners repeatedly waste time and money on photogrammetry projects that fail because of poor upfront planning: they capture insufficient image coverage, select inappropriate cameras or drones, and set unrealistic timelines. These oversights only become apparent after significant investment, leading to re‑shoots, data loss, and delayed deliveries.",
-      "target_audience": "enterprise",
+      "pain_point": "Users frequently encounter project failures that could have been prevented with better planning, including insufficient coverage, inappropriate equipment choices, and unrealistic timeline expectations. Many learn about limitations only after investing significant time and resources.",
+      "target_audience": "Project managers, business owners considering photogrammetry services, and professionals planning their first major photogrammetry projects.",
       "content_details": "",
       "sources": [
         "https://www.geodetic.com/basics-of-photogrammetry/",
@@ -447,24 +449,24 @@
         "https://www.youtube.com/watch?v=6nFdKea7Xsw"
       ],
       "id": "01a236b865b2",
-      "created_at": "2025-09-03T00:15:30.250867",
-      "modified_at": "2025-09-03T00:15:30.250869",
-      "article": "blog_post_drafts/01a236b865b2_Project Planning That Prevents Photogrammetry Disasters.md",
-      "voice": "TheAtlantic",
-      "piece_type": "explainer",
-      "marketing_post_type": "educational",
-      "primary_goal": "educate",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.545864",
+      "modified_at": "2025-09-03T22:28:25.545866",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The content addresses strategic planning for photogrammetry projects—a topic that benefits from a measured, data‑driven narrative rather than a rapid‑fire tech vibe, making The Atlantic’s analytical voice a better fit. An explainer format provides a clear, structured overview of common planning pitfalls and best‑practice steps, which diversifies the batch that has been heavy on tutorials and deep‑dives. Positioning it as educational targets the top of the funnel, attracting project managers and business owners who are still assessing whether photogrammetry fits their needs. The primary goal is to educate them on avoiding costly mistakes. Enterprise audiences need a moderate technical depth to grasp coverage, equipment, and timeline considerations without overwhelming jargon."
+      "article_generated": false
     },
     {
       "title": "Post-Processing Workflows That Don't Take Forever",
-      "pain_point": "Studios spend hours—often days—on post‑processing photogrammetry data because their pipelines rely on manual cleanup, repetitive UV‑mapping, and trial‑and‑error decimation. Sources report bottlenecks such as having to unwrap each mesh individually, lack of batch automation in Blender or Agisoft, and frequent back‑and‑forth between scanning software and 3D‑editing tools. This inefficiency drives up labor costs, delays client deliveries, and makes large‑scale projects financially unviable.",
-      "target_audience": "enterprise",
+      "pain_point": "Users spend excessive time on post-processing due to inefficient workflows, lack of automation, and trial-and-error approaches to optimization settings. Processing times become prohibitive for commercial work or large projects.",
+      "target_audience": "Production studios, commercial photogrammetry services, and professionals who need to optimize processing efficiency for profitability and client satisfaction.",
       "content_details": "",
       "sources": [
         "https://blenderartists.org/t/photogrammetry-model-processing-mainly-uv-mapping-pains/686151",
@@ -473,24 +475,24 @@
         "https://forums.cgarchitect.com/topic/79902-photogrammetry-workflows/"
       ],
       "id": "721b62d3733f",
-      "created_at": "2025-09-03T00:15:30.250885",
-      "modified_at": "2025-09-03T00:15:30.250886",
-      "article": "blog_post_drafts/721b62d3733f_Post-Processing Workflows That Don't Take Forever.md",
-      "voice": "TheAtlantic",
-      "piece_type": "case study",
-      "marketing_post_type": "case study",
-      "primary_goal": "educate",
-      "technical_depth": "high",
+      "created_at": "2025-09-03T22:28:25.545882",
+      "modified_at": "2025-09-03T22:28:25.545883",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The audience consists of production studios and commercial photogrammetry services that operate at an enterprise level and need data‑driven, credibility‑building content. A case‑study format lets us illustrate concrete workflow improvements, metrics, and ROI, which aligns with the Atlantic’s measured, evidence‑rich voice. This voice adds gravitas and a structured, analytical tone suitable for senior decision‑makers. Selecting a case‑study marketing type reinforces trust and demonstrates real‑world results, while the primary goal of education positions the piece as a learning tool rather than a hard sell. Technical depth is set to high to satisfy seasoned professionals who expect detailed toolchains, script snippets, and performance benchmarks."
+      "article_generated": false
     },
     {
       "title": "Reality Capture Troubleshooting: When Everything Goes Wrong",
-      "pain_point": "Reality Capture users frequently encounter software‑specific breakdowns that aren’t covered in official docs: (1) component alignment failures where scans don’t stitch correctly, especially when using the turntable workflow; (2) turntable workflow mis‑alignment causing duplicated geometry or missing sections; (3) licensing hiccups—activation errors, expired licenses, or server‑based license conflicts that halt processing; (4) integration headaches with downstream tools like Unreal Engine, where exported models appear distorted or lack proper texture mapping; and (5) a general lack of clear, centralized troubleshooting guidance, forcing users to piece together fixes from scattered forum posts, YouTube videos, and Reddit threads.",
-      "target_audience": "enterprise",
+      "pain_point": "Reality Capture users encounter specific software-related issues including component alignment failures, turntable workflow problems, licensing complications, and integration challenges with other software platforms. These issues often have software-specific solutions that aren't well documented.",
+      "target_audience": "Reality Capture users across all skill levels, from beginners learning the software to professionals dealing with complex multi-component projects and enterprise workflows.",
       "content_details": "",
       "sources": [
         "https://www.youtube.com/watch?v=ZZut6f17Vtc",
@@ -499,24 +501,24 @@
         "https://www.reddit.com/r/photogrammetry/comments/1804g7u/reality_capture_turntable_workflow_doesnt_align/"
       ],
       "id": "11b7cf2aa206",
-      "created_at": "2025-09-03T00:15:30.250903",
-      "modified_at": "2025-09-03T00:15:30.250904",
-      "article": "blog_post_drafts/11b7cf2aa206_Reality Capture Troubleshooting_ When Everything Goes Wrong.md",
-      "voice": "TheNewYorker",
-      "piece_type": "methods deep dive",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.545898",
+      "modified_at": "2025-09-03T22:28:25.545899",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The troubleshooting focus calls for a voice that can blend technical authority with a conversational, slightly witty tone—exactly what The New Yorker offers. A methods‑deep‑dive format lets us explore the root causes of alignment, licensing, and integration failures rather than just listing steps, providing more value to enterprise users who need to understand why things break. Positioning the piece as educational keeps it in the TOFU/MOFU zone, attracting both new and seasoned Reality Capture users searching for solutions. The primary goal is to troubleshoot because the research highlights concrete, undocumented error scenarios. Enterprise is chosen as the audience because the pain points (turntable pipelines, multi‑component projects, licensing at scale) are most acute in larger, professional workflows. A medium technical depth balances depth for power users while remaining approachable for beginners within an enterprise team."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 1: \"Taming the Data Monster: How to Handle Massive 3D Scan Files Without Crashing Your System\"**",
-      "pain_point": "AEC professionals, surveyors, and 3D‑scanning service providers regularly receive laser‑scan or photogrammetry models that can be hundreds of megabytes to several gigabytes. These massive files overwhelm viewers, cause crashes, take minutes or hours to load, and are impractical to share or collaborate on. Users report that their hardware (GPU memory, RAM, storage) can’t keep up, leading to lost productivity and stalled projects. They need reliable ways to shrink file size without sacrificing the fidelity required for design, analysis, or documentation.",
-      "target_audience": "enterprise",
+      "pain_point": "Users are struggling with enormous 3D model files (hundreds of MB to GB) that crash viewers, take forever to load, and are impossible to share or collaborate on effectively.",
+      "target_audience": "AEC professionals, surveyors, and 3D scanning service providers who regularly work with high-resolution laser scans and photogrammetry models but lack the infrastructure to handle massive datasets efficiently.",
       "content_details": "",
       "sources": [
         "https://www.reddit.com/r/threejs/comments/d9q2d8/optimal_file_size_for_model/",
@@ -525,24 +527,24 @@
         "https://www.reddit.com/r/gamedev/comments/zia1t3/what_file_size_disk_space_should_3d_character/"
       ],
       "id": "41f7586633ef",
-      "created_at": "2025-09-03T00:15:30.251697",
-      "modified_at": "2025-09-03T00:15:30.251702",
-      "article": "blog_post_drafts/41f7586633ef___Blog Post 1_ _Taming the Data Monster_ How to Handle Massive 3D Scan Files Without Cr.md",
-      "voice": "TheAtlantic",
-      "piece_type": "explainer",
-      "marketing_post_type": "comparison",
-      "primary_goal": "compare",
-      "technical_depth": "high",
+      "created_at": "2025-09-03T22:28:25.546869",
+      "modified_at": "2025-09-03T22:28:25.546874",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic is a technically heavy pain point for AEC firms that need to evaluate multiple strategies for shrinking massive 3D scan files. A measured, data‑driven voice like The Atlantic conveys authority and can weave in statistics from the Reddit threads (e.g., typical file sizes, memory usage) while remaining professional for an enterprise audience. An explainer format lets us outline the problem space and the underlying concepts before diving into side‑by‑side comparisons of techniques (mesh decimation, point‑cloud simplification, compression, file‑format choices). Choosing a comparison marketing post type and a primary goal of \"compare\" differentiates this entry from the many purely educational pieces in the batch and positions the content in the MOFU stage, helping prospects decide which workflow fits their pipeline. The audience is clearly enterprise (AEC firms, surveyors, scanning service providers) and they require a high technical depth to assess trade‑offs, so \"high\" is appropriate."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 2: \"When Photogrammetry Goes Wrong: Fixing Holes, Noise, and Failed Reconstructions\"**",
-      "pain_point": "Practitioners report that photogrammetry projects frequently result in failed reconstructions, meshes riddled with holes, noisy point clouds, and overall quality that falls short of tutorial examples. Specific issues include incomplete overlap leading to gaps, inconsistent lighting causing noise, improper camera settings that break alignment, and default reconstruction parameters that produce low‑resolution or fragmented meshes. Users struggle to diagnose whether the problem lies in image capture, software settings, or hardware limitations, leading to wasted time and costly re‑shots.",
-      "target_audience": "public sector",
+      "pain_point": "Users are experiencing failed photogrammetry reconstructions, incomplete meshes with holes, noisy data, and broken-up point clouds that don't match the quality they see in tutorials.",
+      "target_audience": "Architects, heritage documentation specialists, small surveying firms, and individual practitioners using photogrammetry for documentation and measurement who struggle with inconsistent results.",
       "content_details": "",
       "sources": [
         "https://www.agisoft.com/forum/index.php?topic=10580.0",
@@ -551,24 +553,24 @@
         "https://www.reddit.com/r/photogrammetry/comments/ueol2y/reality_capture_computation_of_one_or_more_part/"
       ],
       "id": "eca4bb24d1aa",
-      "created_at": "2025-09-03T00:15:30.251729",
-      "modified_at": "2025-09-03T00:15:30.251731",
-      "article": "blog_post_drafts/eca4bb24d1aa___Blog Post 2_ _When Photogrammetry Goes Wrong_ Fixing Holes, Noise, and Failed Reconst.md",
-      "voice": "TheAtlantic",
-      "piece_type": "explainer",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.546890",
+      "modified_at": "2025-09-03T22:28:25.546891",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The audience (architects, heritage documentation teams, and small surveying firms) often operates within government or cultural‑heritage agencies, making \"public sector\" the most fitting label and adding diversity to the batch which has been dominated by \"enterprise\" and \"hobbyist\". The topic is a technical troubleshooting guide, but rather than a step‑by‑step tutorial we frame it as an explainer that first outlines why photogrammetry fails (data capture, alignment, reconstruction settings) and then offers concrete remedies. This aligns with The Atlantic’s analytical, data‑driven style—providing historical context on photogrammetry pipelines and citing community‑sourced evidence from forums and Reddit—while avoiding the rapid‑fire tone of Wired. An \"educational\" post‑type positions the piece at the top‑of‑funnel, capturing users who search for generic error‑fix queries, and the primary goal is to troubleshoot. A medium technical depth matches the mixed expertise of architects and heritage specialists who understand the basics but need actionable insight without overwhelming jargon."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 3: \"The Hidden Costs of Point Cloud Data: Storage, Processing, and Collaboration Challenges\"**",
-      "pain_point": "Construction, surveying, and engineering firms struggle with point‑cloud datasets that quickly balloon to terabytes. The sheer volume drives exorbitant storage costs (both on‑prem and cloud), forces costly high‑performance compute for filtering, registration, and rendering, and creates bandwidth bottlenecks when sharing files. Collaboration suffers because teams must wrestle with slow file transfers, lack of version control, and security concerns, leading to project delays and budget overruns.",
-      "target_audience": "enterprise",
+      "pain_point": "Organizations are overwhelmed by the massive storage requirements, processing costs, and collaboration difficulties that come with point cloud datasets that can reach terabytes in size.",
+      "target_audience": "Project managers, IT directors, and business owners in construction, surveying, and engineering firms who need to understand and budget for the true costs of implementing 3D scanning workflows.",
       "content_details": "",
       "sources": [
         "https://www.tejjy.com/challenges-in-point-cloud-data-management/",
@@ -577,24 +579,24 @@
         "https://aeromegh.com/blog/challenges-and-solutions/"
       ],
       "id": "861e341c0ce6",
-      "created_at": "2025-09-03T00:15:30.251747",
-      "modified_at": "2025-09-03T00:15:30.251748",
-      "article": "blog_post_drafts/861e341c0ce6___Blog Post 3_ _The Hidden Costs of Point Cloud Data_ Storage, Processing, and Collabor.md",
-      "voice": "TheAtlantic",
-      "piece_type": "explainer",
-      "marketing_post_type": "educational",
-      "primary_goal": "educate",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.546907",
+      "modified_at": "2025-09-03T22:28:25.546908",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic deals with quantifiable hidden costs (storage, compute, collaboration) that require a data‑driven, analytical tone to resonate with project managers, IT directors, and business owners. The Atlantic’s measured, evidence‑rich voice is ideal for presenting cost breakdowns, industry benchmarks, and historical adoption trends without the rapid‑fire style of Wired. An explainer format best structures the material into clear sections (storage, processing, collaboration) for readers who need a concise overview rather than step‑by‑step instructions. Positioning the piece as educational places it at the top of the funnel, attracting enterprises that may not yet realize the full budget impact of point‑cloud workflows. The primary goal is to educate, helping decision‑makers recognize and budget for these expenses. A medium technical depth matches the audience’s managerial expertise while still delivering enough technical detail to be credible."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 4: \"Registration Nightmares: Why Your 3D Scans Won't Align and How to Fix Them\"**",
-      "pain_point": "Scanning teams are forced to spend days manually aligning point‑cloud scans that should register automatically. Common symptoms include misaligned floors across multi‑story buildings, overlapping scans that refuse to stitch, and software that discards registration metadata. Technicians report chasing tie‑points, re‑running registration algorithms, and still ending up with drifted models, leading to schedule delays and costly re‑scans.",
-      "target_audience": "enterprise",
+      "pain_point": "Users are spending days manually aligning point cloud scans that should register automatically, dealing with misaligned floors in multi-story buildings, and struggling with software that fails to properly register overlapping scans.",
+      "target_audience": "Laser scanning technicians, BIM coordinators, and surveying professionals who regularly work with multi-scan projects and need reliable registration workflows.",
       "content_details": "",
       "sources": [
         "https://www.reddit.com/r/3DScanning/comments/1iy2f29/do_faro_focus_scanners_add_registration_data_to/",
@@ -602,24 +604,24 @@
         "https://www.laserscanningforum.com/forum/viewtopic.php?t=17924"
       ],
       "id": "cf8f65ec6e5c",
-      "created_at": "2025-09-03T00:15:30.251763",
-      "modified_at": "2025-09-03T00:15:30.251765",
-      "article": "blog_post_drafts/cf8f65ec6e5c___Blog Post 4_ _Registration Nightmares_ Why Your 3D Scans Won't Align and How to Fix T.md",
-      "voice": "TheAtlantic",
-      "piece_type": "methods deep dive",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "high",
+      "created_at": "2025-09-03T22:28:25.546922",
+      "modified_at": "2025-09-03T22:28:25.546924",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The audience (laser‑scanning technicians, BIM coordinators, and surveying pros) needs a data‑driven, authoritative explanation of why registration fails, which matches The Atlantic’s measured, evidence‑heavy style. A methods deep dive lets us explore algorithmic roots, sensor metadata issues, and workflow bottlenecks rather than just a step‑by‑step tutorial, offering the depth expected by enterprise users. Positioning the piece as educational keeps it at the top‑of‑funnel to attract new leads searching for “3D scan registration problems,” while the primary goal remains troubleshooting because the core user need is to resolve misalignments quickly. Choosing enterprise as the audience reflects the professional, project‑scale context, and a high technical depth aligns with their expertise. This selection also diversifies the batch, which has leaned heavily on Wired and tutorial formats, by using The Atlantic voice and a deep‑dive format."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 5: \"File Format Hell: Making Your 3D Data Work Across Different Software Platforms\"**",
-      "pain_point": "Technical teams lose significant time and data fidelity when moving 3D models between software platforms because file formats are often incompatible or proprietary. Common issues include loss of units and scaling errors when exporting/importing STL or OBJ files, missing metadata (e.g., material, level‑of‑detail) in formats like FBX, geometry corruption during conversion, and the inability of third‑party tools to read native CAD/BIM files (DWG, RVT, IFC). These problems force repeated manual clean‑up, introduce errors into downstream analyses, and erode project schedules.",
-      "target_audience": "enterprise",
+      "pain_point": "Professionals are losing time and data quality when transferring 3D models between different software packages due to incompatible file formats, proprietary formats that can't be read by third-party software, and conversion issues that corrupt data.",
+      "target_audience": "CAD managers, BIM coordinators, and technical professionals who work with multiple software platforms and need reliable data exchange workflows.",
       "content_details": "",
       "sources": [
         "https://www.itcon.org/papers/2021_14-ITcon-Uotila.pdf",
@@ -627,24 +629,24 @@
         "https://forums.autodesk.com/t5/inventor-forum/3d-scan-stl-file/td-p/6380027"
       ],
       "id": "eed87a56a8aa",
-      "created_at": "2025-09-03T00:15:30.251779",
-      "modified_at": "2025-09-03T00:15:30.251780",
-      "article": "blog_post_drafts/eed87a56a8aa___Blog Post 5_ _File Format Hell_ Making Your 3D Data Work Across Different Software Pl.md",
-      "voice": "TheAtlantic",
-      "piece_type": "methods deep dive",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "high",
+      "created_at": "2025-09-03T22:28:25.546938",
+      "modified_at": "2025-09-03T22:28:25.546940",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The audience—CAD managers and BIM coordinators in large firms—needs a measured, data‑driven tone that conveys authority and long‑form analysis, which aligns with The Atlantic voice. A methods deep dive lets us dissect the myriad 3D file formats (DWG, IFC, Revit, OBJ, STL, etc.), the pitfalls of proprietary schemas, and the technical nuances of conversion pipelines, rather than a simple step‑by‑step tutorial that would be redundant. Positioning the piece as educational targets the top of the funnel, introducing readers to the foundational concepts they must understand before evaluating tools, while the primary goal of troubleshooting directly addresses their immediate pain of corrupted or lost data during transfers. The enterprise label reflects the professional, budget‑conscious environment of the readers, and a high technical depth ensures we cover mesh fidelity, unit handling, attribute mapping, and validation scripts that these experts expect."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 6: \"Beyond the Desktop: Web-Based 3D Collaboration That Actually Works\"**",
-      "pain_point": "Teams handling large 3D models constantly hit roadblocks: email attachments choke on multi‑gigabyte files; version control spirals as multiple stakeholders edit copies locally, leading to drift and rework; generic cloud storage raises security red flags for proprietary designs; and every participant often needs a costly, specialized 3D application installed just to view or comment, inflating budgets and slowing onboarding. Remote server connections reported in Autodesk forums illustrate how fragile existing workflows are, forcing managers to juggle workarounds that compromise speed, security, and cost.",
-      "target_audience": "enterprise",
+      "pain_point": "Teams struggle to share and collaborate on large 3D datasets, facing issues with email file size limits, version control problems, security concerns with cloud storage, and the need for expensive specialized software for every team member.",
+      "target_audience": "Project managers, architects, and engineering teams who need to collaborate on 3D projects across different locations and organizations without requiring expensive software installations for every stakeholder.",
       "content_details": "",
       "sources": [
         "https://forums.autodesk.com/t5/revit-mep-forum/cloud-storage-working-issues-with-remote-server-connection/td-p/12176892",
@@ -653,24 +655,24 @@
         "https://www.reddit.com/r/Fusion360/comments/1b9ug66/is_everyone_just_fine_with_all_their_work_and/"
       ],
       "id": "ccacb51a80ac",
-      "created_at": "2025-09-03T00:15:30.251798",
-      "modified_at": "2025-09-03T00:15:30.251800",
-      "article": "blog_post_drafts/ccacb51a80ac___Blog Post 6_ _Beyond the Desktop_ Web-Based 3D Collaboration That Actually Works___.md",
-      "voice": "TheAtlantic",
-      "piece_type": "explainer",
-      "marketing_post_type": "comparison",
-      "primary_goal": "compare",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.546958",
+      "modified_at": "2025-09-03T22:28:25.546959",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The audience (project managers, architects, engineering teams) are decision‑makers in large organizations who need a balanced, data‑driven overview before committing to a solution. The Atlantic’s measured, analytical tone works well for a comparison‑focused explainer that outlines the pros and cons of web‑based 3D collaboration versus traditional desktop‑centric workflows. An explainer keeps the piece concise enough for busy professionals while still providing enough technical depth to be credible. Positioning it as a MOFU comparison piece aligns with the need to nurture leads evaluating collaboration platforms. The goal is to compare, not just educate, because the primary hurdle is choosing the right tool. Technical depth is set to medium to match the expertise of enterprise users without overwhelming them."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 7: \"Mobile Photogrammetry Reality Check: Getting Professional Results from Smartphone Cameras\"**",
-      "pain_point": "Professionals are frustrated by inconsistent, low‑quality 3D models when using smartphone cameras for photogrammetry. They encounter blurry or under‑exposed images, insufficient overlap, and processing failures, leading to the belief that professional results are unattainable on consumer devices despite seeing impressive examples online.",
-      "target_audience": "enterprise",
+      "pain_point": "Users are getting poor results from mobile phone photogrammetry despite seeing impressive examples online, struggling with image quality, processing failures, and wondering if professional results are possible with consumer devices.",
+      "target_audience": "Field professionals, architects, and documentation specialists who need portable 3D capture solutions but want to understand the realistic capabilities and limitations of smartphone-based photogrammetry.",
       "content_details": "",
       "sources": [
         "https://www.reddit.com/r/photogrammetry/comments/qep307/what_quality_of_photo_gives_the_best_result_in/",
@@ -678,48 +680,48 @@
         "https://www.reddit.com/r/photogrammetry/comments/xa1dqq/good_phones_for_photogrammetry/"
       ],
       "id": "ef697badbfc1",
-      "created_at": "2025-09-03T00:15:30.251815",
-      "modified_at": "2025-09-03T00:15:30.251817",
-      "article": "blog_post_drafts/ef697badbfc1___Blog Post 7_ _Mobile Photogrammetry Reality Check_ Getting Professional Results from .md",
-      "voice": "TheAtlantic",
-      "piece_type": "explainer",
-      "marketing_post_type": "educational",
-      "primary_goal": "educate",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.546974",
+      "modified_at": "2025-09-03T22:28:25.546975",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The audience consists of field professionals, architects, and documentation specialists who need a balanced, data‑driven assessment of what smartphone photogrammetry can realistically deliver. A The Atlantic voice provides the measured, evidence‑based tone needed to contextualize Reddit anecdotes, hardware benchmarks, and workflow constraints without the hype of a Wired style. The content is not a step‑by‑step tutorial nor a deep technical treatise, so an explainer best fits the goal of clarifying concepts and limitations. Positioning the piece as educational (TOFU) aligns with the need to set realistic expectations early in the funnel, helping prospects understand the technology before they consider specific solutions. The primary goal is to educate, not persuade or compare, and a medium technical depth matches the expertise level of enterprise users who can grasp technical nuances but still appreciate clear, concise explanations."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 8: \"When Weather Fights Back: Overcoming Environmental Challenges in Drone Surveying\"**",
-      "pain_point": "Drone survey operators repeatedly lose time and money when weather turns hostile: high winds cause image blur, inconsistent GPS lock, and unsafe flight paths; extreme cold or heat degrades battery capacity, shortening flight windows; rapid temperature swings can cause sensor drift and affect photogrammetric accuracy; and regional regulations often prohibit flights under certain conditions, forcing project delays and budget overruns.",
-      "target_audience": "enterprise",
+      "pain_point": "Drone operators face significant challenges with weather dependency, wind effects on data quality, battery performance in extreme conditions, and regulatory restrictions that delay projects and increase costs.",
+      "target_audience": "Drone survey operators, mapping service providers, and project managers who need to deliver consistent results despite challenging environmental conditions.",
       "content_details": "",
       "sources": [
         "https://www.bluefalconaerial.com/ultimate-guide-to-drone-photogrammetry-and-orthomosaics/",
         "https://www.hollandproductions.ca/blog/drone-mapping-in-high-winds"
       ],
       "id": "10eac303541a",
-      "created_at": "2025-09-03T00:15:30.251830",
-      "modified_at": "2025-09-03T00:15:30.251831",
-      "article": "blog_post_drafts/10eac303541a___Blog Post 8_ _When Weather Fights Back_ Overcoming Environmental Challenges in Drone .md",
-      "voice": "Wired",
-      "piece_type": "explainer",
-      "marketing_post_type": "educational",
-      "primary_goal": "educate",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.546988",
+      "modified_at": "2025-09-03T22:28:25.546989",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The article tackles a practical, technology‑heavy problem—how weather conditions sabotage drone surveys and what operators can do about it. Wired’s fast‑paced, tech‑forward voice aligns with an audience that expects concise, actionable insight while still appreciating vivid metaphors (e.g., “wind as a rogue Wi‑Fi signal”). An explainer fits best because the content must first lay out why wind, temperature, and regulatory limits matter before diving into mitigation tactics; it provides a clear conceptual framework without the step‑by‑step density of a tutorial, adding variety to a batch that has leaned heavily on tutorials and methods deep dives. Positioning the piece as an educational (TOFU) asset helps attract new leads who are searching for “drone mapping in high wind” or “drone battery performance cold weather,” fulfilling the awareness stage. The primary goal is to educate, not directly persuade or compare products, since the audience—enterprise‑level mapping firms and project managers—needs foundational knowledge before evaluating specific tools. A medium technical depth matches the expertise of professional operators who understand drone basics but need deeper operational guidance."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 9: \"Point Cloud to BIM: Bridging the Gap Between Reality and Design\"**",
-      "pain_point": "Professionals in BIM and architecture repeatedly hit roadblocks when trying to bring point‑cloud data into their CAD/BIM workflows. Key issues include incompatible file formats (e.g., LAS, LAZ vs. Revit or Navisworks), fragmented software ecosystems that lack seamless import/export bridges, and the labor‑intensive process of cleaning, registering, and segmenting raw scans before they become usable design models. These hurdles increase project timelines, inflate costs, and erode confidence in the as‑built data’s fidelity.",
-      "target_audience": "enterprise",
+      "pain_point": "Professionals struggle with integrating point cloud data into CAD and BIM workflows, facing issues with data compatibility, software integration challenges, and the time-intensive process of converting point clouds to usable design models.",
+      "target_audience": "BIM managers, architects, and engineers who need to incorporate as-built conditions into their design workflows but struggle with the technical challenges of point cloud integration.",
       "content_details": "",
       "sources": [
         "https://www.testronixengineering.com/blog-tepl-4-Integrate-Point-Cloud-Data-CAD-BIM-Models.php",
@@ -728,24 +730,24 @@
         "https://lidarmag.com/2023/09/28/point-cloud-to-3d-bim-modeling-ensuring-precision-of-point-cloud-data-to-build-robust-3d-bim-models/amp/"
       ],
       "id": "605047749ee1",
-      "created_at": "2025-09-03T00:15:30.251846",
-      "modified_at": "2025-09-03T00:15:30.251847",
-      "article": "blog_post_drafts/605047749ee1___Blog Post 9_ _Point Cloud to BIM_ Bridging the Gap Between Reality and Design___.md",
-      "voice": "TheAtlantic",
-      "piece_type": "methods deep dive",
-      "marketing_post_type": "educational",
-      "primary_goal": "educate",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.547012",
+      "modified_at": "2025-09-03T22:28:25.547014",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The audience—BIM managers, architects, and engineers—are senior professionals who need a data‑driven, structured analysis of how to move from raw point clouds to BIM models. The Atlantic’s measured, evidence‑rich voice lends credibility and allows us to embed industry statistics, case examples, and historical context (e.g., the evolution of as‑built modeling). A methods‑deep‑dive format matches the complexity of the workflow without devolving into step‑by‑step tutorial minutiae, providing enough depth to be useful but staying accessible for a TOFU educational piece that builds awareness of best‑practice pipelines. Choosing an educational post‑type positions the content at the top of the funnel, addressing the common knowledge gap before readers evaluate specific tools. The primary goal is to educate, aligning with the pain of unfamiliarity and integration hurdles. The enterprise audience warrants a medium technical depth: detailed enough to discuss data formats, registration, and quality‑control metrics, yet not so high‑level as to alienate non‑programmers."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 10: \"Data Transfer Nightmares: Moving Massive 3D Datasets Without Losing Your Mind\"**",
-      "pain_point": "Teams moving multi‑gigabyte 3D point‑cloud or mesh files repeatedly encounter painfully slow uploads, transfer timeouts, and silent corruption. Network interruptions cause resumable‑transfer failures, cloud storage APIs lack proper chunking support, and on‑premise servers often run out of bandwidth, leading to dropped files and lost work. Coordinators spend hours manually verifying integrity, which stalls projects and creates frustration across distributed teams.",
-      "target_audience": "enterprise",
+      "pain_point": "Users face significant challenges transferring large 3D datasets between team members, cloud services, and different project locations, dealing with slow upload speeds, failed transfers, and corruption issues during data movement.",
+      "target_audience": "IT managers, project coordinators, and technical professionals who manage 3D data workflows across distributed teams and need reliable data transfer solutions.",
       "content_details": "",
       "sources": [
         "https://www.laserscanningforum.com/forum/viewtopic.php?t=13280",
@@ -753,24 +755,24 @@
         "https://community.octoprint.org/t/issues-uploading-files-from-cloud-storage/61881"
       ],
       "id": "d2be736cd095",
-      "created_at": "2025-09-03T00:15:30.251862",
-      "modified_at": "2025-09-03T00:15:30.251863",
-      "article": "blog_post_drafts/d2be736cd095___Blog Post 10_ _Data Transfer Nightmares_ Moving Massive 3D Datasets Without Losing Yo.md",
-      "voice": "TheAtlantic",
-      "piece_type": "tutorial",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.547028",
+      "modified_at": "2025-09-03T22:28:25.547029",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The Atlantic’s measured, data‑driven voice resonates with IT managers and project coordinators who need a calm, authoritative guide rather than a hype‑filled tech buzz. A tutorial format delivers concrete, step‑by‑step procedures to overcome transfer failures, which aligns with the audience’s need for actionable solutions. Positioning the piece as educational places it at the top of the funnel, attracting teams searching for reliable ways to move massive 3D datasets, while the primary goal of troubleshooting directly addresses the core pain. This combination differs from the prior batch’s frequent Wired‑tutorial or New Yorker‑explainer pairings, adding variety to the content mix."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 11: \"Version Control Chaos: Managing 3D Model Changes in Team Environments\"**",
-      "pain_point": "Teams working on collaborative 3D projects repeatedly lose work, overwrite each other’s changes, and struggle to trace who altered what and when. Without a single source of truth, model revisions become a maze, leading to duplicated effort, missed deadlines, and costly rework. The problem is amplified when files are stored locally or on shared drives, where version numbers are ambiguous and accidental saves erase critical design iterations.",
-      "target_audience": "enterprise",
+      "pain_point": "Teams working on 3D projects struggle with version control issues, lost changes, overwritten work, and difficulty tracking modifications across multiple team members and project iterations.",
+      "target_audience": "Project managers, CAD managers, and team leaders who need to establish effective version control workflows for collaborative 3D modeling projects.",
       "content_details": "",
       "sources": [
         "https://www.onshape.com/en/blog/a-single-source-of-truth-eliminating-version-control-issues-with-the-cloud",
@@ -779,24 +781,24 @@
         "https://www.linkedin.com/advice/0/youre-knee-deep-team-based-3d-modeling-project-how-jexge"
       ],
       "id": "a4839f42c11b",
-      "created_at": "2025-09-03T00:15:30.251878",
-      "modified_at": "2025-09-03T00:15:30.251879",
-      "article": "blog_post_drafts/a4839f42c11b___Blog Post 11_ _Version Control Chaos_ Managing 3D Model Changes in Team Environments_.md",
-      "voice": "TheNewYorker",
-      "piece_type": "explainer",
-      "marketing_post_type": "comparison",
-      "primary_goal": "compare",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.547046",
+      "modified_at": "2025-09-03T22:28:25.547047",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The audience—project managers, CAD managers, and team leads—are seasoned professionals who need to evaluate solutions rather than just learn basics, so a MOFU comparison piece fits best. An explainer format lets us outline why version‑control chaos happens and then pit cloud‑native CAD platforms (e.g., Onshape) against traditional file‑based workflows, giving decision‑makers a clear matrix of pros and cons. I chose the New Yorker voice to inject a sophisticated, witty narrative that stands out from the many Wired and Atlantic pieces in the batch, turning a technical headache into a story about “the office‑wide game of telephone” that resonates with senior managers. This combination adds diversity to the overall content slate while still delivering actionable, medium‑depth technical insight."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 12: \"LiDAR Processing Bottlenecks: Streamlining Your Point Cloud Production Pipeline\"**",
-      "pain_point": "Survey firms and GIS teams routinely hit roadblocks that stretch LiDAR projects from days to weeks: manual point‑cloud classification can consume several weeks of labor; on‑premise CPUs/GPUs struggle with terabyte‑scale datasets, leading to queue backlogs; and the scarcity of specialists who understand both photogrammetry and machine‑learning forces firms to outsource or delay delivery. These constraints inflate project costs, reduce competitiveness, and create bottlenecks that jeopardize tight client timelines.",
-      "target_audience": "enterprise",
+      "pain_point": "Organizations face significant bottlenecks in LiDAR data processing, with manual classification taking weeks, processing hardware limitations causing delays, and the need for specialized expertise creating production constraints.",
+      "target_audience": "Survey company owners, GIS managers, and production managers who need to optimize their LiDAR processing workflows to improve productivity and reduce project turnaround times.",
       "content_details": "",
       "sources": [
         "https://pmc.ncbi.nlm.nih.gov/articles/PMC9784304/",
@@ -805,24 +807,24 @@
         "https://premioinc.com/blogs/blog/mobile-lidar-surveying-amp-mapping-powered-by-ai-edge-inference-computers"
       ],
       "id": "9c6af789506f",
-      "created_at": "2025-09-03T00:15:30.251893",
-      "modified_at": "2025-09-03T00:15:30.251895",
-      "article": "blog_post_drafts/9c6af789506f___Blog Post 12_ _LiDAR Processing Bottlenecks_ Streamlining Your Point Cloud Production.md",
-      "voice": "TheAtlantic",
-      "piece_type": "explainer",
-      "marketing_post_type": "comparison",
-      "primary_goal": "compare",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.547061",
+      "modified_at": "2025-09-03T22:28:25.547063",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The Atlantic’s measured, data‑driven tone fits an audience of survey company owners and GIS managers who need a balanced, evidence‑based overview rather than a rapid‑fire Wired style. An explainer provides a clear, structured walk‑through of the common LiDAR pipeline bottlenecks and the emerging AI‑edge solutions without the step‑by‑step detail of a tutorial, offering fresh variety compared to the many methods‑deep‑dives and tutorials in the batch. Positioning the piece as a comparison piece (MOFU) aligns with the audience’s stage of evaluating automated AI processing against manual or outsourced services, and the primary goal of “compare” directly supports that evaluation. The enterprise audience justifies a medium technical depth: enough detail to discuss hardware limits, classification algorithms, and edge‑inference platforms, but not deep enough to overwhelm senior managers."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 13: \"Scanning Flat Surfaces: Conquering Photogrammetry's Biggest Challenge\"**",
-      "pain_point": "Users repeatedly fail to capture flat, featureless surfaces (e.g., concrete floors, painted walls, building facades) in photogrammetry projects. The lack of surface texture, low contrast, and minimal parallax cause the reconstruction software to generate irregular, collapsed geometry or empty holes, resulting in unusable point clouds and models. Forum and Reddit discussions highlight issues such as specular glare, insufficient overlap, and the need for artificial texture or projected patterns to give the algorithms enough visual cues.",
-      "target_audience": "enterprise",
+      "pain_point": "Users consistently struggle with capturing flat, featureless surfaces in photogrammetry, leading to failed reconstructions, irregular surfaces, and collapsed geometry in areas that should be perfectly flat.",
+      "target_audience": "Architectural documentarians, heritage preservation specialists, and surveyors who need to capture flat surfaces like floors, walls, and building facades with high accuracy.",
       "content_details": "",
       "sources": [
         "https://forums.unrealengine.com/t/flat-surface-problem/1392095",
@@ -830,24 +832,24 @@
         "https://www.reddit.com/r/photogrammetry/comments/173w1rs/various_photogrammetry_workflow_questions/"
       ],
       "id": "435d085c0d65",
-      "created_at": "2025-09-03T00:15:30.251908",
-      "modified_at": "2025-09-03T00:15:30.251909",
-      "article": "blog_post_drafts/435d085c0d65___Blog Post 13_ _Scanning Flat Surfaces_ Conquering Photogrammetry's Biggest Challenge_.md",
-      "voice": "Wired",
-      "piece_type": "explainer",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.547076",
+      "modified_at": "2025-09-03T22:28:25.547077",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic is a technical challenge that demands a fast‑paced, tech‑forward voice; Wired’s futurist tone matches the photogrammetry community while still being accessible to professionals. An explainer works best because the audience needs a clear conceptual overview of why flat, texture‑less surfaces break reconstruction pipelines before they dive into step‑by‑step fixes. Positioning the piece as educational at the top of the funnel attracts architectural documentarians, heritage teams, and surveyors who are searching for general guidance. The primary goal is to troubleshoot the specific failure mode, giving readers immediate, actionable insight. Enterprise readers are the dominant segment in this space, and a medium technical depth provides enough detail without overwhelming busy practitioners."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 14: \"Mesh Generation Failures: Troubleshooting When 3D Reconstruction Goes Wrong\"**",
-      "pain_point": "Users of RealityCapture, ReCap, and similar photogrammetry tools repeatedly encounter mesh generation failures—cryptic \"computation failed\" messages, incomplete or fragmented meshes, and unexplained crashes. The errors often lack actionable details, leaving technicians guessing whether the cause lies in insufficient image overlap, poor lighting, inadequate GPU/CPU resources, driver incompatibilities, or project settings such as max face count or texture resolution. This ambiguity forces teams to waste time on trial‑and‑error, delays project delivery, and erodes confidence in the software’s reliability.",
-      "target_audience": "enterprise",
+      "pain_point": "Users experience frequent mesh generation failures in software like RealityCapture and ReCap, with cryptic error messages, partial reconstructions, and \"computation failed\" errors that provide no clear solution path.",
+      "target_audience": "3D reconstruction specialists, photogrammetry technicians, and service providers who need reliable mesh generation workflows and troubleshooting strategies.",
       "content_details": "",
       "sources": [
         "https://www.reddit.com/r/photogrammetry/comments/ueol2y/reality_capture_computation_of_one_or_more_part/",
@@ -856,24 +858,24 @@
         "https://lilea.net/lab/reality-capture-errors/"
       ],
       "id": "686b00da202f",
-      "created_at": "2025-09-03T00:15:30.251924",
-      "modified_at": "2025-09-03T00:15:30.251926",
-      "article": "blog_post_drafts/686b00da202f___Blog Post 14_ _Mesh Generation Failures_ Troubleshooting When 3D Reconstruction Goes .md",
-      "voice": "TheAtlantic",
-      "piece_type": "methods deep dive",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "high",
+      "created_at": "2025-09-03T22:28:25.547093",
+      "modified_at": "2025-09-03T22:28:25.547094",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "TheAtlantic’s analytical, data‑driven tone matches the sophisticated, professional audience of photogrammetry technicians and service providers who need a thorough, evidence‑based examination of why mesh generation fails. A methods‑deep‑dive format allows us to dissect error logs, hardware constraints, and workflow configurations in depth rather than a simple step‑by‑step tutorial, providing the high technical depth these specialists expect. Positioning the piece as educational fits the TOF/​MOF stage where users are seeking knowledge to keep their pipelines running, and the primary goal of troubleshooting directly addresses the core pain. Selecting \"enterprise\" reflects the business‑focused nature of the audience, and choosing a high technical depth ensures the content respects their expertise."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 15: \"Breaking Down Data Silos: Establishing Effective Geospatial Data Governance\"**",
-      "pain_point": "Large organizations are plagued by fragmented geospatial assets: datasets live in departmental silos, formats differ (e.g., shapefiles vs. CityGML), 3‑D models are duplicated, and there is no unified catalog or access policy. This fragmentation forces teams to rebuild data, leads to inconsistent analysis, wastes budget on redundant data acquisition, and prevents the organization from leveraging spatial insights across the enterprise.",
-      "target_audience": "enterprise",
+      "pain_point": "Organizations struggle with scattered geospatial data across different departments, inconsistent formats, duplicated efforts, and lack of standardized access to 3D assets, leading to inefficiency and missed opportunities.",
+      "target_audience": "GIS managers, CTO/CTOs, and department heads in large organizations who need to establish coordinated geospatial data management across multiple teams and projects.",
       "content_details": "",
       "sources": [
         "https://ijsdir.sadl.kuleuven.be/index.php/ijsdir/article/view/402",
@@ -882,72 +884,72 @@
         "https://resources.esri.ca/news-and-updates/mapping-the-local-geospatial-data-collaboration-landscape"
       ],
       "id": "bb0fcf1e2959",
-      "created_at": "2025-09-03T00:15:30.251939",
-      "modified_at": "2025-09-03T00:15:30.251941",
-      "article": "blog_post_drafts/bb0fcf1e2959___Blog Post 15_ _Breaking Down Data Silos_ Establishing Effective Geospatial Data Gover.md",
-      "voice": "Wired",
-      "piece_type": "methods deep dive",
-      "marketing_post_type": "comparison",
-      "primary_goal": "compare",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.547108",
+      "modified_at": "2025-09-03T22:28:25.547110",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The article tackles a strategic, technology‑focused challenge—geospatial data silos—while offering concrete governance frameworks. Wired’s futurist, tech‑forward voice matches the audience of GIS managers and CTOs who expect brisk, jargon‑light explanations with clear \"what‑it‑means‑for‑you\" takeaways. A methods‑deep‑dive format lets us walk readers through governance models (centralized, federated, hybrid) and implementation steps, which aligns with the comparison marketing post type aimed at the consideration stage of the funnel. Positioning the piece as a comparison lets the reader evaluate different governance approaches side‑by‑side, satisfying the primary goal of helping large enterprises decide which model fits their organization. The technical depth is set to medium to stay accessible to senior managers while still providing enough detail for technical stakeholders."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 16: \"Drowning in Drone Data: Efficient Management Strategies for Survey Operations\"**",
-      "pain_point": "Drone survey operators are drowning in terabytes of high‑resolution imagery and point‑cloud data. Storage costs spiral, processing pipelines become bottlenecks, and files sit in chaotic folder structures, making it hard to retrieve the right dataset quickly. The overload leads to delayed project delivery, increased overhead, and the risk of data loss, forcing companies to seek scalable, cost‑effective ways to ingest, store, organize, and process the flood of drone‑generated data.",
-      "target_audience": "enterprise",
+      "pain_point": "Drone operators and survey companies are overwhelmed by the massive volumes of imagery and data generated by modern drone surveys, struggling with storage costs, processing backlogs, and data organization challenges.",
+      "target_audience": "Drone service providers, survey company owners, and operations managers who need to scale their data processing capabilities while controlling costs and maintaining quality.",
       "content_details": "",
       "sources": [
         "https://www.aerotas.com/troubleshooting-photogrammetry-issues",
         "https://aeromegh.com/blog/challenges-and-solutions/"
       ],
       "id": "8477da7ca852",
-      "created_at": "2025-09-03T00:15:30.251953",
-      "modified_at": "2025-09-03T00:15:30.251955",
-      "article": "blog_post_drafts/8477da7ca852___Blog Post 16_ _Drowning in Drone Data_ Efficient Management Strategies for Survey Ope.md",
-      "voice": "TheAtlantic",
-      "piece_type": "methods deep dive",
-      "marketing_post_type": "educational",
-      "primary_goal": "educate",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.547123",
+      "modified_at": "2025-09-03T22:28:25.547124",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic tackles a concrete operational challenge (data overload) that requires a measured, evidence‑based discussion rather than the rapid‑fire style of Wired. The Atlantic’s analytical, data‑driven voice suits enterprise decision‑makers who value structured arguments and real‑world examples. A methods deep dive lets us explore storage architectures, automated pipelines, and metadata standards in depth, aligning with the audience’s need for actionable frameworks. Positioning the piece as educational (TOFU) introduces best‑practice strategies to a broad set of drone service providers, helping them recognize the problem and consider solutions before they move to vendor comparison. The primary goal is to educate because the readers are looking for guidance, not a direct sales pitch. The audience is clearly enterprise‑level (survey company owners and ops managers), and a medium technical depth balances technical detail with readability for non‑engineer managers."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 17: \"From Scan to Solid: Converting 3D Scans into Editable CAD Models\"**",
-      "pain_point": "Mechanical engineers and product designers repeatedly hit roadblocks when trying to turn 3D scan data (often STL or mesh files) into editable, parametric CAD solids. Common issues include frequent mesh‑to‑solid conversion failures, loss of surface fidelity, excessive cleanup time, and software limitations that prevent direct import of scan formats. Teams waste hours manually retopologizing meshes or resort to workarounds that produce non‑parametric geometry, hindering downstream design changes and manufacturing preparation.",
-      "target_audience": "enterprise",
+      "pain_point": "Engineers and designers struggle to convert 3D scans and meshes into solid, parametric CAD models that can be edited and modified for design work, facing issues with mesh-to-solid conversion failures and software limitations.",
+      "target_audience": "Mechanical engineers, product designers, and reverse engineering specialists who need to convert scanned objects into editable CAD geometry for modification and manufacturing.",
       "content_details": "",
       "sources": [
         "https://forums.autodesk.com/t5/inventor-forum/3d-scan-stl-file/td-p/6380027",
         "https://forum.onshape.com/discussion/16180/importing-and-manipulating-3d-scans"
       ],
       "id": "c6a19b682794",
-      "created_at": "2025-09-03T00:15:30.251967",
-      "modified_at": "2025-09-03T00:15:30.251969",
-      "article": "blog_post_drafts/c6a19b682794___Blog Post 17_ _From Scan to Solid_ Converting 3D Scans into Editable CAD Models___.md",
-      "voice": "TheNewYorker",
-      "piece_type": "explainer",
-      "marketing_post_type": "educational",
-      "primary_goal": "educate",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.547137",
+      "modified_at": "2025-09-03T22:28:25.547138",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "TheNewYorker’s sophisticated, witty, and slightly conversational tone will make a technically dense subject like scan‑to‑solid conversion feel accessible and engaging for professional engineers, avoiding the overly terse style of Wired and the heavily data‑driven prose of The Atlantic. An explainer format matches the need to demystify the workflow without diving into exhaustive step‑by‑step code, providing just enough depth to be useful while staying concise. Positioning the piece as educational targets the top of the funnel, capturing engineers searching for a clear overview before they evaluate specific tools. The primary goal is to educate because the audience’s biggest hurdle is understanding why conversions fail and what best‑practice steps can mitigate those issues. Enterprise engineers are the core readers— they have the budget and mandate to adopt reverse‑engineering pipelines but still need guidance. A medium technical depth balances the expertise of professional designers with readability for decision‑makers who may not be CAD power users."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 18: \"Security vs. Accessibility: Protecting Sensitive 3D Data While Enabling Collaboration\"**",
-      "pain_point": "Organizations in defense, critical infrastructure, and other high‑risk sectors must enable external partners to view or edit 3D models and geospatial datasets, yet they face mounting fears of data leakage, unauthorized access, and non‑compliance with regulations such as GDPR, ITAR, and national cybersecurity frameworks. The pain manifests as (1) fragmented access‑control mechanisms that cannot enforce fine‑grained permissions across cloud‑based CAD/GIS platforms, (2) difficulty tracking who accessed which model and when, leading to audit‑ability gaps, (3) risk of accidental export or copying of classified geometry, and (4) the need to prove to auditors that sharing practices meet legal and policy standards while still supporting collaborative workflows.",
-      "target_audience": "public sector",
+      "pain_point": "Organizations need to share sensitive 3D models and geospatial data with external partners and stakeholders while maintaining security, dealing with access control challenges, data leakage risks, and compliance requirements.",
+      "target_audience": "IT security managers, project managers in defense/infrastructure sectors, and legal counsel who need to balance data sharing requirements with security and compliance obligations.",
       "content_details": "",
       "sources": [
         "https://www.sibe.io/articles/how-do-i-securely-share-a-3d-model",
@@ -955,48 +957,48 @@
         "https://www.reddit.com/r/Fusion360/comments/1b9ug66/is_everyone_just_fine_with_all_their_work_and/"
       ],
       "id": "5a721bb1369d",
-      "created_at": "2025-09-03T00:15:30.251982",
-      "modified_at": "2025-09-03T00:15:30.251983",
-      "article": "blog_post_drafts/5a721bb1369d___Blog Post 18_ _Security vs. Accessibility_ Protecting Sensitive 3D Data While Enablin.md",
-      "voice": "TheAtlantic",
-      "piece_type": "standards/policy analysis",
-      "marketing_post_type": "standards/policy analysis",
-      "primary_goal": "educate",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.547152",
+      "modified_at": "2025-09-03T22:28:25.547153",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic revolves around regulatory and compliance challenges of sharing sensitive 3D and geospatial data, which calls for a measured, data‑driven, historically aware tone – the strength of The Atlantic voice. A standards/policy analysis piece type is unique in the batch and fits the need to dissect privacy laws, defense‑grade classification frameworks, and industry‑wide security guidelines. Positioning it as a standards/policy analysis marketing post signals thought‑leadership at the TOF/MOFU edge, while the primary goal is to educate stakeholders on best‑practice controls rather than sell a product. The audience is best described as public‑sector security and legal professionals who grapple with compliance, so a medium technical depth provides enough detail on encryption, access‑control models, and audit trails without overwhelming non‑technical legal counsel."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 19: \"The 5x Problem: Why Point Cloud Modeling Takes Forever and How to Speed It Up\"**",
-      "pain_point": "BIM professionals repeatedly report that converting point‑cloud data into usable 3D models is roughly five times more labor‑intensive than traditional modeling. The core frustrations are: (1) sluggish, pixelated navigation that makes it hard to inspect fine details; (2) a lack of robust, purpose‑built tools, forcing users to cobble together workflows; (3) the reality that real‑world geometry is rarely perfectly orthogonal, so auto‑snap and clean‑up features break down, requiring manual cleanup; and (4) the cumulative effect of these issues dramatically slows project timelines and erodes profitability.",
-      "target_audience": "enterprise",
+      "pain_point": "Professionals report that creating 3D models from point clouds is 5x more labor-intensive than traditional modeling, with slow, pixelated navigation, poor tools, and the reality that nothing in the real world is perfectly straight.",
+      "target_audience": "BIM modelers, architectural firms, and engineering consultants who regularly work with point cloud to model conversion and need to improve their productivity and profitability.",
       "content_details": "",
       "sources": [
         "https://www.reddit.com/r/bim/comments/1c23id9/what_are_your_greatest_challenges_in_using_point/",
         "https://lidarmag.com/2023/09/28/point-cloud-to-3d-bim-modeling-ensuring-precision-of-point-cloud-data-to-build-robust-3d-bim-models/amp/"
       ],
       "id": "df43210668e7",
-      "created_at": "2025-09-03T00:15:30.251996",
-      "modified_at": "2025-09-03T00:15:30.251997",
-      "article": "blog_post_drafts/df43210668e7___Blog Post 19_ _The 5x Problem_ Why Point Cloud Modeling Takes Forever and How to Spee.md",
-      "voice": "TheNewYorker",
-      "piece_type": "explainer",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.547166",
+      "modified_at": "2025-09-03T22:28:25.547167",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic is a concrete, productivity‑focused problem that BIM modelers face daily. While a Wired voice would suit a pure tech‑how‑to, the audience (architectural firms and engineering consultancies) appreciates a slightly more sophisticated, narrative‑driven tone that can frame the \"5x problem\" as a broader industry quirk – a hallmark of The New Yorker style. An explainer keeps the piece concise yet insightful, differentiating it from the many tutorials and methods deep dives already used in the batch. Positioning the content as educational fits the TOFU stage, where we want to attract professionals searching for why point‑cloud workflows feel sluggish. The primary goal is to troubleshoot – readers need actionable guidance to cut the time‑penalty, not just a high‑level overview. Enterprise is the natural audience given the commercial stakes of BIM projects, and a medium technical depth matches their expertise without alienating less‑technical decision‑makers."
+      "article_generated": false
     },
     {
       "title": "**Blog Post 20: \"Data Quality Crisis: Preventing and Recovering from Point Cloud Corruption\"**",
-      "pain_point": "Survey teams regularly lose or corrupt point‑cloud data during transfer from laser scanners to storage devices. Many scanner brands impose multi‑step, proprietary transfer workflows that increase the risk of file corruption. In addition, inconsistent file naming and poor organization make raw scans inaccessible, forcing crews to redo costly field work.",
-      "target_audience": "enterprise",
+      "pain_point": "Survey teams face data loss and corruption during transfer from scanners to computers, with some brands requiring complex multi-step transfer processes that introduce corruption risks, and raw scans becoming inaccessible due to file naming and organization issues.",
+      "target_audience": "Laser scanning technicians, survey crew chiefs, and data managers who need reliable procedures for protecting valuable scan data from capture through final delivery.",
       "content_details": "",
       "sources": [
         "https://www.testronixengineering.com/blog-tepl-17-The-Fear-of-Data-Loss-in-Large-Scale-3D-Laser-Scan-Projects-and-How-to-Secure-and-Manage-Point-Cloud-Data.php",
@@ -1004,89 +1006,89 @@
         "https://www.laserscanningforum.com/forum/viewtopic.php?t=17924"
       ],
       "id": "a66bfdc467da",
-      "created_at": "2025-09-03T00:15:30.252014",
-      "modified_at": "2025-09-03T00:15:30.252016",
-      "article": "blog_post_drafts/a66bfdc467da___Blog Post 20_ _Data Quality Crisis_ Preventing and Recovering from Point Cloud Corrup.md",
-      "voice": "TheAtlantic",
-      "piece_type": "methods deep dive",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "high",
+      "created_at": "2025-09-03T22:28:25.547181",
+      "modified_at": "2025-09-03T22:28:25.547182",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic is a technically dense, step‑by‑step guide on preventing and recovering from point‑cloud corruption. While Wired is often used for quick how‑tos, this piece requires a measured, evidence‑driven tone that can embed industry best‑practice references and historical anecdotes about data‑loss incidents – a strength of The Atlantic voice. A methods‑deep‑dive format matches the need to detail workflows, backup strategies, and file‑management conventions. Positioning it as an educational post aligns with the funnel stage where survey firms are still learning robust data‑handling practices, and the primary goal is troubleshooting specific failure modes. The audience consists of professional surveying firms (enterprise), demanding a high technical depth. This combination differs from prior selections that paired The Atlantic with comparison pieces or Wired with tutorials, ensuring variety across the batch."
+      "article_generated": false
     },
     {
       "title": "Why Your Mobile LiDAR Scans Look Like a Mess: Solving Multi-Layer Ground Point Problems",
-      "pain_point": "Mobile LiDAR users repeatedly encounter point clouds riddled with 4‑6 duplicate layers of ground, walls, trees, and other features—a \"ghosting\" effect caused by mis‑aligned sensor timestamps, GNSS/IMU drift, and improper point‑cloud stitching. These overlapping layers make classification impossible and render the data unusable for feature extraction, forcing operators to discard scans or spend excessive time cleaning the data.",
-      "target_audience": "hobbyist",
+      "pain_point": "Users frequently encounter point clouds with multiple overlapping layers of the same objects, creating \"ghosting\" effects where they see 4-6 duplicate layers of ground, walls, trees, and other features stacked on top of each other. This makes classification impossible and renders data unusable for feature extraction.",
+      "target_audience": "Mobile mapping operators, surveyors using DIY mobile LiDAR rigs, data processors",
       "content_details": "",
       "sources": [
         "https://www.laserscanningforum.com/forum/viewtopic.php?t=16557"
       ],
       "id": "f6ae129d287c",
-      "created_at": "2025-09-03T00:15:30.254079",
-      "modified_at": "2025-09-03T00:15:30.254084",
-      "article": "blog_post_drafts/f6ae129d287c_Why Your Mobile LiDAR Scans Look Like a Mess_ Solving Multi-Layer Ground Point Problems.md",
-      "voice": "TheAtlantic",
-      "piece_type": "tutorial",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.549554",
+      "modified_at": "2025-09-03T22:28:25.549563",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic is a hands‑on troubleshooting guide for mobile LiDAR data quality issues. While Wired’s fast‑paced tech voice is a common fit for pure technical how‑tos, this batch already leans heavily on Wired. The Atlantic’s measured, data‑driven style lets us explain the root causes (sensor timing, GNSS drift, scanner overlap) with clear evidence and historical context, which resonates with DIY operators who need both rigor and readability. Choosing a tutorial rather than a methods deep dive provides a step‑by‑step remedy that matches the audience’s practical needs. To diversify the batch we opt for a hobbyist target (DIY rigs) and medium technical depth, ensuring the piece is accessible yet sufficiently detailed for serious enthusiasts."
+      "article_generated": false
     },
     {
       "title": "Mobile LiDAR Registration Nightmares: Why Your Point Clouds Don't Align and How to Fix Them",
-      "pain_point": "Mobile mapping teams repeatedly encounter scan‑to‑scan registration failures on long linear projects. As the vehicle moves, accumulated odometry errors cause point clouds from successive scanner positions to misalign, producing gaps, overlaps, and distorted geometry that force costly manual re‑registration and data cleanup.",
-      "target_audience": "enterprise",
+      "pain_point": "Users struggle with scan-to-scan registration failures, especially on long linear projects where error accumulates. Point clouds from different scanner positions fail to align properly, creating gaps, overlaps, and distorted geometry that requires extensive manual rework.",
+      "target_audience": "Mobile mapping technicians, surveying professionals, GIS specialists",
       "content_details": "",
       "sources": [
         "https://www.laserscanningforum.com/forum/viewtopic.php?t=20303"
       ],
       "id": "15867ac5627a",
-      "created_at": "2025-09-03T00:15:30.254098",
-      "modified_at": "2025-09-03T00:15:30.254100",
-      "article": "blog_post_drafts/15867ac5627a_Mobile LiDAR Registration Nightmares_ Why Your Point Clouds Don't Align and How to Fix .md",
-      "voice": "Wired",
-      "piece_type": "tutorial",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.549585",
+      "modified_at": "2025-09-03T22:28:25.549587",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The article tackles a concrete technical problem (scan‑to‑scan registration failures) that mobile‑mapping technicians and GIS pros search for solutions to. Wired’s fast‑paced, tech‑forward voice matches the audience’s expectation for practical, jargon‑light guidance while still sounding authoritative. A tutorial format delivers step‑by‑step remediation, which is more useful than a methods deep‑dive for readers looking to fix broken point‑cloud alignments quickly. Positioning the piece as an educational post captures high‑volume search traffic (TOFU) and begins the lead‑nurture funnel, while the primary goal of troubleshooting aligns with the pain point. Enterprise is the most appropriate audience label because the users are professional surveying and GIS teams rather than hobbyists. A medium technical depth balances detailed troubleshooting steps with readability for busy field technicians. This combination (Wired + tutorial) diversifies the batch, which has previously paired Wired mainly with methods deep dives."
+      "article_generated": false
     },
     {
       "title": "Why Your iPhone/iPad LiDAR Scans Are Terrible: Understanding Consumer Device Limitations",
-      "pain_point": "Users report that iPhone/iPad LiDAR scans often come out with mushy, low‑resolution textures, missing geometry (holes), incomplete models, and the device overheating during capture. The root cause is the consumer‑grade LiDAR sensor’s limited range, low point density, lack of advanced exposure control, and thermal throttling, which together prevent professional‑grade results and lead to frustration among hobbyists and small‑business users.",
-      "target_audience": "hobbyist",
+      "pain_point": "Users consistently report poor results from mobile device LiDAR, including mushy textures, holes in geometry, incomplete scans, and overheating issues during capture. Many expect professional-grade results but get frustrated with consumer hardware limitations.",
+      "target_audience": "iPhone/iPad users, small business owners, hobbyists, professionals considering mobile device scanning",
       "content_details": "",
       "sources": [
         "https://www.reddit.com/r/iphone/comments/17dke4c/why_is_3d_scanning_so_bad_is_this_the_best_were/",
         "https://discussions.apple.com/thread/256085766"
       ],
       "id": "cc7a9b8eaf1e",
-      "created_at": "2025-09-03T00:15:30.254114",
-      "modified_at": "2025-09-03T00:15:30.254115",
-      "article": "blog_post_drafts/cc7a9b8eaf1e_Why Your iPhone_iPad LiDAR Scans Are Terrible_ Understanding Consumer Device Limitation.md",
-      "voice": "Wired",
-      "piece_type": "explainer",
-      "marketing_post_type": "educational",
-      "primary_goal": "educate",
-      "technical_depth": "med",
+      "created_at": "2025-09-03T22:28:25.549609",
+      "modified_at": "2025-09-03T22:28:25.549611",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
       "keywords": "",
       "length": "",
       "sections": "",
       "call_to_action": "",
-      "justification": "The topic is a technical yet broadly relevant explanation of why consumer‑grade LiDAR on iPhone/iPad struggles to deliver professional‑level results. Wired’s futurist, tech‑focused voice matches the hardware‑centric angle and appeals to hobbyists who care about the tech under the hood. An explainer format best fits a clear, data‑driven breakdown of sensor constraints, processing pipelines, and thermal limits without turning into a step‑by‑step tutorial. Positioning it as an educational TOFU piece helps attract users who are just discovering mobile 3D scanning and need to set realistic expectations. The primary goal is to educate rather than directly troubleshoot, because the core value is understanding the hardware limits before attempting fixes. Choosing a hobbyist audience aligns with the Reddit and Apple‑Community discussions, and a medium technical depth provides enough detail to be informative without overwhelming casual users. This selection also diversifies the batch, which has been dominated by The Atlantic and New Yorker voices and tutorial/methods deep‑dive piece types."
+      "article_generated": false
     },
     {
       "title": "Handheld LiDAR Calibration Failures: Getting Your Scanner to Actually Work",
@@ -1098,8 +1100,8 @@
         "https://support.einscan.com/en/support/solutions/articles/60000687225-troubleshooting-calibration"
       ],
       "id": "9329ed48422d",
-      "created_at": "2025-09-03T00:15:30.254128",
-      "modified_at": "2025-09-03T00:15:30.254129",
+      "created_at": "2025-09-03T22:28:25.549632",
+      "modified_at": "2025-09-03T22:28:25.549634",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1109,7 +1111,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Mobile LiDAR in Bad Weather: When to Scan and When to Wait",
@@ -1122,8 +1125,8 @@
         "https://pmc.ncbi.nlm.nih.gov/articles/PMC10051412/"
       ],
       "id": "a5661b58648c",
-      "created_at": "2025-09-03T00:15:30.254142",
-      "modified_at": "2025-09-03T00:15:30.254143",
+      "created_at": "2025-09-03T22:28:25.549654",
+      "modified_at": "2025-09-03T22:28:25.549656",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1133,7 +1136,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Data Storage Nightmare: Managing Terabytes of Mobile LiDAR Data Without Breaking Your IT Budget",
@@ -1145,8 +1149,8 @@
         "https://www.reddit.com/r/UAVmapping/comments/rzg6nj/data_storage_solution_for_lidar/"
       ],
       "id": "d2b279507e0a",
-      "created_at": "2025-09-03T00:15:30.254156",
-      "modified_at": "2025-09-03T00:15:30.254157",
+      "created_at": "2025-09-03T22:28:25.549679",
+      "modified_at": "2025-09-03T22:28:25.549682",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1156,7 +1160,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Why Your Handheld Scanner Won't Connect: Solving Hardware Communication Issues",
@@ -1168,8 +1173,8 @@
         "https://www.reddit.com/r/BambuLab/comments/14gr3k7/lidar_replacement_incompatible_what/"
       ],
       "id": "98ea8dc17442",
-      "created_at": "2025-09-03T00:15:30.254170",
-      "modified_at": "2025-09-03T00:15:30.254171",
+      "created_at": "2025-09-03T22:28:25.549702",
+      "modified_at": "2025-09-03T22:28:25.549704",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1179,7 +1184,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Mobile LiDAR Battery Management: Avoiding Power Failures in the Field",
@@ -1192,8 +1198,8 @@
         "https://www.reddit.com/r/LiDAR/comments/lgrm5o/does_anyone_know_how_high_the_battery_consumption/"
       ],
       "id": "d2dc852b2a9a",
-      "created_at": "2025-09-03T00:15:30.254183",
-      "modified_at": "2025-09-03T00:15:30.254185",
+      "created_at": "2025-09-03T22:28:25.549731",
+      "modified_at": "2025-09-03T22:28:25.549732",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1203,7 +1209,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "File Format Hell: Exporting Mobile LiDAR Data That Actually Works",
@@ -1216,8 +1223,8 @@
         "https://www.reddit.com/r/3DScanning/comments/tci4ny/phone_app_recommendation_for_3d_scanning_and_file/"
       ],
       "id": "920da21bd36d",
-      "created_at": "2025-09-03T00:15:30.254197",
-      "modified_at": "2025-09-03T00:15:30.254198",
+      "created_at": "2025-09-03T22:28:25.549747",
+      "modified_at": "2025-09-03T22:28:25.549749",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1227,7 +1234,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "GPS/GNSS Failures in Mobile LiDAR: When Your Position Data Goes Wrong",
@@ -1240,8 +1248,8 @@
         "https://tracki.com/blogs/post/most-common-gps-tracking-problems"
       ],
       "id": "3efe7cebfb28",
-      "created_at": "2025-09-03T00:15:30.254211",
-      "modified_at": "2025-09-03T00:15:30.254212",
+      "created_at": "2025-09-03T22:28:25.549770",
+      "modified_at": "2025-09-03T22:28:25.549771",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1251,7 +1259,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Reflective Surface Nightmares: Scanning Glass, Metal, and Shiny Objects with Mobile LiDAR",
@@ -1264,8 +1273,8 @@
         "https://www.fjdynamics.com/blog/technology-52/5-essential-tips-for-better-laser-scanning-results-134"
       ],
       "id": "72c6be51b5f8",
-      "created_at": "2025-09-03T00:15:30.254225",
-      "modified_at": "2025-09-03T00:15:30.254226",
+      "created_at": "2025-09-03T22:28:25.549784",
+      "modified_at": "2025-09-03T22:28:25.549786",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1275,7 +1284,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Mobile LiDAR Systematic Errors: Identifying and Correcting Boresight Misalignment",
@@ -1287,8 +1297,8 @@
         "https://isprs-annals.copernicus.org/articles/V-1-2020/253/2020/"
       ],
       "id": "afd2b4c45e74",
-      "created_at": "2025-09-03T00:15:30.254238",
-      "modified_at": "2025-09-03T00:15:30.254239",
+      "created_at": "2025-09-03T22:28:25.549798",
+      "modified_at": "2025-09-03T22:28:25.549799",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1298,7 +1308,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Long Corridor Scanning Problems: Why Mobile LiDAR Fails in Tunnels and Hallways",
@@ -1310,8 +1321,8 @@
         "https://www.navvis.com/blog/7-terms-you-need-to-know-before-investing-in-a-mobile-mapping-system"
       ],
       "id": "4c8f91d6b2a0",
-      "created_at": "2025-09-03T00:15:30.254251",
-      "modified_at": "2025-09-03T00:15:30.254252",
+      "created_at": "2025-09-03T22:28:25.549811",
+      "modified_at": "2025-09-03T22:28:25.549812",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1321,7 +1332,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Mobile LiDAR Data Processing Errors: When Your Point Clouds Turn to Garbage",
@@ -1334,8 +1346,8 @@
         "https://datasightusa.com/2023/03/17/the-basics-challenges-of-lidar-data/"
       ],
       "id": "b182fe7ffd58",
-      "created_at": "2025-09-03T00:15:30.254265",
-      "modified_at": "2025-09-03T00:15:30.254266",
+      "created_at": "2025-09-03T22:28:25.549825",
+      "modified_at": "2025-09-03T22:28:25.549826",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1345,7 +1357,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Handheld Scanner Hardware Failures: Diagnosing and Preventing Equipment Problems",
@@ -1358,8 +1371,8 @@
         "https://learn.poly.cam/hc/en-us/articles/31351887450900-How-Can-I-Make-Sure-My-LiDAR-Sensor-Is-Working"
       ],
       "id": "62bd4d4e0d0a",
-      "created_at": "2025-09-03T00:15:30.254282",
-      "modified_at": "2025-09-03T00:15:30.254283",
+      "created_at": "2025-09-03T22:28:25.549842",
+      "modified_at": "2025-09-03T22:28:25.549843",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1369,7 +1382,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Mobile LiDAR Cloud Sharing and Collaboration: Making Your Data Accessible",
@@ -1381,8 +1395,8 @@
         "https://lidarnews.com/press-releases/introducing-kaarta-cloud-a-new-way-to-process-store-and-share-3d/"
       ],
       "id": "6e9f0c7af450",
-      "created_at": "2025-09-03T00:15:30.254295",
-      "modified_at": "2025-09-03T00:15:30.254296",
+      "created_at": "2025-09-03T22:28:25.549855",
+      "modified_at": "2025-09-03T22:28:25.549856",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1392,7 +1406,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Environmental Interference: Dealing with Dust, Vegetation, and Moving Objects in Mobile LiDAR",
@@ -1405,8 +1420,8 @@
         "https://answers.ros.org/question/391497"
       ],
       "id": "1e7fb90af91a",
-      "created_at": "2025-09-03T00:15:30.254309",
-      "modified_at": "2025-09-03T00:15:30.254311",
+      "created_at": "2025-09-03T22:28:25.549869",
+      "modified_at": "2025-09-03T22:28:25.549870",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1416,7 +1431,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Mobile LiDAR Accuracy Validation: Ensuring Your Data Meets Project Requirements",
@@ -1428,8 +1444,8 @@
         "https://pmc.ncbi.nlm.nih.gov/articles/PMC5981425/"
       ],
       "id": "630ee20f5be7",
-      "created_at": "2025-09-03T00:15:30.254323",
-      "modified_at": "2025-09-03T00:15:30.254324",
+      "created_at": "2025-09-03T22:28:25.549883",
+      "modified_at": "2025-09-03T22:28:25.549884",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1439,7 +1455,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Mobile LiDAR Visualization Problems: Making Sense of Complex Point Cloud Data",
@@ -1451,8 +1468,8 @@
         "https://answers.ros.org/question/391497"
       ],
       "id": "e8ae4b9fb9be",
-      "created_at": "2025-09-03T00:15:30.254338",
-      "modified_at": "2025-09-03T00:15:30.254340",
+      "created_at": "2025-09-03T22:28:25.549898",
+      "modified_at": "2025-09-03T22:28:25.549900",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1462,7 +1479,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Mobile LiDAR Integration Challenges: Connecting Your Scanner to Existing Workflows",
@@ -1473,8 +1491,8 @@
         "https://insights.outsight.ai/overcoming-the-challenges-of-using-3d-lidar-technology/"
       ],
       "id": "ad23bc2e0552",
-      "created_at": "2025-09-03T00:15:30.254352",
-      "modified_at": "2025-09-03T00:15:30.254354",
+      "created_at": "2025-09-03T22:28:25.549913",
+      "modified_at": "2025-09-03T22:28:25.549914",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1484,7 +1502,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Breaking Through File Size Barriers: How to Share Multi-Gigabyte 3D Models Without Breaking the Bank",
@@ -1497,8 +1516,8 @@
         "https://www.reddit.com/r/UAVmapping/comments/1k098ar/how_do_you_share_large_data_files_with_clients/"
       ],
       "id": "ca00ce43db17",
-      "created_at": "2025-09-03T00:15:30.257983",
-      "modified_at": "2025-09-03T00:15:30.257987",
+      "created_at": "2025-09-03T22:28:25.553596",
+      "modified_at": "2025-09-03T22:28:25.553603",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1508,7 +1527,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "The Hidden Storage Crisis: Managing Photogrammetry Project Files That Consume Terabytes",
@@ -1522,8 +1542,8 @@
         "https://www.reddit.com/r/Surveying/comments/16nx8dp/lidar_data_management/"
       ],
       "id": "4f24212cc29a",
-      "created_at": "2025-09-03T00:15:30.258002",
-      "modified_at": "2025-09-03T00:15:30.258004",
+      "created_at": "2025-09-03T22:28:25.553623",
+      "modified_at": "2025-09-03T22:28:25.553624",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1533,7 +1553,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "From 16K Textures to Web-Ready Models: Optimizing Massive 3D Assets for Real-Time Viewing",
@@ -1547,8 +1568,8 @@
         "https://resources.imagine.io/blog/everything-you-need-to-know-about-online-3d-model-viewer-technology"
       ],
       "id": "be49e9057e28",
-      "created_at": "2025-09-03T00:15:30.258018",
-      "modified_at": "2025-09-03T00:15:30.258019",
+      "created_at": "2025-09-03T22:28:25.553640",
+      "modified_at": "2025-09-03T22:28:25.553641",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1558,7 +1579,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Escaping Vendor Lock-In: Breaking Free from Expensive 3D Scanning Software Subscriptions",
@@ -1572,8 +1594,8 @@
         "https://www.pix-pro.com/blog/photogrammetry-price"
       ],
       "id": "e3b30bdfdccc",
-      "created_at": "2025-09-03T00:15:30.258036",
-      "modified_at": "2025-09-03T00:15:30.258037",
+      "created_at": "2025-09-03T22:28:25.553655",
+      "modified_at": "2025-09-03T22:28:25.553656",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1583,7 +1605,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "The Collaboration Nightmare: Solving Team Access to Large 3D Datasets",
@@ -1597,8 +1620,8 @@
         "https://www.umake.com/blog/real-time-cad-collaboration-common-problems"
       ],
       "id": "bb9b2ddce826",
-      "created_at": "2025-09-03T00:15:30.258050",
-      "modified_at": "2025-09-03T00:15:30.258051",
+      "created_at": "2025-09-03T22:28:25.553669",
+      "modified_at": "2025-09-03T22:28:25.553672",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1608,7 +1631,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Browser Limitations Exposed: Why Your Point Cloud Won't Load and How to Fix It",
@@ -1621,8 +1645,8 @@
         "https://discourse.threejs.org/t/performance-issues-rendering-large-ply-point-cloud-in-three-js-downsampling-and-background-loading/69135"
       ],
       "id": "13bbb198546b",
-      "created_at": "2025-09-03T00:15:30.258063",
-      "modified_at": "2025-09-03T00:15:30.258065",
+      "created_at": "2025-09-03T22:28:25.553685",
+      "modified_at": "2025-09-03T22:28:25.553686",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1632,7 +1656,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Mobile Scanning Trap: Getting Your 3D Scan Data Off Your Phone",
@@ -1643,8 +1668,8 @@
         "https://forum.revopoint3d.com/t/revo-scan-share-feature-not-working-on-android/5606"
       ],
       "id": "52dad6b9b3b6",
-      "created_at": "2025-09-03T00:15:30.258077",
-      "modified_at": "2025-09-03T00:15:30.258078",
+      "created_at": "2025-09-03T22:28:25.553700",
+      "modified_at": "2025-09-03T22:28:25.553701",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1654,7 +1679,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "The Point Cloud Processing Bottleneck: Hardware Solutions That Actually Work",
@@ -1667,8 +1693,8 @@
         "https://www.truenas.com/community/threads/photogrammetry-processing-through-freenas.88468/"
       ],
       "id": "044659ed021f",
-      "created_at": "2025-09-03T00:15:30.258091",
-      "modified_at": "2025-09-03T00:15:30.258092",
+      "created_at": "2025-09-03T22:28:25.553713",
+      "modified_at": "2025-09-03T22:28:25.553745",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1678,7 +1704,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Data Format Hell: Converting Between 3D File Formats Without Losing Your Mind",
@@ -1691,8 +1718,8 @@
         "https://www.reddit.com/r/3Dmodeling/comments/1gq3pny/how_to_convert_an_obj_file_to_stp_without_losing/"
       ],
       "id": "163250f19de8",
-      "created_at": "2025-09-03T00:15:30.258104",
-      "modified_at": "2025-09-03T00:15:30.258105",
+      "created_at": "2025-09-03T22:28:25.553759",
+      "modified_at": "2025-09-03T22:28:25.553760",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1702,7 +1729,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Texture Optimization Secrets: From Blurry Meshes to Photorealistic Models",
@@ -1715,8 +1743,8 @@
         "https://www.agisoft.com/forum/index.php?topic=12522.0"
       ],
       "id": "9c6933f4aaf8",
-      "created_at": "2025-09-03T00:15:30.258117",
-      "modified_at": "2025-09-03T00:15:30.258118",
+      "created_at": "2025-09-03T22:28:25.553772",
+      "modified_at": "2025-09-03T22:28:25.553774",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1726,7 +1754,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Mesh Decimation Without Tears: Reducing Polygons While Preserving Detail",
@@ -1740,8 +1769,8 @@
         "https://meshlib.io/blog/meshlb-vs-meshlab-mesh-simplification/"
       ],
       "id": "0e30eadcc1b3",
-      "created_at": "2025-09-03T00:15:30.258134",
-      "modified_at": "2025-09-03T00:15:30.258135",
+      "created_at": "2025-09-03T22:28:25.553790",
+      "modified_at": "2025-09-03T22:28:25.553791",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1751,7 +1780,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "3D Printing from Photogrammetry: Fixing Mesh Issues That Kill Your Prints",
@@ -1765,8 +1795,8 @@
         "https://www.reddit.com/r/photogrammetry/comments/1kvesub/photogrammetry_for_3d_printing_models_and_need/"
       ],
       "id": "94a187fe8719",
-      "created_at": "2025-09-03T00:15:30.258147",
-      "modified_at": "2025-09-03T00:15:30.258148",
+      "created_at": "2025-09-03T22:28:25.553805",
+      "modified_at": "2025-09-03T22:28:25.553808",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1776,7 +1806,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Point Cloud to Mesh Conversion: Solving the Triangulation Challenge",
@@ -1790,8 +1821,8 @@
         "https://www.cloudcompare.org/forum/viewtopic.php?t=6546"
       ],
       "id": "8ce37084e7f9",
-      "created_at": "2025-09-03T00:15:30.258160",
-      "modified_at": "2025-09-03T00:15:30.258162",
+      "created_at": "2025-09-03T22:28:25.553826",
+      "modified_at": "2025-09-03T22:28:25.553827",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1801,7 +1832,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "AR/VR Content Creation Roadblocks: Making 3D Scans Work in Mixed Reality",
@@ -1813,8 +1845,8 @@
         "https://www.whizzystudios.com/post/what-are-the-challenges-of-3d-modeling-for-ar-and-vr"
       ],
       "id": "789e63624bf6",
-      "created_at": "2025-09-03T00:15:30.258173",
-      "modified_at": "2025-09-03T00:15:30.258175",
+      "created_at": "2025-09-03T22:28:25.553844",
+      "modified_at": "2025-09-03T22:28:25.553845",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1824,7 +1856,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "BIM Integration Headaches: Getting Survey Data to Play Nice with Design Software",
@@ -1837,8 +1870,8 @@
         "https://www.tandfonline.com/doi/full/10.1080/13467581.2024.2343803"
       ],
       "id": "0ed54e86c3cf",
-      "created_at": "2025-09-03T00:15:30.258186",
-      "modified_at": "2025-09-03T00:15:30.258188",
+      "created_at": "2025-09-03T22:28:25.553864",
+      "modified_at": "2025-09-03T22:28:25.553865",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1848,7 +1881,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Survey Data Handoff Disasters: Streamlining Field-to-Office Workflows",
@@ -1859,8 +1893,8 @@
         "https://geospatial.trimble.com/en/resources/blog/solving-the-survey-data-transfer-dilemma-with-a-connected-workflow"
       ],
       "id": "cba73e185020",
-      "created_at": "2025-09-03T00:15:30.258198",
-      "modified_at": "2025-09-03T00:15:30.258199",
+      "created_at": "2025-09-03T22:28:25.553881",
+      "modified_at": "2025-09-03T22:28:25.553883",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1870,7 +1904,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "The Version Control Nightmare: Managing 3D Asset Iterations Across Teams",
@@ -1884,8 +1919,8 @@
         "https://www.reddit.com/r/cad/comments/2jqjn3/what_do_you_use_for_version_control_collaboration/"
       ],
       "id": "bf25f9a84b4b",
-      "created_at": "2025-09-03T00:15:30.258212",
-      "modified_at": "2025-09-03T00:15:30.258213",
+      "created_at": "2025-09-03T22:28:25.553903",
+      "modified_at": "2025-09-03T22:28:25.553905",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1895,7 +1930,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Cloud Processing Pitfalls: When Remote Rendering Becomes Your Bottleneck",
@@ -1906,8 +1942,8 @@
         "https://www.simactive.com/hubfs/Photogrammetry_on_the_Cloud_with_Correlator3D_October2024.pdf?hsLang=en"
       ],
       "id": "cb5d684cf35a",
-      "created_at": "2025-09-03T00:15:30.258223",
-      "modified_at": "2025-09-03T00:15:30.258224",
+      "created_at": "2025-09-03T22:28:25.553916",
+      "modified_at": "2025-09-03T22:28:25.553918",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1917,7 +1953,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Geospatial Data Standards Chaos: Making Sense of Format Requirements",
@@ -1931,8 +1968,8 @@
         "https://natural-resources.canada.ca/maps-tools-publications/tools-applications/geospatial-standards-operational-policies"
       ],
       "id": "a8e4c0c4c317",
-      "created_at": "2025-09-03T00:15:30.258236",
-      "modified_at": "2025-09-03T00:15:30.258238",
+      "created_at": "2025-09-03T22:28:25.553940",
+      "modified_at": "2025-09-03T22:28:25.553943",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1942,7 +1979,8 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     },
     {
       "title": "Adoption Resistance: Convincing Traditional Surveyors to Embrace 3D Technology",
@@ -1953,8 +1991,8 @@
         "https://www.reddit.com/r/LiDAR/comments/1jnrmry/struggling_to_get_local_survey_companies_to_adopt/"
       ],
       "id": "b6586c2a5274",
-      "created_at": "2025-09-03T00:15:30.258248",
-      "modified_at": "2025-09-03T00:15:30.258249",
+      "created_at": "2025-09-03T22:28:25.553959",
+      "modified_at": "2025-09-03T22:28:25.553961",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1964,9 +2002,10 @@
       "keywords": "",
       "length": "",
       "sections": "",
-      "call_to_action": ""
+      "call_to_action": "",
+      "article_generated": false
     }
   ],
-  "last_updated": "2025-09-03T00:15:30.262800",
+  "last_updated": "2025-09-03T22:28:25.558925",
   "total_count": 80
 }

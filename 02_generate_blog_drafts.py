@@ -2,7 +2,7 @@
 """ 
 This script:
 1. Reads blog post ideas from `blog_ideas.json`.
-2. Calls an OLLAMA API twice per idea:
+2. Calls an LLM API twice per idea:
    - First to select writing parameters (voice, piece type, etc.).
    - Second to generate the full blog draft using the selected parameters.
 3. Saves the generated draft (with metadata) into `blog_post_drafts/`,
@@ -14,6 +14,7 @@ import sys
 import json
 import pathlib
 import re
+import argparse
 from typing import Dict, Any, Optional, List
 from datetime import datetime, timezone
 
@@ -37,11 +38,34 @@ OPENAI_HOST_IP = "192.168.8.90"
 OPENAI_PORT = "42069"
 OPENAI_API_PATH = "/v1/chat/completions"
 OPENAI_AUTH_KEY = "outsider"
-OPENAI_MODEL = "gpt-oss-120b"
-#OPENAI_MODEL = "qwen3-coder-30b-awq8"
+#OPENAI_MODEL = "gpt-oss-120b"
+OPENAI_MODEL = "qwen3-coder-30b-awq8"
 
 # --- Main execution ---
 if __name__ == "__main__":
+    # Create argument parser
+    parser = argparse.ArgumentParser(
+        description="Generate blog drafts from blog_ideas.json. "
+                    "Use --force_article_gen to regenerate drafts for ideas that already have an article."
+    )
+    parser.add_argument(
+        "--force_article_gen",
+        action="store_true",
+        help="Regenerate drafts even if `article_generated` is true."
+    )
+    parser.add_argument(
+        "--ideas_id",
+        type=str,
+        help="Process only the idea with the given id."
+    )
+    args = parser.parse_args()
+    force_article_gen = args.force_article_gen
+    
+    if force_article_gen:
+        print("Force article generation enabled – all ideas will be processed.")
+    else:
+        print("Skipping ideas with article_generated=True. Use --force_article_gen to override.")
+    
     print(f"AI Provider set to: {AI_PROVIDER}")
 
 DESTINATION_FOLDER = pathlib.Path("blog_post_drafts")
@@ -49,7 +73,6 @@ DESTINATION_FOLDER = pathlib.Path("blog_post_drafts")
 CONTEXT_FILE = pathlib.Path("guidance/context.md")
 TITLES_FILE = pathlib.Path("guidance/crafting_compelling_titles.md")
 COMPANY_OPERATION_FILE = pathlib.Path("guidance/company_operation.md")
-
 CONTENT_MARKETING_GUIDANCE_FILE = pathlib.Path("guidance/content_marketing_guidance.md")
 
 # Voice definitions (mirroring the associative array in the Bash script)
@@ -481,6 +504,9 @@ def save_draft_and_update_json(idea: dict, response: str, selected: dict) -> Non
     # Update the article field in the JSON idea
     idea["article"] = str(output_path.relative_to("."))
     
+    # Set the article_generated flag to True
+    idea["article_generated"] = True
+    
     # Find and update the corresponding idea in the JSON data
     idea_id = idea.get('id')
     if idea_id:
@@ -507,6 +533,14 @@ def main() -> None:
         sys.stderr.write("No blog ideas found in the JSON file.\n")
         sys.exit(0)
     
+    # If --ideas_id is specified, filter ideas to only process that one
+    if args.ideas_id:
+        matching = [idea for idea in ideas if idea.get("id") == args.ideas_id]
+        if not matching:
+            sys.stderr.write(f"Error: No idea found with id '{args.ideas_id}'.\n")
+            sys.exit(1)
+        ideas = matching  # Restrict processing to the single idea
+    
     # Process only first 5 ideas for testing 
 #    ideas = ideas[:5]  # Comment this line when ready for full processing
     
@@ -520,6 +554,15 @@ def main() -> None:
 
     # Process each idea
     for idx, idea in enumerate(ideas, start=1):
+        # Skip ideas that have already been generated (unless force mode is enabled)
+        if not force_article_gen and idea.get("article_generated"):
+            # Check if this is a single idea request and it's already generated
+            if args.ideas_id and idea.get("article_generated"):
+                print(f"Idea id '{args.ideas_id}' already has an article written.")
+                sys.exit(0)
+            print(f"  Skipping – article already generated (use --force_article_gen to override)")
+            continue
+            
         print(f"[{idx}/{len(ideas)}] Processing idea: {idea.get('title', 'Untitled')}")
         
         # Prepare idea content from JSON fields
@@ -589,7 +632,7 @@ def main() -> None:
             # Save updated JSON file
             with open("blog_ideas.json", "w", encoding="utf-8") as f:
                 json.dump(json_data, f, indent=2, ensure_ascii=False)
-            print("  Updated JSON file with refreshed modified_at")
+            print("  Updated JSON file")
         except Exception as e:
             sys.stderr.write(f"Error updating JSON after first API call: {e}\n")
 
@@ -606,6 +649,10 @@ def main() -> None:
         # Save draft and update JSON
         save_draft_and_update_json(idea, response, selected)
         print()
+    
+    # If we processed a single idea, exit after completion
+    if args.ideas_id:
+        sys.exit(0)
 
 
 if __name__ == "__main__":

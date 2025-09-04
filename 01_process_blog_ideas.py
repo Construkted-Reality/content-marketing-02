@@ -359,6 +359,10 @@ class BlogPostProcessor:
                     if 'technical_depth' not in post:
                         post['technical_depth'] = "med"
                     
+                    # Add article_generated flag
+                    if 'article_generated' not in post:
+                        post['article_generated'] = False
+                    
                     enriched_posts.append(post)
                 
                 # Filter out duplicates
