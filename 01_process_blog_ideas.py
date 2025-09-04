@@ -115,7 +115,7 @@ class BlogPostProcessor:
         self.enriched_fields = [
             'article', 'voice', 'piece_type', 'marketing_post_type', 
             'primary_goal', 'technical_depth', 'keywords', 'length', 
-            'sections', 'call_to_action'
+            'sections', 'call_to_action', 'scraped_sources'
         ]
     
     def process_markdown_file(self, file_path: str) -> List[Dict[str, Any]]:
@@ -363,6 +363,10 @@ class BlogPostProcessor:
                     if 'article_generated' not in post:
                         post['article_generated'] = False
                     
+                    # Add scraped_sources default
+                    if 'scraped_sources' not in post:
+                        post['scraped_sources'] = []
+                    
                     enriched_posts.append(post)
                 
                 # Filter out duplicates
@@ -426,6 +430,10 @@ class BlogPostProcessor:
                         post['primary_goal'] = "educate"
                     if 'technical_depth' not in post:
                         post['technical_depth'] = "med"
+                    
+                    # Add scraped_sources default
+                    if 'scraped_sources' not in post:
+                        post['scraped_sources'] = []
                     
                     enriched_posts.append(post)
                 

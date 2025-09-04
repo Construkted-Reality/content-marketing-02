@@ -24,6 +24,14 @@ except ImportError:
     sys.stderr.write("Error: The Python `requests` library is required. Install it with `pip install requests`.\n")
     sys.exit(1)
 
+# Import scraping utilities
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+try:
+    from utils.scrape_sources import scrape_urls
+except ImportError:
+    sys.stderr.write("Error: Could not import scraping utilities. Make sure utils/scrape_sources.py exists.\n")
+    sys.exit(1)
+
 # --- Configuration -----------------------------------------------------------
 AI_PROVIDER = "openai"   # Change between "ollama" and "openai" compatible API
 
@@ -175,6 +183,158 @@ def get_batch_diversity_context(processed_ideas: list) -> str:
     return ""
 
 
+def get_or_build_scraped_sources(idea: dict) -> List[Dict[str, Any]]:
+    """
+    Get cached scraped sources or scrape URLs and cache the results.
+    
+    Args:
+        idea: The idea dictionary that may contain cached scraped_sources
+        
+    Returns:
+        List of ScrapedSource dictionaries
+    """
+    # Check if we have cached scraped sources
+    cached_sources = idea.get('scraped_sources', [])
+    if cached_sources:
+        print(f"  Using cached scraped sources ({len(cached_sources)} sources)")
+        return cached_sources
+    
+    # Get URLs to scrape
+    urls = idea.get('sources', [])
+    if not urls:
+        print("  No source URLs to scrape")
+        return []
+    
+    print(f"  Scraping {len(urls)} source URLs...")
+    
+    # Scrape the URLs
+    try:
+        scraped_sources = scrape_urls(urls)
+        
+        # Update the idea with scraped sources
+        idea['scraped_sources'] = scraped_sources
+        
+        # Persist to JSON file immediately
+        try:
+            with open("blog_ideas.json", "r", encoding="utf-8") as f:
+                json_data = json.load(f)
+            
+            # Find and update the corresponding idea in the JSON data
+            idea_id = idea.get('id')
+            if idea_id:
+                for json_idea in json_data.get('ideas', []):
+                    if json_idea.get('id') == idea_id:
+                        json_idea['scraped_sources'] = scraped_sources
+                        break
+            
+            # Save updated JSON file
+            with open("blog_ideas.json", "w", encoding="utf-8") as f:
+                json.dump(json_data, f, indent=2, ensure_ascii=False)
+            
+            print(f"  Scraped and cached {len(scraped_sources)} sources")
+            
+        except Exception as e:
+            sys.stderr.write(f"Warning: Could not cache scraped sources: {e}\n")
+        
+        return scraped_sources
+        
+    except Exception as e:
+        sys.stderr.write(f"Error scraping sources: {e}\n")
+        return []
+
+
+def build_source_excerpts(scraped_sources: List[Dict[str, Any]]) -> str:
+    """
+    Build a text block from scraped sources containing only the extracted text.
+    
+    Args:
+        scraped_sources: List of ScrapedSource dictionaries
+        
+    Returns:
+        Concatenated text from successful scrapes
+    """
+    if not scraped_sources:
+        return ""
+    
+    excerpts = []
+    successful_scrapes = 0
+    
+    for source in scraped_sources:
+        if source.get('status') == 'ok' and source.get('text'):
+            text = source['text'].strip()
+            if text:
+                excerpts.append(text)
+                successful_scrapes += 1
+    
+    if not excerpts:
+        return ""
+    
+    print(f"  Built source excerpts from {successful_scrapes}/{len(scraped_sources)} successful scrapes")
+    
+    # Join excerpts with separators
+    return "\n\n---\n\n".join(excerpts)
+
+
+def build_idea_context(idea: dict) -> str:
+    """
+    Build idea context without URL lists, including scraped source excerpts.
+    
+    Args:
+        idea: The idea dictionary
+        
+    Returns:
+        Formatted idea context string
+    """
+    idea_content_parts = []
+    
+    # Add title if available
+    if idea.get("title"):
+        idea_content_parts.append(f"Title: {idea['title']}")
+    
+    # Add pain point
+    if idea.get("pain_point"):
+        idea_content_parts.append(f"Pain Point: {idea['pain_point']}")
+    
+    # Add target audience
+    if idea.get("target_audience"):
+        idea_content_parts.append(f"Target Audience: {idea['target_audience']}")
+    
+    # Add content details if available
+    if idea.get("content_details"):
+        idea_content_parts.append(f"Content Details: {idea['content_details']}")
+    
+    # Get scraped source excerpts instead of URL list
+    scraped_sources = get_or_build_scraped_sources(idea)
+    source_excerpts = build_source_excerpts(scraped_sources)
+    
+    if source_excerpts:
+        idea_content_parts.append(f"Source Excerpts:\n{source_excerpts}")
+    
+    return "\n\n".join(idea_content_parts)
+
+
+def add_sources_section_to_output(idea: dict, response: str) -> str:
+    """
+    Append a Sources section to the blog post output programmatically.
+    
+    Args:
+        idea: The idea dictionary containing sources
+        response: The LLM-generated blog post content
+        
+    Returns:
+        Blog post content with Sources section appended
+    """
+    sources = idea.get('sources', [])
+    if not sources:
+        return response
+    
+    sources_section = "\n\n## Sources\n\n"
+    for i, source in enumerate(sources, 1):
+        sources_section += f"{i}. {source}\n"
+    
+    return response + sources_section
+
+
 def select_parameters(idea_content: str, context_content: str, content_marketing_guidance_content: str, titles_content: str, processed_ideas: Optional[List[dict]] = None) -> Dict[str, str]:
     """First API call – ask the model to choose voice, piece type, etc. and generate a title."""
     if processed_ideas is None:
@@ -202,7 +362,7 @@ Title Guidance:
 
 Topic research content:
 {idea_content}
-Visit all URLs listed in the SOURCE section, read their content carefully and use the content at the URLs to extract the pain points, and use the content to guide the research.
+Use the provided source excerpts to extract the pain points and guide your research.
 
 Use ONLY this JSON format for output (no other text):
 {{
@@ -343,7 +503,6 @@ def generate_blog_post(
         f"- Mention our product, Construkted Reality, where it naturally fits as a solution to the problems discussed. Do not force it.\n"
         f"- Do not fabricate information about how Construkted Reality works or its features.\n"
         f"- For images, create numeric placeholders in the body of the post (e.g., [IMAGE 1], [IMAGE 2]). At the end of the article, create an 'Image Prompt Summary' section with detailed prompts for an image generation LLM for each placeholder.\n"
-        f"- Display all sources used in the response under a 'Sources' section.\n"
         f"- Follow these formatting rules: {FORMATTING_RULES}"
     )
 
@@ -353,7 +512,7 @@ def generate_blog_post(
         f"The secondary goal is to position Construkted Reality as the solution to the user pain point.\n"
         f"**Article Research and Draft Content**:\n{idea_content}\n\n"
         f"**Instructions**:\n"
-        f"1. Visit all URLs listed in the SOURCE section of the research. Use their content to deepen your understanding of the pain points.\n"
+        f"1. Use the provided source excerpts to deepen your understanding of the pain points.\n"
         f"2. Evaluate if Construkted Reality is a suitable solution to the pain point/problem statement based on the 'Company operation details' provided. If it cannot, do not create an article, but return a statement describing why Construkted Reality cannot provide a solution to the problem/pain point.\n"
         f"3. Write the full blog post, addressing the extracted pain points and integrating solutions."
     )
@@ -482,6 +641,9 @@ def save_draft_and_update_json(idea: dict, response: str, selected: dict) -> Non
     # Determine output file name with collision handling
     output_path = make_output_path(base_name)
     
+    # Add Sources section programmatically to the response
+    response_with_sources = add_sources_section_to_output(idea, response)
+    
     # Append metadata
     metadata = f""" 
 ---
@@ -496,7 +658,7 @@ def save_draft_and_update_json(idea: dict, response: str, selected: dict) -> Non
 - **Pain Point**: {selected.get('pain_point', '')}
 ---
 """
-    full_content = response + metadata
+    full_content = response_with_sources + metadata
     
     # Write out
     output_path.write_text(full_content, encoding="utf-8")
@@ -566,31 +728,8 @@ def main() -> None:
             
         print(f"[{idx}/{len(ideas)}] Processing idea: {idea.get('title', 'Untitled')}")
         
-        # Prepare idea content from JSON fields
-        idea_content_parts = []
-        
-        # Add title if available
-        if idea.get("title"):
-            idea_content_parts.append(f"Title: {idea['title']}")
-        
-        # Add pain point
-        if idea.get("pain_point"):
-            idea_content_parts.append(f"Pain Point: {idea['pain_point']}")
-        
-        # Add target audience
-        if idea.get("target_audience"):
-            idea_content_parts.append(f"Target Audience: {idea['target_audience']}")
-        
-        # Add content details if available
-        if idea.get("content_details"):
-            idea_content_parts.append(f"Content Details: {idea['content_details']}")
-        
-        # Add sources if available
-        if idea.get("sources"):
-            sources_text = "\n".join([f"- {source}" for source in idea["sources"]])
-            idea_content_parts.append(f"Sources:\n{sources_text}")
-        
-        idea_content = "\n\n".join(idea_content_parts)
+        # Build idea content with scraped source excerpts (no URL lists)
+        idea_content = build_idea_context(idea)
         
         # --- First API call -------------------------------------------------
         content_marketing_guidance_content = read_file(CONTENT_MARKETING_GUIDANCE_FILE)

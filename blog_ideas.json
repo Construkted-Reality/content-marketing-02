@@ -1,9 +1,9 @@
 {
   "ideas": [
     {
-      "title": "Why Your Photogrammetry Models Have Holes and How to Fill Them Properly",
-      "pain_point": "Users frequently encounter incomplete meshes with holes, especially in areas that couldn't be photographed (like the bottom of objects sitting on surfaces) or in complex geometries with occlusions. The resulting models have significant gaps that make them unusable for their intended purposes.",
-      "target_audience": "Beginner to intermediate photogrammetry users, particularly those scanning objects for 3D printing, game development, or digital archiving. Also valuable for professionals in AEC who need complete models for analysis.",
+      "title": "How you can close holes in photogrammetry models for perfect 3D prints",
+      "pain_point": "Photogrammetry hobbyists often end up with 3D meshes that contain holes—especially in areas never photographed, such as the bottom of an object resting on a surface, or in complex geometries where occlusions prevent image capture. These gaps render the models unusable for 3D printing, game asset integration, or architectural analysis, forcing users to spend extra time repairing the mesh manually or re‑scanning the object.",
+      "target_audience": "hobbyist",
       "content_details": "",
       "sources": [
         "https://www.reddit.com/r/photogrammetry/comments/1f45oaf/what_am_i_doing_wrong/",
@@ -12,23 +12,48 @@
       ],
       "id": "2a2ab6040f05",
       "created_at": "2025-09-04T09:14:34.777485",
-      "modified_at": "2025-09-04T09:14:34.777494",
-      "article": "",
-      "voice": "",
-      "piece_type": "",
-      "marketing_post_type": "",
-      "primary_goal": "",
-      "technical_depth": "",
+      "modified_at": "2025-09-04T13:33:48.011301",
+      "article": "blog_post_drafts/2a2ab6040f05_How you can close holes in photogrammetry models for perfect 3D prints.md",
+      "voice": "Wired",
+      "piece_type": "tutorial",
+      "marketing_post_type": "educational",
+      "primary_goal": "troubleshoot",
+      "technical_depth": "med",
       "keywords": "",
-      "length": "",
+      "length": 1500,
       "sections": "",
       "call_to_action": "",
-      "article_generated": false
+      "article_generated": true,
+      "scraped_sources": [
+        {
+          "url": "https://www.reddit.com/r/photogrammetry/comments/1f45oaf/what_am_i_doing_wrong/",
+          "status": "error",
+          "text": "",
+          "char_count": 0,
+          "last_scraped_at": "2025-09-04T13:32:37.867288",
+          "error": "Error code: 500"
+        },
+        {
+          "url": "https://www.reddit.com/r/blenderhelp/comments/10pgqfg/fixing_3d_photogrammetry_modeling_issues/",
+          "status": "ok",
+          "text": "No meaningful readable page text was found in the provided chunks. All chunks contain 'NA' or non‑human‑readable data, so there is no main content to extract.",
+          "char_count": 158,
+          "last_scraped_at": "2025-09-04T13:32:52.415301"
+        },
+        {
+          "url": "https://surphaser.com/blog/how-to-enhance-3d-scan-quality-post-processing-tips/",
+          "status": "ok",
+          "text": "# How to Enhance 3D Scan Quality: Post-Processing Tips\n\nFebruary 7, 2024 by surphaseradmin\n\n3D scanning technology has transformed various industries, from manufacturing to healthcare, by allowing precise digital replicating of real‑world objects and environments. This technology captures the geometry and appearance of objects, creating 3D models that can be used for various purposes, such as prototyping, quality control, and virtual reality experiences. However, achieving high‑quality 3D scans requires more than just capturing the initial data. Post‑processing is crucial in refining and enhancing the scan results, ensuring accuracy and detail. This blog will delve into various post‑processing tips and techniques to help you elevate the quality of your 3D scans, regardless of your level of expertise or the complexity of the scanned objects.\n\n## Common Challenges in 3D Scan Quality\n\n### Noise and outliers in scan data\nNoise and outliers are common challenges encountered in 3D scanning, affecting the quality and accuracy of the resulting model. Noise refers to random fluctuations or errors present in the captured data. These fluctuations can emerge from various sources, including sensor imperfections, environmental factors like ambient light or interference, or inaccuracies in the scanning process. Noise can manifest as small irregularities or inconsistencies in the scanned surface, compromising the overall fidelity of the model.\n\nOutliers are data points that significantly deviate from the expected pattern or distribution within the scan data. These outliers may arise due to reflective surfaces, occlusions, or other factors that cause the scanner to misinterpret certain areas of the object. Outliers can introduce distortions into the final model, leading to inaccuracies and visual artifacts.\n\nVarious techniques can be employed during post‑processing to mitigate noise and outliers in scan data. Filtering algorithms can be applied to smooth out noise and remove outlier points, enhancing the overall quality of the scan. Additionally, careful calibration of the scanning equipment, optimizing scanning parameters and ensuring consistent environmental conditions can help minimize the impact of noise and outliers on the final 3D model.\n\n### Missing data and holes in the mesh\nWhen conducting a 3D scan, it’s common to encounter areas where data acquisition is incomplete, resulting in holes or gaps in the mesh. This issue can occur because of various factors, such as occlusions, reflective surfaces, or limitations in the scanning equipment.\n\n**Mesh Hole Filling:** Specialized software tools can automatically or manually fill gaps in the mesh by extrapolating from surrounding data points.\n\n**Data Interpolation:** Interpolation algorithms can estimate the missing geometry based on the available data points.\n\n**Patch‑Based Reconstruction:** Advanced reconstruction algorithms analyze the mesh’s topology to identify regions with missing data and generate patches to fill them.\n\n**Manual Editing:** In cases where automated methods fall short, manual editing allows users to manipulate the mesh directly to fill holes and refine details.\n\n### Inaccurate alignment of multiple scans\nPrecise alignment is paramount when merging multiple scans to create a comprehensive 3D model. Challenges include:\n\n- **Misregistration:** Errors in the registration process where the software fails to match corresponding points accurately.\n- **Drift:** Gradual shift of scans relative to each other during long scanning sessions or with handheld devices.\n- **Limited overlap:** Insufficient overlap between adjacent scans makes accurate alignment difficult.\n\nUsing high‑quality scanning equipment, ensuring sufficient overlap, and employing robust registration algorithms are essential. Manual alignment refinement may also be necessary.\n\n### Texture issues and color inconsistencies\nTexture and color are vital for realistic 3D scans but can be problematic due to:\n\n- **Lighting conditions:** Changes in lighting cause variations in texture and color.\n- **Surface properties:** Reflective or translucent surfaces react differently to light.\n- **Sensor limitations:** Lower‑quality sensors may capture blurred textures or inaccurate colors.\n\nEffective post‑processing techniques such as texture mapping and color correction are needed to align texture data with geometry and adjust color values accurately.\n\n## Post‑Processing Techniques\n\n### Cleaning\nCleaning involves removing noise and outliers, filling holes, and closing gaps in the mesh. Advanced filtering tools (smoothing algorithms, statistical methods) eliminate unwanted artifacts, while specialized software intelligently fills missing data and closes gaps.\n\n### Alignment\nAlignment merges multiple scans into a cohesive model. Enhancing accuracy can be achieved by using markers or identifiable geometric features as reference points during scanning, aiding precise alignment.\n\n### Meshing\nMeshing converts point‑cloud data into a surface mesh. Selecting the appropriate mesh resolution balances detail and processing efficiency. High‑resolution meshes capture intricate features for precision‑critical applications, while lower resolutions suffice for simpler objects or faster processing.\n\n### Texturing\nConsistent application of textures and colors ensures the final model accurately reflects the scanned object. Techniques include applying surface patterns, matching colors, and baking textures from high‑resolution photographs using specialized software.\n\n## Enhance 3D Scan Quality\n\nPost‑processing serves as the cornerstone for achieving high‑quality 3D scans. By addressing challenges such as noise, missing data, alignment issues, and texture inconsistencies, users can refine their scans to perfection. Our team at Surphaser offers state‑of‑the‑art scanners renowned for unsurpassed accuracy and quality, with short‑range and medium‑range models tailored for reverse engineering, dimensional control, architecture, and forensics. Venture on your journey today and discover the transformative potential of precision scanning and meticulous post‑processing techniques.",
+          "char_count": 6158,
+          "last_scraped_at": "2025-09-04T13:33:32.826230"
+        }
+      ],
+      "justification": "The topic is a practical, step‑by‑step guide for fixing mesh holes in photogrammetry models—a classic technical troubleshooting scenario. Wired’s fast‑paced, tech‑forward voice resonates with hobbyist makers who enjoy hands‑on solutions and appreciate clear, actionable language. A tutorial format best delivers the multiple methods (auto‑fill, interpolation, manual patching) and best‑practice tips. Positioning it as an educational, top‑of‑funnel piece helps attract hobbyists searching for basic guidance before they consider any paid tools, while the primary goal is to troubleshoot their immediate pain. Medium technical depth matches a hobbyist’s moderate familiarity with 3D scanning software without overwhelming them. An estimated 1,500‑word length allows coverage of the problem context, several repair techniques, tool recommendations, and a concise checklist."
     },
     {
-      "title": "Solving the Dreaded \"Double Wall\" Effect in Your 3D Scans",
-      "pain_point": "Users experience misalignment issues where multiple scans don't align properly, creating doubled surfaces, floating geometry, and inconsistent meshes. This is particularly problematic when combining multiple datasets or when scanning sessions are conducted at different times.",
-      "target_audience": "Intermediate photogrammetry users, surveying professionals, and anyone working with large datasets or multi-session projects. Particularly relevant for architecture and construction professionals documenting buildings over time.",
+      "title": "How you can eliminate double‑wall artifacts in 3D scans for accurate building models",
+      "pain_point": "Users experience misalignment when merging multiple 3D scans, resulting in duplicated surfaces, floating geometry, and inconsistent meshes. This \"double wall\" effect is especially problematic for large, multi‑session projects such as documenting buildings over time, leading to inaccurate models and costly rework.",
+      "target_audience": "enterprise",
       "content_details": "",
       "sources": [
         "https://www.reddit.com/r/blenderhelp/comments/10pgqfg/fixing_3d_photogrammetry_modeling_issues/",
@@ -37,18 +62,45 @@
       ],
       "id": "9ffbec2e6bd6",
       "created_at": "2025-09-04T09:14:34.777514",
-      "modified_at": "2025-09-04T09:14:34.777515",
-      "article": "",
-      "voice": "",
-      "piece_type": "",
-      "marketing_post_type": "",
-      "primary_goal": "",
-      "technical_depth": "",
+      "modified_at": "2025-09-04T13:15:44.618455",
+      "article": "blog_post_drafts/9ffbec2e6bd6_How you can eliminate double‑wall artifacts in 3D scans for accurate building models.md",
+      "voice": "Wired",
+      "piece_type": "tutorial",
+      "marketing_post_type": "educational",
+      "primary_goal": "troubleshoot",
+      "technical_depth": "med",
       "keywords": "",
-      "length": "",
+      "length": 1500,
       "sections": "",
       "call_to_action": "",
-      "article_generated": false
+      "article_generated": true,
+      "scraped_sources": [
+        {
+          "url": "https://www.reddit.com/r/blenderhelp/comments/10pgqfg/fixing_3d_photogrammetry_modeling_issues/",
+          "status": "error",
+          "text": "",
+          "char_count": 0,
+          "last_scraped_at": "2025-09-04T13:15:29.551237",
+          "error": "'model_provider'"
+        },
+        {
+          "url": "https://surphaser.com/blog/how-to-enhance-3d-scan-quality-post-processing-tips/",
+          "status": "error",
+          "text": "",
+          "char_count": 0,
+          "last_scraped_at": "2025-09-04T13:15:30.051610",
+          "error": "'model_provider'"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=ZZut6f17Vtc",
+          "status": "error",
+          "text": "",
+          "char_count": 0,
+          "last_scraped_at": "2025-09-04T13:15:30.551972",
+          "error": "'model_provider'"
+        }
+      ],
+      "justification": "The article addresses a concrete technical problem (the \"double wall\" effect) that requires clear, step‑by‑step guidance, making Wired’s fast‑paced, tech‑forward voice ideal. A tutorial format best delivers the procedural instructions the intermediate photogrammetry audience needs. Positioning it as educational aligns with the top‑of‑funnel goal of attracting users searching for solutions to misalignment issues, while the primary goal is to help them troubleshoot. The target audience is enterprise‑level surveying, architecture, and construction professionals who handle large, multi‑session datasets, so a medium technical depth matches their expertise without overwhelming hobbyists."
     },
     {
       "title": "Why Your Phone Photos Aren't Working for Photogrammetry (And How to Fix It)",
