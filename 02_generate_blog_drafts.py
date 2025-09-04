@@ -229,7 +229,7 @@ Instructions:
 8. **Pain Point**: Extract detailed, specific pain points from the research content and URLs with concrete examples
 
 9. **Length**: Integer value between 800 and 3000
-   - Estimate an article length based on the amouont of source material, the amount that should be said 
+   - Estimate an article length based on the amount of source material, the amount that should be said 
      regarding the topic that was researched and the complexity of the pain point/problem being resolved by the article
    - 600-900 words: For simple problems that can be answered with a quick list, a straightforward definition, or a few direct steps. The solution is not deeply nuanced.
    - 1200-1800 words: For multi-faceted problems that require more detailed explanations, examples, comparisons, or a step-by-step process. This is for topics that require evidence and elaboration to be truly helpful.
@@ -431,7 +431,7 @@ def update_modified_at(idea: dict) -> None:
     Set the `modified_at` key of the given idea dict to the current UTC
     timestamp in ISO‑8601 format with microseconds (e.g. 2025-09-03T12:34:56.123456).
     """
-    now_iso = datetime.now(timezone.utc).isoformat(timespec="microseconds")
+    now_iso = datetime.now().isoformat()
     idea["modified_at"] = now_iso
 
 
