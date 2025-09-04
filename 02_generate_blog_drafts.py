@@ -332,7 +332,7 @@ def generate_blog_post(
         f"Your writing style is that of a seasoned journalist at {voice_content}. "
         f"Content Marketing Context: {content_marketing_guidance_content}. "
         f"Extra context {context_content}. "
-        f"Company operation details: {company_operation_content}. "
+        f"Company operation details: {company_operation_content}. Do **NOT** suggested ideas should align with company operation details."
         f"Article title is: {selected['title']}."
         f"Piece Type: {selected['piece_type']}. "
         f"Primary Goal: {selected['primary_goal']}. "
@@ -354,7 +354,8 @@ def generate_blog_post(
         f"**Article Research and Draft Content**:\n{idea_content}\n\n"
         f"**Instructions**:\n"
         f"1. Visit all URLs listed in the SOURCE section of the research. Use their content to deepen your understanding of the pain points.\n"
-        f"2. Write the full blog post, addressing the extracted pain points and integrating solutions."
+        f"2. Evaluate if Construkted Reality can provide a solution to the pain point/problem statement based on the 'Company operation details' provided. If it cannot, do not create an article, but return a statement describing why Construkted Reality cannot provide a solution to the problem/pain point.\n"
+        f"3. Write the full blog post, addressing the extracted pain points and integrating solutions."
     )
 
 
