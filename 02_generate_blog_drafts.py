@@ -38,8 +38,8 @@ OPENAI_HOST_IP = "192.168.8.90"
 OPENAI_PORT = "42069"
 OPENAI_API_PATH = "/v1/chat/completions"
 OPENAI_AUTH_KEY = "outsider"
-#OPENAI_MODEL = "gpt-oss-120b"
-OPENAI_MODEL = "qwen3-coder-30b-awq8"
+OPENAI_MODEL = "gpt-oss-120b"
+#OPENAI_MODEL = "qwen3-think-30b-awq8"
 
 # --- Main execution ---
 if __name__ == "__main__":
@@ -354,7 +354,7 @@ def generate_blog_post(
         f"**Article Research and Draft Content**:\n{idea_content}\n\n"
         f"**Instructions**:\n"
         f"1. Visit all URLs listed in the SOURCE section of the research. Use their content to deepen your understanding of the pain points.\n"
-        f"2. Evaluate if Construkted Reality can provide a solution to the pain point/problem statement based on the 'Company operation details' provided. If it cannot, do not create an article, but return a statement describing why Construkted Reality cannot provide a solution to the problem/pain point.\n"
+        f"2. Evaluate if Construkted Reality is a suitable solution to the pain point/problem statement based on the 'Company operation details' provided. If it cannot, do not create an article, but return a statement describing why Construkted Reality cannot provide a solution to the problem/pain point.\n"
         f"3. Write the full blog post, addressing the extracted pain points and integrating solutions."
     )
 
