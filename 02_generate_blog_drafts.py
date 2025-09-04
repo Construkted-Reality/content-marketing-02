@@ -46,11 +46,11 @@ if __name__ == "__main__":
 
 DESTINATION_FOLDER = pathlib.Path("blog_post_drafts")
 
-CONTEXT_FILE = pathlib.Path("context.md")
-TITLES_FILE = pathlib.Path("crafting_compelling_titles.md")
-COMPANY_OPERATION_FILE = pathlib.Path("company_operation.md")
+CONTEXT_FILE = pathlib.Path("guidance/context.md")
+TITLES_FILE = pathlib.Path("guidance/crafting_compelling_titles.md")
+COMPANY_OPERATION_FILE = pathlib.Path("guidance/company_operation.md")
 
-CONTENT_MARKETING_GUIDANCE_FILE = pathlib.Path("content_marketing_guidance.md")
+CONTENT_MARKETING_GUIDANCE_FILE = pathlib.Path("guidance/content_marketing_guidance.md")
 
 # Voice definitions (mirroring the associative array in the Bash script)
 VOICE_DEFINITIONS: Dict[str, str] = {
