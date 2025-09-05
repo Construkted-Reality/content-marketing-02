@@ -396,40 +396,42 @@ def build_source_excerpts(scraped_sources: List[Dict[str, Any]]) -> str:
 
 
 def build_idea_context(idea: dict) -> str:
-    """
-    Build idea context without URL lists, including scraped source excerpts.
-    
-    Args:
-        idea: The idea dictionary
-        
-    Returns:
-        Formatted idea context string
+    """Build idea context without URL lists, including scraped source excerpts.
+
+    This function now also includes the optional ``reference_context`` field from
+    the ``blog_ideas.json`` entry, if present. The field provides additional
+    background that the LLM can use when selecting parameters and drafting the
+    blog post.
     """
     idea_content_parts = []
-    
+
     # Add title if available
     if idea.get("title"):
         idea_content_parts.append(f"Title: {idea['title']}")
-    
+
     # Add pain point
     if idea.get("pain_point"):
         idea_content_parts.append(f"Pain Point: {idea['pain_point']}")
-    
+
     # Add target audience
     if idea.get("target_audience"):
         idea_content_parts.append(f"Target Audience: {idea['target_audience']}")
-    
+
     # Add content details if available
     if idea.get("content_details"):
         idea_content_parts.append(f"Content Details: {idea['content_details']}")
-    
+
     # Get scraped source excerpts instead of URL list
     scraped_sources = get_or_build_scraped_sources(idea)
     source_excerpts = build_source_excerpts(scraped_sources)
-    
+
     if source_excerpts:
         idea_content_parts.append(f"Source Excerpts:\n{source_excerpts}")
-    
+
+    # Add reference_context if present
+    if idea.get("reference_context"):
+        idea_content_parts.append(f"Reference Context:\n{idea['reference_context']}")
+
     return "\n\n".join(idea_content_parts)
 
 

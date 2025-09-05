@@ -172,6 +172,7 @@ class BlogPostProcessor:
         pain_point = ""
         target_audience = ""
         content_details = ""
+        reference_context = ""
         sources = []
         
         current_section = None
@@ -217,15 +218,34 @@ class BlogPostProcessor:
                 
                 current_section = 'content_details'
                 current_content = [line.replace('**Content Details:**', '').replace('**Content Details**:', '').strip()]
-            
             elif line.startswith('**Sources:'):
                 # Sources section - collect URLs
                 current_section = 'sources'
                 current_content = []
             
+            
+            elif line.lower().startswith('**reference context'):
+                # Save previous section content if needed
+                if current_section and current_content:
+                    if current_section == 'pain_point':
+                        pain_point = ' '.join(current_content)
+                    elif current_section == 'target_audience':
+                        target_audience = ' '.join(current_content)
+                    elif current_section == 'content_details':
+                        content_details = ' '.join(current_content)
+                    elif current_section == 'reference_context':
+                        reference_context = ' '.join(current_content)
+                # Start new reference_context section
+                current_section = 'reference_context'
+                current_content = [re.sub(r'^\*\*Reference Context\*{0,2}:?', '', line, flags=re.IGNORECASE).strip()]
+            
+            
             elif line.startswith('- ') and current_section == 'sources':
-                # Collect source URLs
-                url = line[2:].strip()  # Remove "- "
+                # Collect source URLs, handling markdown link syntax
+                raw = line[2:].strip()  # Remove "- "
+                # If the source is a markdown link [text](url), extract the URL part
+                match = re.search(r'\[.*?\]\((.*?)\)', raw)
+                url = match.group(1) if match else raw
                 if url:
                     sources.append(url)
             
@@ -241,6 +261,8 @@ class BlogPostProcessor:
                 target_audience = ' '.join(current_content)
             elif current_section == 'content_details':
                 content_details = ' '.join(current_content)
+            elif current_section == 'reference_context':
+                reference_context = ' '.join(current_content)
         
         # Create the blog post data structure
         blog_data = {
@@ -248,6 +270,7 @@ class BlogPostProcessor:
             'pain_point': pain_point,
             'target_audience': target_audience,
             'content_details': content_details,
+            'reference_context': reference_context,
             'sources': sources
         }
         

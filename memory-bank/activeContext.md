@@ -4,6 +4,7 @@
 Successfully integrated both ScrapegraphAI web scraping and YouTube transcript extraction into the `02_generate_blog_drafts.py` script. The implementation now handles mixed source lists containing both web pages and YouTube videos, extracting actual content instead of passing URLs to the LLM.
 
 ## Recent Changes
+- **Reference Context Field**: Added `reference_context` to the blog idea schema. `01_process_blog_ideas.py` now extracts this optional field from markdown sections, and `02_generate_blog_drafts.py` includes it in the LLM prompt via the updated `build_idea_context` helper function
 - **Retry Mechanism Implementation**: Added robust retry logic to `utils/scrape_sources.py` for handling transient scraping failures
 - **YouTube Transcript Integration**: Added YouTube video transcript extraction using yt-dlp via existing `extract_transcript.py` script
 - **Mixed Source Processing**: Enhanced scraping workflow to handle both web pages (ScrapegraphAI) and YouTube videos (yt-dlp) in the same source list
