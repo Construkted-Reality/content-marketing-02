@@ -1,9 +1,9 @@
 {
   "ideas": [
     {
-      "title": "How you can close holes in photogrammetry models for perfect 3D prints",
-      "pain_point": "Photogrammetry hobbyists often end up with 3D meshes that contain holes—especially in areas never photographed, such as the bottom of an object resting on a surface, or in complex geometries where occlusions prevent image capture. These gaps render the models unusable for 3D printing, game asset integration, or architectural analysis, forcing users to spend extra time repairing the mesh manually or re‑scanning the object.",
-      "target_audience": "hobbyist",
+      "title": "Why Your Photogrammetry Models Have Holes and How to Fill Them Properly",
+      "pain_point": "Users frequently encounter incomplete meshes with holes, especially in areas that couldn't be photographed (like the bottom of objects sitting on surfaces) or in complex geometries with occlusions. The resulting models have significant gaps that make them unusable for their intended purposes.",
+      "target_audience": "Beginner to intermediate photogrammetry users, particularly those scanning objects for 3D printing, game development, or digital archiving. Also valuable for professionals in AEC who need complete models for analysis.",
       "content_details": "",
       "sources": [
         "https://www.reddit.com/r/photogrammetry/comments/1f45oaf/what_am_i_doing_wrong/",
@@ -11,111 +11,8 @@
         "https://surphaser.com/blog/how-to-enhance-3d-scan-quality-post-processing-tips/"
       ],
       "id": "2a2ab6040f05",
-      "created_at": "2025-09-04T09:14:34.777485",
-      "modified_at": "2025-09-04T13:33:48.011301",
-      "article": "blog_post_drafts/2a2ab6040f05_How you can close holes in photogrammetry models for perfect 3D prints.md",
-      "voice": "Wired",
-      "piece_type": "tutorial",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "med",
-      "keywords": "",
-      "length": 1500,
-      "sections": "",
-      "call_to_action": "",
-      "article_generated": true,
-      "scraped_sources": [
-        {
-          "url": "https://www.reddit.com/r/photogrammetry/comments/1f45oaf/what_am_i_doing_wrong/",
-          "status": "error",
-          "text": "",
-          "char_count": 0,
-          "last_scraped_at": "2025-09-04T13:32:37.867288",
-          "error": "Error code: 500"
-        },
-        {
-          "url": "https://www.reddit.com/r/blenderhelp/comments/10pgqfg/fixing_3d_photogrammetry_modeling_issues/",
-          "status": "ok",
-          "text": "No meaningful readable page text was found in the provided chunks. All chunks contain 'NA' or non‑human‑readable data, so there is no main content to extract.",
-          "char_count": 158,
-          "last_scraped_at": "2025-09-04T13:32:52.415301"
-        },
-        {
-          "url": "https://surphaser.com/blog/how-to-enhance-3d-scan-quality-post-processing-tips/",
-          "status": "ok",
-          "text": "# How to Enhance 3D Scan Quality: Post-Processing Tips\n\nFebruary 7, 2024 by surphaseradmin\n\n3D scanning technology has transformed various industries, from manufacturing to healthcare, by allowing precise digital replicating of real‑world objects and environments. This technology captures the geometry and appearance of objects, creating 3D models that can be used for various purposes, such as prototyping, quality control, and virtual reality experiences. However, achieving high‑quality 3D scans requires more than just capturing the initial data. Post‑processing is crucial in refining and enhancing the scan results, ensuring accuracy and detail. This blog will delve into various post‑processing tips and techniques to help you elevate the quality of your 3D scans, regardless of your level of expertise or the complexity of the scanned objects.\n\n## Common Challenges in 3D Scan Quality\n\n### Noise and outliers in scan data\nNoise and outliers are common challenges encountered in 3D scanning, affecting the quality and accuracy of the resulting model. Noise refers to random fluctuations or errors present in the captured data. These fluctuations can emerge from various sources, including sensor imperfections, environmental factors like ambient light or interference, or inaccuracies in the scanning process. Noise can manifest as small irregularities or inconsistencies in the scanned surface, compromising the overall fidelity of the model.\n\nOutliers are data points that significantly deviate from the expected pattern or distribution within the scan data. These outliers may arise due to reflective surfaces, occlusions, or other factors that cause the scanner to misinterpret certain areas of the object. Outliers can introduce distortions into the final model, leading to inaccuracies and visual artifacts.\n\nVarious techniques can be employed during post‑processing to mitigate noise and outliers in scan data. Filtering algorithms can be applied to smooth out noise and remove outlier points, enhancing the overall quality of the scan. Additionally, careful calibration of the scanning equipment, optimizing scanning parameters and ensuring consistent environmental conditions can help minimize the impact of noise and outliers on the final 3D model.\n\n### Missing data and holes in the mesh\nWhen conducting a 3D scan, it’s common to encounter areas where data acquisition is incomplete, resulting in holes or gaps in the mesh. This issue can occur because of various factors, such as occlusions, reflective surfaces, or limitations in the scanning equipment.\n\n**Mesh Hole Filling:** Specialized software tools can automatically or manually fill gaps in the mesh by extrapolating from surrounding data points.\n\n**Data Interpolation:** Interpolation algorithms can estimate the missing geometry based on the available data points.\n\n**Patch‑Based Reconstruction:** Advanced reconstruction algorithms analyze the mesh’s topology to identify regions with missing data and generate patches to fill them.\n\n**Manual Editing:** In cases where automated methods fall short, manual editing allows users to manipulate the mesh directly to fill holes and refine details.\n\n### Inaccurate alignment of multiple scans\nPrecise alignment is paramount when merging multiple scans to create a comprehensive 3D model. Challenges include:\n\n- **Misregistration:** Errors in the registration process where the software fails to match corresponding points accurately.\n- **Drift:** Gradual shift of scans relative to each other during long scanning sessions or with handheld devices.\n- **Limited overlap:** Insufficient overlap between adjacent scans makes accurate alignment difficult.\n\nUsing high‑quality scanning equipment, ensuring sufficient overlap, and employing robust registration algorithms are essential. Manual alignment refinement may also be necessary.\n\n### Texture issues and color inconsistencies\nTexture and color are vital for realistic 3D scans but can be problematic due to:\n\n- **Lighting conditions:** Changes in lighting cause variations in texture and color.\n- **Surface properties:** Reflective or translucent surfaces react differently to light.\n- **Sensor limitations:** Lower‑quality sensors may capture blurred textures or inaccurate colors.\n\nEffective post‑processing techniques such as texture mapping and color correction are needed to align texture data with geometry and adjust color values accurately.\n\n## Post‑Processing Techniques\n\n### Cleaning\nCleaning involves removing noise and outliers, filling holes, and closing gaps in the mesh. Advanced filtering tools (smoothing algorithms, statistical methods) eliminate unwanted artifacts, while specialized software intelligently fills missing data and closes gaps.\n\n### Alignment\nAlignment merges multiple scans into a cohesive model. Enhancing accuracy can be achieved by using markers or identifiable geometric features as reference points during scanning, aiding precise alignment.\n\n### Meshing\nMeshing converts point‑cloud data into a surface mesh. Selecting the appropriate mesh resolution balances detail and processing efficiency. High‑resolution meshes capture intricate features for precision‑critical applications, while lower resolutions suffice for simpler objects or faster processing.\n\n### Texturing\nConsistent application of textures and colors ensures the final model accurately reflects the scanned object. Techniques include applying surface patterns, matching colors, and baking textures from high‑resolution photographs using specialized software.\n\n## Enhance 3D Scan Quality\n\nPost‑processing serves as the cornerstone for achieving high‑quality 3D scans. By addressing challenges such as noise, missing data, alignment issues, and texture inconsistencies, users can refine their scans to perfection. Our team at Surphaser offers state‑of‑the‑art scanners renowned for unsurpassed accuracy and quality, with short‑range and medium‑range models tailored for reverse engineering, dimensional control, architecture, and forensics. Venture on your journey today and discover the transformative potential of precision scanning and meticulous post‑processing techniques.",
-          "char_count": 6158,
-          "last_scraped_at": "2025-09-04T13:33:32.826230"
-        }
-      ],
-      "justification": "The topic is a practical, step‑by‑step guide for fixing mesh holes in photogrammetry models—a classic technical troubleshooting scenario. Wired’s fast‑paced, tech‑forward voice resonates with hobbyist makers who enjoy hands‑on solutions and appreciate clear, actionable language. A tutorial format best delivers the multiple methods (auto‑fill, interpolation, manual patching) and best‑practice tips. Positioning it as an educational, top‑of‑funnel piece helps attract hobbyists searching for basic guidance before they consider any paid tools, while the primary goal is to troubleshoot their immediate pain. Medium technical depth matches a hobbyist’s moderate familiarity with 3D scanning software without overwhelming them. An estimated 1,500‑word length allows coverage of the problem context, several repair techniques, tool recommendations, and a concise checklist."
-    },
-    {
-      "title": "How you can eliminate double‑wall artifacts in 3D scans for accurate building models",
-      "pain_point": "Users experience misalignment when merging multiple 3D scans, resulting in duplicated surfaces, floating geometry, and inconsistent meshes. This \"double wall\" effect is especially problematic for large, multi‑session projects such as documenting buildings over time, leading to inaccurate models and costly rework.",
-      "target_audience": "enterprise",
-      "content_details": "",
-      "sources": [
-        "https://www.reddit.com/r/blenderhelp/comments/10pgqfg/fixing_3d_photogrammetry_modeling_issues/",
-        "https://surphaser.com/blog/how-to-enhance-3d-scan-quality-post-processing-tips/",
-        "https://www.youtube.com/watch?v=ZZut6f17Vtc"
-      ],
-      "id": "9ffbec2e6bd6",
-      "created_at": "2025-09-04T09:14:34.777514",
-      "modified_at": "2025-09-04T13:15:44.618455",
-      "article": "blog_post_drafts/9ffbec2e6bd6_How you can eliminate double‑wall artifacts in 3D scans for accurate building models.md",
-      "voice": "Wired",
-      "piece_type": "tutorial",
-      "marketing_post_type": "educational",
-      "primary_goal": "troubleshoot",
-      "technical_depth": "med",
-      "keywords": "",
-      "length": 1500,
-      "sections": "",
-      "call_to_action": "",
-      "article_generated": true,
-      "scraped_sources": [
-        {
-          "url": "https://www.reddit.com/r/blenderhelp/comments/10pgqfg/fixing_3d_photogrammetry_modeling_issues/",
-          "status": "error",
-          "text": "",
-          "char_count": 0,
-          "last_scraped_at": "2025-09-04T13:15:29.551237",
-          "error": "'model_provider'"
-        },
-        {
-          "url": "https://surphaser.com/blog/how-to-enhance-3d-scan-quality-post-processing-tips/",
-          "status": "error",
-          "text": "",
-          "char_count": 0,
-          "last_scraped_at": "2025-09-04T13:15:30.051610",
-          "error": "'model_provider'"
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=ZZut6f17Vtc",
-          "status": "error",
-          "text": "",
-          "char_count": 0,
-          "last_scraped_at": "2025-09-04T13:15:30.551972",
-          "error": "'model_provider'"
-        }
-      ],
-      "justification": "The article addresses a concrete technical problem (the \"double wall\" effect) that requires clear, step‑by‑step guidance, making Wired’s fast‑paced, tech‑forward voice ideal. A tutorial format best delivers the procedural instructions the intermediate photogrammetry audience needs. Positioning it as educational aligns with the top‑of‑funnel goal of attracting users searching for solutions to misalignment issues, while the primary goal is to help them troubleshoot. The target audience is enterprise‑level surveying, architecture, and construction professionals who handle large, multi‑session datasets, so a medium technical depth matches their expertise without overwhelming hobbyists."
-    },
-    {
-      "title": "Why Your Phone Photos Aren't Working for Photogrammetry (And How to Fix It)",
-      "pain_point": "Users attempt photogrammetry with smartphones but get poor results due to automatic image processing, unstable camera geometry, and lack of manual controls. Many are frustrated because they expect phone cameras to work as well as dedicated cameras.",
-      "target_audience": "Beginners trying photogrammetry for the first time, hobbyists without professional camera equipment, and students learning 3D scanning techniques on a budget.",
-      "content_details": "",
-      "sources": [
-        "https://www.agisoft.com/forum/index.php?topic=10580.0",
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11598270/",
-        "https://www.reddit.com/r/photogrammetry/comments/11qo1p1/photogrammetry_with_mobile_phone/",
-        "https://www.youtube.com/watch?v=VtRLU2K7gyM"
-      ],
-      "id": "67448229cf6a",
-      "created_at": "2025-09-04T09:14:34.777528",
-      "modified_at": "2025-09-04T09:14:34.777529",
+      "created_at": "2025-09-04T23:19:56.337946",
+      "modified_at": "2025-09-04T23:19:56.337955",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -126,7 +23,91 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
+    },
+    {
+      "title": "Solving the Dreaded \"Double Wall\" Effect in Your 3D Scans",
+      "pain_point": "Users experience misalignment issues where multiple scans don't align properly, creating doubled surfaces, floating geometry, and inconsistent meshes. This is particularly problematic when combining multiple datasets or when scanning sessions are conducted at different times.",
+      "target_audience": "Intermediate photogrammetry users, surveying professionals, and anyone working with large datasets or multi-session projects. Particularly relevant for architecture and construction professionals documenting buildings over time.",
+      "content_details": "",
+      "sources": [
+        "https://www.reddit.com/r/blenderhelp/comments/10pgqfg/fixing_3d_photogrammetry_modeling_issues/",
+        "https://surphaser.com/blog/how-to-enhance-3d-scan-quality-post-processing-tips/",
+        "https://www.youtube.com/watch?v=ZZut6f17Vtc"
+      ],
+      "id": "9ffbec2e6bd6",
+      "created_at": "2025-09-04T23:19:56.337975",
+      "modified_at": "2025-09-04T23:19:56.337976",
+      "article": "",
+      "voice": "",
+      "piece_type": "",
+      "marketing_post_type": "",
+      "primary_goal": "",
+      "technical_depth": "",
+      "keywords": "",
+      "length": "",
+      "sections": "",
+      "call_to_action": "",
+      "scraped_sources": "",
+      "article_generated": false
+    },
+    {
+      "title": "How you can fix phone photos for photogrammetry and boost 3D scan quality",
+      "pain_point": "Phone cameras automatically apply processing (night mode, aggressive sharpening, color casts) and lack manual controls, resulting in blurry, over‑sharpened, or color‑biased images that break photogrammetry pipelines. Users also struggle with wide‑angle lenses, inability to lock exposure/focus, camera shake, insufficient lighting, and difficulty using polarizing filters, leading to fragmented models and poor texture quality.",
+      "target_audience": "hobbyist",
+      "content_details": "",
+      "sources": [
+        "https://www.agisoft.com/forum/index.php?topic=10580.0",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11598270/",
+        "https://www.reddit.com/r/photogrammetry/comments/11qo1p1/photogrammetry_with_mobile_phone/",
+        "https://www.youtube.com/watch?v=VtRLU2K7gyM"
+      ],
+      "id": "67448229cf6a",
+      "created_at": "2025-09-04T23:19:56.337989",
+      "modified_at": "2025-09-04T23:21:52.847298",
+      "article": "blog_post_drafts/67448229cf6a_How you can fix phone photos for photogrammetry and boost 3D scan quality.md",
+      "voice": "Wired",
+      "piece_type": "tutorial",
+      "marketing_post_type": "educational",
+      "primary_goal": "troubleshoot",
+      "technical_depth": "med",
+      "keywords": "",
+      "length": 1500,
+      "sections": "",
+      "call_to_action": "",
+      "scraped_sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=VtRLU2K7gyM",
+          "status": "ok",
+          "text": "[Music]\ni want to try this out for a really long\ntime and today is the day i want to find\nout if a mobile phone is any good for\nphotogrammetry here's the intro\nin theory a phone should work perfectly\nfine photogrammetry is creating an\nobject out of multiple images so the\nlack of resolution from the small phone\nsensor is not as big of an issue of\ncourse that means shooting more images\nand more close-ups of the object that's\nthe only way to compete with the clarity\nof a big sensor camera for now though we\nwon't go overboard with the number of\nphotos taken we'll just focus on the\nbasics see what we can get out of a\nphone in order to properly capture an\nobject surface we need a polarizing\nfilter on both the lens and the light\nsource that ensures no reflections on\nthe surface of the object this will\nallow us to re-light the object later on\nwithout any issues i've covered that in\na previous video so if you haven't\nwatched that i'll leave a link in the\ndescription below\nto help with the whole reflection\nsituation i'll use the relatively\ndiffuse objects so the reflections won't\nbe that obvious we'll try three objects\na pinecone this wooden stick\nand this beautiful brick make no\nmistakes even these diffuse objects have\nreflections they're just not as visible\nas shiny reflective surfaces\nsince we want to compare the results\ni'll be shooting the objects twice once\nwith the iphone 11 pro and once with the\ngh5 it's an older phone but it's still\nable to capture a good amount of detail\nof course with a newer phone the results\nwill be better\nlet's start\nfor lighting the object i'm going very\nsimple i'll take advantage of the\nnatural light and to fill out the\nremaining shadows i'll use an led light\nwith neutral white balance\nto reduce the harsh shadows of the sun\nand make everything as soft as possible\nwe need a diffuser\nthankfully my currents are white so\nthey're the ultimate light diffuser\nnow let's start taking some pictures\nright off the bat i've hit the first\nsnag iphone's default lens is way too\nwide for landscapes it's perfect but for\nphotogrammetry not so much\nswitching to the 2x telephoto lens\nsolves a problem but the quality there\nis not as good\niphone's telephoto lens is not as bright\nand also has a lower quality ccd so the\nimages won't be as good as the ones\ntaken with a default lens\nthe images will be noisier and won't\nhave a ton of detail but on the other\nhand that's all we've got so that's what\nwe're going to use\nthe other interesting challenge was\nfinding a way to prop up the phone\nputting the phone on a tripod would move\nit too far away from the object so i\nended up using a combination of a tripod\nhead and some lens caps\na really professional setup but it does\na trick so i'm fine with it\nmy other concern was camera shake since\ni can't remotely trigger the shutter i\nhave to manually press the button on the\nscreen which can result in blurry images\nbut this is where the decision to not\nshoot with polarized light helps a lot\nwith plenty of natural light further\nenhanced by the led light the phone\nwon't have to use slow shutter speeds\nbut if we did shoot things the proper\nway i'm not exactly sure how i would be\nable to compensate for camera shake\nthe other issue with low light\nenvironments is that apple's night mode\ngets enabled and we definitely don't\nwant that night mode does a lot of post\nprocessing which compromises the quality\nof the image it aggressively reduces\nnoise and over sharpens the image to\ngive the illusion of detail so it's\ndefinitely not something we want to\nintroduce to our images\ni've covered apple's night mode in a\nprevious video so i'll leave that in the\ndescription below as well\nthe only way i can think of shooting\nwith a phone and cross polarized light\nis to have multiple light sources for\nadequate light but also polarizing\nfilters for all of these lights at that\npoint having spent this much money on\nequipment i don't know why anyone would\nuse a phone for the actual shoot but\nthat's besides the point let's get back\nto our shoot\nit's very important to lock the exposure\nand focus otherwise each image will be\ncompletely different than the last one\nthrowing things out of whack\nthe process is a bit tedious but with\nthe rotations of the object handled\nautomatically it's not as bad\n[Music]\nnow that the iphone photos are complete\nit's time to shoot the same thing all\nover again with the camera things are\nmuch easier here because there's a lot\nmore flexibility we can use a tripod\nchange lenses basically set up the shot\nexactly like we want to\n[Music]\nand with the phone cameras photos ready\nit's time for some processing\na few minutes later\nand here are the results\ni won't tell you which is which right\naway have a guess\nthe objects as far as overall shape goes\nare identical there are some differences\nin color and detail but both look really\ngood the left cone compared to the right\none looks like it has a blurrier texture\nbut that's only if you see the cone side\nby side if i disable the right one and\ninspect cone number one on its own the\ntexture feels really nice\nso\nwhich is which\ncone number two the one on the right\nside is the one made with the iphone and\ncone number one is down with the gh5 you\nmight be impressed by how much detail is\non the iphone texture but this detail is\nall artificial it's just the iphone\nbeing very aggressive with sharpening\nyou can tell quite easily if we take a\nlook at the bottom of the cone if we\nzoom in what looked like a lot of detail\nnow looks more like a posterized\naggressive sharpening\ncone number one's texture feels much\nmore natural and on the plus side if we\nwant to sharpen the result we can i'll\njust apply a non-sharp mask in photoshop\nand now we have a really sharp result\nand if we apply that to our cone we have\na sharp result that still looks way more\nnatural than the one from the iphone\nthat's the good thing with images taken\nwith a camera the results are very\nneutral and we can fine tune them the\nway we want to after the fact with a\nphone we're getting a pre-decided result\nthat's always punchier and more\nprocessed\nin hindsight i should have used raw for\nthe iphone's images since no pause\nprocessing is applied there but that\nwould also involve one extra step\nconverting the raw images to jpeg in\norder to use them for photogrammetry now\nlet's move on to the next object\nboth look good as far as form goes which\nis quite encouraging it means that the\nimages had enough detail to accurately\ndescribe the object so judging by the\nform alone it's not easy to tell which\nis which if we turn on the textures\nthough it's quite obvious which one is\ntaken with the iphone and which one is\nwith the gh5\nas with the previous object the one that\nlooks more detailed is the one taken\nwith the iphone but like before the\ndetail is an illusion if we zoom in\ncloser you will notice how much the\ntexture falls apart the one taking with\nthe gh5 object number two feels very\nnatural\nonce more the gh5s less aggressive\nsharpening and higher resolution gives\nbetter results and once we apply some\nsharpening to the image we get some nice\nsharp details\nthe other dead giveaway is the white\nbalance of the texture\niphones ever since i can remember always\nlean into the yellow end of the spectrum\nthe photos taken with the gh5 have a\nmore correct and neutral white balance\nthe yellowish white balance though can\nbe fixed relatively easily so at least\nthe result in that regard can be\nadjusted\nno matter what though the iphone result\nis quite impressive especially if we\nconsider the fact that a phone's primary\nfunction is phone calls and messaging\nnot photogrammetry in that regard this\nresult is mind-blowing\nand last but not least our final object\nthis beautifully disgusting brick\nignore this fail the scan part that was\nan error on my side\ni'm sure by now you can tell which model\nis done with which camera number one is\ndone with the iphone and number two with\na gh5\nhere the over sharpening went a little\nbit too crazy i might have also\nunderexposed the iphone images a tad\ni'm not sure though if this is my fault\nno matter what though the over\nsharpening makes the model look\nunrealistic\nthe one shot with the gh5 looks much\nmore natural if we compare the images\nside by side you can see how aggressive\nthe iphone is with the sharpening\nso if you're planning to shoot something\nwith your phone definitely shoot it with\nraw and not with a default camera\nthis will ensure that no pause\nprocessing is applied it will add one\nextra step in the process but the\nresults will be infinitely\nbetter so\nwhat's the verdict\ni would say if we take the proper steps\nand ensure lots of light and raw\nshooting we can get some nice looking\nobjects from a phone\nbut we definitely need to be more\ncareful than with an ordinary camera raw\nis an absolute must in order to avoid\npost processing and any other modes like\napple's night mode\ncross polarization with a phone is a tad\ntrickier not only because of the\npolarizing filter for the phone's lens\nbut also because of the higher noise\nfloor of the phone's small ccd chip\nunless we have adequate lights and\nfilters\nwith newer phones i'm sure the results\nwill be even better iphone 13's macro\nlens for example might be able to\ncapture a lot more detail\ndon't forget that more detail means\nbetter forms and richer textures\nis my iphone going to replace my camera\nfor photogrammetry definitely not\nbut it's good to know that if you're in\na pinch and you're willing to follow\nsome basic rules you will be able to get\nsome good results out of it\nand that's about it for this video how\ndo you think the iphone fared would you\npersonally use your phone to do this\nsort of thing let me know in the\ncomments below take care and i'll see\nyou in the next one",
+          "char_count": 9726,
+          "last_scraped_at": "2025-09-04T23:20:28.761386"
+        },
+        {
+          "url": "https://www.agisoft.com/forum/index.php?topic=10580.0",
+          "status": "ok",
+          "text": "## Hello, I am new to photogrammetry and I have lots of very specific questions\n\n**tymal77** (March 13, 2019)\n\nI have access to Metashape Pro and was hoping if I could get some help with a few issues I've had since I've started. I'll try and upload photos to go along with this. I'm using a Google Pixel 2 with focus and contrast lock to take my photos, and a custom built PC with an i5 and an AMD Radeon R9 390 series as my PC.\n\nFirstly, I've watched many videos on using this software and have found that the meshes and dense clouds people are producing are much more complete while mine have been very broken up and contain lots of holes. I'm on my fourth try now and my results have improved each time but I still feel like I'm doing something fundamentally wrong.\n\nSecondly, my GPU does not appear in my GPU selection preferences, I'll post a photo of what it looks like along with this. I'm assuming this has affected my end result in some way.\n\nThank you for your time to anyone that can help. I know I probably need better photography equipment but I'm trying to get the best results with what I have right now. I also want to note that I have experience in ZBrush and Blender, and while I'm just focusing on objects right now I'd like to move on to larger landscapes about an acre to 2 acres in size. If you'd like access to any of my files please let me know and I'll see what I can do.\n\n---\n\n**Dave Martin** (Reply #1, March 13, 2019)\n\nTymal77, as a first step, I would suggest you share one of your source images and also a screenshot of your resultant model.\n\n---\n\n**pbourke** (Reply #2, March 14, 2019)\n\n- I wouldn't worry about the GPU; my understanding is it won't make any difference from a model quality perspective, only the time taken.\n- Regarding the quality of the results, what are you trying to reconstruct? There are well‑known problem cases such as smooth featureless surfaces, highly specular or reflective surfaces.\n- Lastly, I've had mixed success with mobile phones. Phones often apply processing to images that can affect feature coherence. Even with my DSLR I turn image processing/enhancements off.",
+          "char_count": 2131,
+          "last_scraped_at": "2025-09-04T23:20:56.410354"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11598270/",
+          "status": "ok",
+          "text": "No readable page text was found in the provided chunks; all chunk contents are marked as 'NA'.",
+          "char_count": 94,
+          "last_scraped_at": "2025-09-04T23:21:16.144342"
+        },
+        {
+          "url": "https://www.reddit.com/r/photogrammetry/comments/11qo1p1/photogrammetry_with_mobile_phone/",
+          "status": "ok",
+          "text": "This is a community to share and discuss 3D photogrammetry modeling. Links to different 3D models, images, articles, and videos related to 3D photogrammetry are highly encouraged, e.g. articles on new photogrammetry software or techniques. Feel free to post questions or opinions on anything that has to do with 3D photogrammetry. The point is to have a place where we can help each other out. Photogrammetry is the process of converting a series of photographs into a textured 3D model.\n\n# Photogrammetry With Mobile Phone\n\nGreetings everyone, long time no see! I conducted an intriguing experiment to determine if we can get top‑notch results in photogrammetry using just a mobile phone and a colour checker. I rendered the output in UE5 after texturing and was amazed by the outcome. However, the finer details were somewhat lacking. My next move is to capture the scene from a distance, and then approach it up close to achieve the details. I'd love to hear your thoughts on this experiment and where you think the future of photogrammetry using mobile phones is headed. Share your opinions, let's start a discussion!\n\n*Note: this was not done with the Reality Scan App, this was done with photos and processed in Metashape.*",
+          "char_count": 1229,
+          "last_scraped_at": "2025-09-04T23:21:33.811667"
+        }
+      ],
+      "article_generated": true,
+      "justification": "The topic is a practical, step‑by‑step guide aimed at beginners and hobbyists who are frustrated by poor phone‑generated photogrammetry scans. Wired’s fast‑paced, tech‑forward voice matches the need to explain hardware quirks, software settings, and lighting tricks without heavy jargon, while still feeling modern and actionable. A tutorial format directly addresses the \"how‑to\" nature of the content. Positioning it as an educational, top‑of‑funnel piece helps attract a broad audience searching for basic answers, and the primary goal of troubleshooting aligns with the pain‑point‑driven fixes the article will deliver. Medium technical depth suits hobbyists who have some familiarity with phones and 3D scanning but need concrete guidance."
     },
     {
       "title": "Conquering Reflective and Shiny Surfaces in 3D Scanning",
@@ -141,8 +122,8 @@
         "https://store.3dmakerpro.com/en-ca/blogs/school/top-10-3d-scanning-mistakes"
       ],
       "id": "0a41139c28e6",
-      "created_at": "2025-09-04T09:14:34.777541",
-      "modified_at": "2025-09-04T09:14:34.777542",
+      "created_at": "2025-09-04T23:19:56.338001",
+      "modified_at": "2025-09-04T23:19:56.338002",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -153,6 +134,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -166,8 +148,8 @@
         "https://www.youtube.com/watch?v=2_ulJZTYJwA"
       ],
       "id": "ba9e9ebf3698",
-      "created_at": "2025-09-04T09:14:34.777552",
-      "modified_at": "2025-09-04T09:14:34.777553",
+      "created_at": "2025-09-04T23:19:56.338012",
+      "modified_at": "2025-09-04T23:19:56.338013",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -178,6 +160,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -192,8 +175,8 @@
         "https://www.youtube.com/watch?v=C_RqdNbYOjE"
       ],
       "id": "db28f8828650",
-      "created_at": "2025-09-04T09:14:34.777564",
-      "modified_at": "2025-09-04T09:14:34.777565",
+      "created_at": "2025-09-04T23:19:56.338024",
+      "modified_at": "2025-09-04T23:19:56.338025",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -204,6 +187,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -218,8 +202,8 @@
         "https://www.aerotas.com/photogrammetry"
       ],
       "id": "6c6c4bcbcb42",
-      "created_at": "2025-09-04T09:14:34.777576",
-      "modified_at": "2025-09-04T09:14:34.777577",
+      "created_at": "2025-09-04T23:19:56.338035",
+      "modified_at": "2025-09-04T23:19:56.338036",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -230,6 +214,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -244,8 +229,8 @@
         "https://forum.dxo.com/t/cant-perform-color-calibration-due-to-clipping/36835"
       ],
       "id": "a6521f3cd6fd",
-      "created_at": "2025-09-04T09:14:34.777587",
-      "modified_at": "2025-09-04T09:14:34.777588",
+      "created_at": "2025-09-04T23:19:56.338046",
+      "modified_at": "2025-09-04T23:19:56.338047",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -256,6 +241,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -269,8 +255,8 @@
         "https://www.3d-scantech.com/product/autoscan-k-3d-system/"
       ],
       "id": "f0cae3e1b1de",
-      "created_at": "2025-09-04T09:14:34.777597",
-      "modified_at": "2025-09-04T09:14:34.777598",
+      "created_at": "2025-09-04T23:19:56.338061",
+      "modified_at": "2025-09-04T23:19:56.338062",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -281,6 +267,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -294,8 +281,8 @@
         "https://www.photomodeler.com/pm-kb/getting-the-highest-possible-accuracy/"
       ],
       "id": "f5558bed9cc1",
-      "created_at": "2025-09-04T09:14:34.777607",
-      "modified_at": "2025-09-04T09:14:34.777608",
+      "created_at": "2025-09-04T23:19:56.338071",
+      "modified_at": "2025-09-04T23:19:56.338072",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -306,6 +293,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -320,8 +308,8 @@
         "https://www.reddit.com/r/photogrammetry/comments/131zrhi/metashape_does_not_correctly_align_drone_images/"
       ],
       "id": "8799e87a1fb1",
-      "created_at": "2025-09-04T09:14:34.777617",
-      "modified_at": "2025-09-04T09:14:34.777618",
+      "created_at": "2025-09-04T23:19:56.338082",
+      "modified_at": "2025-09-04T23:19:56.338083",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -332,6 +320,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -346,8 +335,8 @@
         "https://www.instructables.com/Shooting-for-Photogrammetry/"
       ],
       "id": "3fcb620d8f5c",
-      "created_at": "2025-09-04T09:14:34.777628",
-      "modified_at": "2025-09-04T09:14:34.777629",
+      "created_at": "2025-09-04T23:19:56.338093",
+      "modified_at": "2025-09-04T23:19:56.338094",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -358,6 +347,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -372,8 +362,8 @@
         "https://www.reddit.com/r/photogrammetry/comments/rn3fsv/any_tips_for_a_beginner/"
       ],
       "id": "8803cb82a8fe",
-      "created_at": "2025-09-04T09:14:34.777640",
-      "modified_at": "2025-09-04T09:14:34.777641",
+      "created_at": "2025-09-04T23:19:56.338105",
+      "modified_at": "2025-09-04T23:19:56.338106",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -384,6 +374,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -398,8 +389,8 @@
         "https://www.youtube.com/watch?v=TQggSy3YJYU"
       ],
       "id": "e132250b49b0",
-      "created_at": "2025-09-04T09:14:34.777652",
-      "modified_at": "2025-09-04T09:14:34.777653",
+      "created_at": "2025-09-04T23:19:56.338118",
+      "modified_at": "2025-09-04T23:19:56.338119",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -410,6 +401,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -423,8 +415,8 @@
         "https://www.geodetic.com/basics-of-photogrammetry/"
       ],
       "id": "4c98d59ba28f",
-      "created_at": "2025-09-04T09:14:34.777662",
-      "modified_at": "2025-09-04T09:14:34.777663",
+      "created_at": "2025-09-04T23:19:56.338130",
+      "modified_at": "2025-09-04T23:19:56.338131",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -435,6 +427,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -449,8 +442,8 @@
         "https://www.youtube.com/watch?v=aVD1ZsYUwz8"
       ],
       "id": "2e70ee636085",
-      "created_at": "2025-09-04T09:14:34.777674",
-      "modified_at": "2025-09-04T09:14:34.777675",
+      "created_at": "2025-09-04T23:19:56.338142",
+      "modified_at": "2025-09-04T23:19:56.338143",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -461,6 +454,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -474,8 +468,8 @@
         "https://forums.unrealengine.com/t/problem-about-the-3d-model-from-reality-capture/1183631"
       ],
       "id": "c4a746fc8cbf",
-      "created_at": "2025-09-04T09:14:34.777688",
-      "modified_at": "2025-09-04T09:14:34.777689",
+      "created_at": "2025-09-04T23:19:56.338156",
+      "modified_at": "2025-09-04T23:19:56.338156",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -486,6 +480,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -499,8 +494,8 @@
         "https://www.youtube.com/watch?v=6nFdKea7Xsw"
       ],
       "id": "01a236b865b2",
-      "created_at": "2025-09-04T09:14:34.777698",
-      "modified_at": "2025-09-04T09:14:34.777699",
+      "created_at": "2025-09-04T23:19:56.338167",
+      "modified_at": "2025-09-04T23:19:56.338168",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -511,6 +506,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -525,8 +521,8 @@
         "https://forums.cgarchitect.com/topic/79902-photogrammetry-workflows/"
       ],
       "id": "721b62d3733f",
-      "created_at": "2025-09-04T09:14:34.777710",
-      "modified_at": "2025-09-04T09:14:34.777711",
+      "created_at": "2025-09-04T23:19:56.338179",
+      "modified_at": "2025-09-04T23:19:56.338180",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -537,6 +533,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -551,8 +548,8 @@
         "https://www.reddit.com/r/photogrammetry/comments/1804g7u/reality_capture_turntable_workflow_doesnt_align/"
       ],
       "id": "11b7cf2aa206",
-      "created_at": "2025-09-04T09:14:34.777727",
-      "modified_at": "2025-09-04T09:14:34.777728",
+      "created_at": "2025-09-04T23:19:56.338190",
+      "modified_at": "2025-09-04T23:19:56.338191",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -563,6 +560,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -577,8 +575,8 @@
         "https://www.reddit.com/r/gamedev/comments/zia1t3/what_file_size_disk_space_should_3d_character/"
       ],
       "id": "41f7586633ef",
-      "created_at": "2025-09-04T09:14:34.778470",
-      "modified_at": "2025-09-04T09:14:34.778473",
+      "created_at": "2025-09-04T23:19:56.339004",
+      "modified_at": "2025-09-04T23:19:56.339009",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -589,6 +587,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -603,8 +602,8 @@
         "https://www.reddit.com/r/photogrammetry/comments/ueol2y/reality_capture_computation_of_one_or_more_part/"
       ],
       "id": "eca4bb24d1aa",
-      "created_at": "2025-09-04T09:14:34.778484",
-      "modified_at": "2025-09-04T09:14:34.778485",
+      "created_at": "2025-09-04T23:19:56.339021",
+      "modified_at": "2025-09-04T23:19:56.339022",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -615,6 +614,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -629,8 +629,8 @@
         "https://aeromegh.com/blog/challenges-and-solutions/"
       ],
       "id": "861e341c0ce6",
-      "created_at": "2025-09-04T09:14:34.778495",
-      "modified_at": "2025-09-04T09:14:34.778496",
+      "created_at": "2025-09-04T23:19:56.339033",
+      "modified_at": "2025-09-04T23:19:56.339034",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -641,6 +641,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -654,8 +655,8 @@
         "https://www.laserscanningforum.com/forum/viewtopic.php?t=17924"
       ],
       "id": "cf8f65ec6e5c",
-      "created_at": "2025-09-04T09:14:34.778506",
-      "modified_at": "2025-09-04T09:14:34.778507",
+      "created_at": "2025-09-04T23:19:56.339044",
+      "modified_at": "2025-09-04T23:19:56.339045",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -666,6 +667,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -679,8 +681,8 @@
         "https://forums.autodesk.com/t5/inventor-forum/3d-scan-stl-file/td-p/6380027"
       ],
       "id": "eed87a56a8aa",
-      "created_at": "2025-09-04T09:14:34.778517",
-      "modified_at": "2025-09-04T09:14:34.778518",
+      "created_at": "2025-09-04T23:19:56.339056",
+      "modified_at": "2025-09-04T23:19:56.339057",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -691,6 +693,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -705,8 +708,8 @@
         "https://www.reddit.com/r/Fusion360/comments/1b9ug66/is_everyone_just_fine_with_all_their_work_and/"
       ],
       "id": "ccacb51a80ac",
-      "created_at": "2025-09-04T09:14:34.778530",
-      "modified_at": "2025-09-04T09:14:34.778531",
+      "created_at": "2025-09-04T23:19:56.339076",
+      "modified_at": "2025-09-04T23:19:56.339077",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -717,6 +720,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -730,8 +734,8 @@
         "https://www.reddit.com/r/photogrammetry/comments/xa1dqq/good_phones_for_photogrammetry/"
       ],
       "id": "ef697badbfc1",
-      "created_at": "2025-09-04T09:14:34.778541",
-      "modified_at": "2025-09-04T09:14:34.778542",
+      "created_at": "2025-09-04T23:19:56.339087",
+      "modified_at": "2025-09-04T23:19:56.339088",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -742,6 +746,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -754,8 +759,8 @@
         "https://www.hollandproductions.ca/blog/drone-mapping-in-high-winds"
       ],
       "id": "10eac303541a",
-      "created_at": "2025-09-04T09:14:34.778551",
-      "modified_at": "2025-09-04T09:14:34.778552",
+      "created_at": "2025-09-04T23:19:56.339097",
+      "modified_at": "2025-09-04T23:19:56.339098",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -766,6 +771,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -780,8 +786,8 @@
         "https://lidarmag.com/2023/09/28/point-cloud-to-3d-bim-modeling-ensuring-precision-of-point-cloud-data-to-build-robust-3d-bim-models/amp/"
       ],
       "id": "605047749ee1",
-      "created_at": "2025-09-04T09:14:34.778564",
-      "modified_at": "2025-09-04T09:14:34.778565",
+      "created_at": "2025-09-04T23:19:56.339110",
+      "modified_at": "2025-09-04T23:19:56.339111",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -792,6 +798,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -805,8 +812,8 @@
         "https://community.octoprint.org/t/issues-uploading-files-from-cloud-storage/61881"
       ],
       "id": "d2be736cd095",
-      "created_at": "2025-09-04T09:14:34.778575",
-      "modified_at": "2025-09-04T09:14:34.778575",
+      "created_at": "2025-09-04T23:19:56.339122",
+      "modified_at": "2025-09-04T23:19:56.339122",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -817,6 +824,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -831,8 +839,8 @@
         "https://www.linkedin.com/advice/0/youre-knee-deep-team-based-3d-modeling-project-how-jexge"
       ],
       "id": "a4839f42c11b",
-      "created_at": "2025-09-04T09:14:34.778587",
-      "modified_at": "2025-09-04T09:14:34.778588",
+      "created_at": "2025-09-04T23:19:56.339134",
+      "modified_at": "2025-09-04T23:19:56.339135",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -843,6 +851,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -857,8 +866,8 @@
         "https://premioinc.com/blogs/blog/mobile-lidar-surveying-amp-mapping-powered-by-ai-edge-inference-computers"
       ],
       "id": "9c6af789506f",
-      "created_at": "2025-09-04T09:14:34.778598",
-      "modified_at": "2025-09-04T09:14:34.778599",
+      "created_at": "2025-09-04T23:19:56.339145",
+      "modified_at": "2025-09-04T23:19:56.339145",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -869,6 +878,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -882,8 +892,8 @@
         "https://www.reddit.com/r/photogrammetry/comments/173w1rs/various_photogrammetry_workflow_questions/"
       ],
       "id": "435d085c0d65",
-      "created_at": "2025-09-04T09:14:34.778608",
-      "modified_at": "2025-09-04T09:14:34.778609",
+      "created_at": "2025-09-04T23:19:56.339159",
+      "modified_at": "2025-09-04T23:19:56.339161",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -894,6 +904,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -908,8 +919,8 @@
         "https://lilea.net/lab/reality-capture-errors/"
       ],
       "id": "686b00da202f",
-      "created_at": "2025-09-04T09:14:34.778619",
-      "modified_at": "2025-09-04T09:14:34.778620",
+      "created_at": "2025-09-04T23:19:56.339178",
+      "modified_at": "2025-09-04T23:19:56.339179",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -920,6 +931,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -934,8 +946,8 @@
         "https://resources.esri.ca/news-and-updates/mapping-the-local-geospatial-data-collaboration-landscape"
       ],
       "id": "bb0fcf1e2959",
-      "created_at": "2025-09-04T09:14:34.778630",
-      "modified_at": "2025-09-04T09:14:34.778631",
+      "created_at": "2025-09-04T23:19:56.339194",
+      "modified_at": "2025-09-04T23:19:56.339195",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -946,6 +958,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -958,8 +971,8 @@
         "https://aeromegh.com/blog/challenges-and-solutions/"
       ],
       "id": "8477da7ca852",
-      "created_at": "2025-09-04T09:14:34.778640",
-      "modified_at": "2025-09-04T09:14:34.778641",
+      "created_at": "2025-09-04T23:19:56.339210",
+      "modified_at": "2025-09-04T23:19:56.339211",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -970,6 +983,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -982,8 +996,8 @@
         "https://forum.onshape.com/discussion/16180/importing-and-manipulating-3d-scans"
       ],
       "id": "c6a19b682794",
-      "created_at": "2025-09-04T09:14:34.778650",
-      "modified_at": "2025-09-04T09:14:34.778650",
+      "created_at": "2025-09-04T23:19:56.339224",
+      "modified_at": "2025-09-04T23:19:56.339226",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -994,6 +1008,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1007,8 +1022,8 @@
         "https://www.reddit.com/r/Fusion360/comments/1b9ug66/is_everyone_just_fine_with_all_their_work_and/"
       ],
       "id": "5a721bb1369d",
-      "created_at": "2025-09-04T09:14:34.778660",
-      "modified_at": "2025-09-04T09:14:34.778661",
+      "created_at": "2025-09-04T23:19:56.339242",
+      "modified_at": "2025-09-04T23:19:56.339243",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1019,6 +1034,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1031,8 +1047,8 @@
         "https://lidarmag.com/2023/09/28/point-cloud-to-3d-bim-modeling-ensuring-precision-of-point-cloud-data-to-build-robust-3d-bim-models/amp/"
       ],
       "id": "df43210668e7",
-      "created_at": "2025-09-04T09:14:34.778670",
-      "modified_at": "2025-09-04T09:14:34.778670",
+      "created_at": "2025-09-04T23:19:56.339255",
+      "modified_at": "2025-09-04T23:19:56.339257",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1043,6 +1059,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1056,8 +1073,8 @@
         "https://www.laserscanningforum.com/forum/viewtopic.php?t=17924"
       ],
       "id": "a66bfdc467da",
-      "created_at": "2025-09-04T09:14:34.778680",
-      "modified_at": "2025-09-04T09:14:34.778681",
+      "created_at": "2025-09-04T23:19:56.339271",
+      "modified_at": "2025-09-04T23:19:56.339273",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1068,6 +1085,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1079,8 +1097,8 @@
         "https://www.laserscanningforum.com/forum/viewtopic.php?t=16557"
       ],
       "id": "f6ae129d287c",
-      "created_at": "2025-09-04T09:14:34.780226",
-      "modified_at": "2025-09-04T09:14:34.780230",
+      "created_at": "2025-09-04T23:19:56.341297",
+      "modified_at": "2025-09-04T23:19:56.341304",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1091,6 +1109,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1102,8 +1121,8 @@
         "https://www.laserscanningforum.com/forum/viewtopic.php?t=20303"
       ],
       "id": "15867ac5627a",
-      "created_at": "2025-09-04T09:14:34.780245",
-      "modified_at": "2025-09-04T09:14:34.780247",
+      "created_at": "2025-09-04T23:19:56.341314",
+      "modified_at": "2025-09-04T23:19:56.341315",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1114,6 +1133,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1126,8 +1146,8 @@
         "https://discussions.apple.com/thread/256085766"
       ],
       "id": "cc7a9b8eaf1e",
-      "created_at": "2025-09-04T09:14:34.780256",
-      "modified_at": "2025-09-04T09:14:34.780257",
+      "created_at": "2025-09-04T23:19:56.341325",
+      "modified_at": "2025-09-04T23:19:56.341326",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1138,6 +1158,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1150,8 +1171,8 @@
         "https://support.einscan.com/en/support/solutions/articles/60000687225-troubleshooting-calibration"
       ],
       "id": "9329ed48422d",
-      "created_at": "2025-09-04T09:14:34.780266",
-      "modified_at": "2025-09-04T09:14:34.780267",
+      "created_at": "2025-09-04T23:19:56.341336",
+      "modified_at": "2025-09-04T23:19:56.341337",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1162,6 +1183,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1175,8 +1197,8 @@
         "https://pmc.ncbi.nlm.nih.gov/articles/PMC10051412/"
       ],
       "id": "a5661b58648c",
-      "created_at": "2025-09-04T09:14:34.780278",
-      "modified_at": "2025-09-04T09:14:34.780279",
+      "created_at": "2025-09-04T23:19:56.341346",
+      "modified_at": "2025-09-04T23:19:56.341347",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1187,6 +1209,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1199,8 +1222,8 @@
         "https://www.reddit.com/r/UAVmapping/comments/rzg6nj/data_storage_solution_for_lidar/"
       ],
       "id": "d2b279507e0a",
-      "created_at": "2025-09-04T09:14:34.780295",
-      "modified_at": "2025-09-04T09:14:34.780296",
+      "created_at": "2025-09-04T23:19:56.341356",
+      "modified_at": "2025-09-04T23:19:56.341357",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1211,6 +1234,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1223,8 +1247,8 @@
         "https://www.reddit.com/r/BambuLab/comments/14gr3k7/lidar_replacement_incompatible_what/"
       ],
       "id": "98ea8dc17442",
-      "created_at": "2025-09-04T09:14:34.780306",
-      "modified_at": "2025-09-04T09:14:34.780306",
+      "created_at": "2025-09-04T23:19:56.341366",
+      "modified_at": "2025-09-04T23:19:56.341367",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1235,6 +1259,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1248,8 +1273,8 @@
         "https://www.reddit.com/r/LiDAR/comments/lgrm5o/does_anyone_know_how_high_the_battery_consumption/"
       ],
       "id": "d2dc852b2a9a",
-      "created_at": "2025-09-04T09:14:34.780316",
-      "modified_at": "2025-09-04T09:14:34.780316",
+      "created_at": "2025-09-04T23:19:56.341376",
+      "modified_at": "2025-09-04T23:19:56.341377",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1260,6 +1285,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1273,8 +1299,8 @@
         "https://www.reddit.com/r/3DScanning/comments/tci4ny/phone_app_recommendation_for_3d_scanning_and_file/"
       ],
       "id": "920da21bd36d",
-      "created_at": "2025-09-04T09:14:34.780325",
-      "modified_at": "2025-09-04T09:14:34.780326",
+      "created_at": "2025-09-04T23:19:56.341386",
+      "modified_at": "2025-09-04T23:19:56.341386",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1285,6 +1311,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1298,8 +1325,8 @@
         "https://tracki.com/blogs/post/most-common-gps-tracking-problems"
       ],
       "id": "3efe7cebfb28",
-      "created_at": "2025-09-04T09:14:34.780334",
-      "modified_at": "2025-09-04T09:14:34.780335",
+      "created_at": "2025-09-04T23:19:56.341395",
+      "modified_at": "2025-09-04T23:19:56.341396",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1310,6 +1337,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1323,8 +1351,8 @@
         "https://www.fjdynamics.com/blog/technology-52/5-essential-tips-for-better-laser-scanning-results-134"
       ],
       "id": "72c6be51b5f8",
-      "created_at": "2025-09-04T09:14:34.780344",
-      "modified_at": "2025-09-04T09:14:34.780345",
+      "created_at": "2025-09-04T23:19:56.341405",
+      "modified_at": "2025-09-04T23:19:56.341406",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1335,6 +1363,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1347,8 +1376,8 @@
         "https://isprs-annals.copernicus.org/articles/V-1-2020/253/2020/"
       ],
       "id": "afd2b4c45e74",
-      "created_at": "2025-09-04T09:14:34.780353",
-      "modified_at": "2025-09-04T09:14:34.780354",
+      "created_at": "2025-09-04T23:19:56.341414",
+      "modified_at": "2025-09-04T23:19:56.341415",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1359,6 +1388,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1371,8 +1401,8 @@
         "https://www.navvis.com/blog/7-terms-you-need-to-know-before-investing-in-a-mobile-mapping-system"
       ],
       "id": "4c8f91d6b2a0",
-      "created_at": "2025-09-04T09:14:34.780362",
-      "modified_at": "2025-09-04T09:14:34.780363",
+      "created_at": "2025-09-04T23:19:56.341424",
+      "modified_at": "2025-09-04T23:19:56.341425",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1383,6 +1413,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1396,8 +1427,8 @@
         "https://datasightusa.com/2023/03/17/the-basics-challenges-of-lidar-data/"
       ],
       "id": "b182fe7ffd58",
-      "created_at": "2025-09-04T09:14:34.780372",
-      "modified_at": "2025-09-04T09:14:34.780372",
+      "created_at": "2025-09-04T23:19:56.341433",
+      "modified_at": "2025-09-04T23:19:56.341434",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1408,6 +1439,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1421,8 +1453,8 @@
         "https://learn.poly.cam/hc/en-us/articles/31351887450900-How-Can-I-Make-Sure-My-LiDAR-Sensor-Is-Working"
       ],
       "id": "62bd4d4e0d0a",
-      "created_at": "2025-09-04T09:14:34.780382",
-      "modified_at": "2025-09-04T09:14:34.780383",
+      "created_at": "2025-09-04T23:19:56.341450",
+      "modified_at": "2025-09-04T23:19:56.341451",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1433,6 +1465,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1445,8 +1478,8 @@
         "https://lidarnews.com/press-releases/introducing-kaarta-cloud-a-new-way-to-process-store-and-share-3d/"
       ],
       "id": "6e9f0c7af450",
-      "created_at": "2025-09-04T09:14:34.780391",
-      "modified_at": "2025-09-04T09:14:34.780392",
+      "created_at": "2025-09-04T23:19:56.341459",
+      "modified_at": "2025-09-04T23:19:56.341460",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1457,6 +1490,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1470,8 +1504,8 @@
         "https://answers.ros.org/question/391497"
       ],
       "id": "1e7fb90af91a",
-      "created_at": "2025-09-04T09:14:34.780401",
-      "modified_at": "2025-09-04T09:14:34.780402",
+      "created_at": "2025-09-04T23:19:56.341469",
+      "modified_at": "2025-09-04T23:19:56.341470",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1482,6 +1516,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1494,8 +1529,8 @@
         "https://pmc.ncbi.nlm.nih.gov/articles/PMC5981425/"
       ],
       "id": "630ee20f5be7",
-      "created_at": "2025-09-04T09:14:34.780410",
-      "modified_at": "2025-09-04T09:14:34.780411",
+      "created_at": "2025-09-04T23:19:56.341478",
+      "modified_at": "2025-09-04T23:19:56.341479",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1506,6 +1541,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1518,8 +1554,8 @@
         "https://answers.ros.org/question/391497"
       ],
       "id": "e8ae4b9fb9be",
-      "created_at": "2025-09-04T09:14:34.780421",
-      "modified_at": "2025-09-04T09:14:34.780422",
+      "created_at": "2025-09-04T23:19:56.341491",
+      "modified_at": "2025-09-04T23:19:56.341491",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1530,6 +1566,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1541,8 +1578,8 @@
         "https://insights.outsight.ai/overcoming-the-challenges-of-using-3d-lidar-technology/"
       ],
       "id": "ad23bc2e0552",
-      "created_at": "2025-09-04T09:14:34.780431",
-      "modified_at": "2025-09-04T09:14:34.780432",
+      "created_at": "2025-09-04T23:19:56.341500",
+      "modified_at": "2025-09-04T23:19:56.341501",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1553,6 +1590,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1566,8 +1604,8 @@
         "https://www.reddit.com/r/UAVmapping/comments/1k098ar/how_do_you_share_large_data_files_with_clients/"
       ],
       "id": "ca00ce43db17",
-      "created_at": "2025-09-04T09:14:34.782788",
-      "modified_at": "2025-09-04T09:14:34.782791",
+      "created_at": "2025-09-04T23:19:56.344160",
+      "modified_at": "2025-09-04T23:19:56.344164",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1578,6 +1616,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1592,8 +1631,8 @@
         "https://www.reddit.com/r/Surveying/comments/16nx8dp/lidar_data_management/"
       ],
       "id": "4f24212cc29a",
-      "created_at": "2025-09-04T09:14:34.782804",
-      "modified_at": "2025-09-04T09:14:34.782805",
+      "created_at": "2025-09-04T23:19:56.344175",
+      "modified_at": "2025-09-04T23:19:56.344176",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1604,6 +1643,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1618,8 +1658,8 @@
         "https://resources.imagine.io/blog/everything-you-need-to-know-about-online-3d-model-viewer-technology"
       ],
       "id": "be49e9057e28",
-      "created_at": "2025-09-04T09:14:34.782815",
-      "modified_at": "2025-09-04T09:14:34.782816",
+      "created_at": "2025-09-04T23:19:56.344185",
+      "modified_at": "2025-09-04T23:19:56.344186",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1630,6 +1670,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1644,8 +1685,8 @@
         "https://www.pix-pro.com/blog/photogrammetry-price"
       ],
       "id": "e3b30bdfdccc",
-      "created_at": "2025-09-04T09:14:34.782825",
-      "modified_at": "2025-09-04T09:14:34.782826",
+      "created_at": "2025-09-04T23:19:56.344196",
+      "modified_at": "2025-09-04T23:19:56.344196",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1656,6 +1697,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1670,8 +1712,8 @@
         "https://www.umake.com/blog/real-time-cad-collaboration-common-problems"
       ],
       "id": "bb9b2ddce826",
-      "created_at": "2025-09-04T09:14:34.782835",
-      "modified_at": "2025-09-04T09:14:34.782835",
+      "created_at": "2025-09-04T23:19:56.344208",
+      "modified_at": "2025-09-04T23:19:56.344209",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1682,6 +1724,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1695,8 +1738,8 @@
         "https://discourse.threejs.org/t/performance-issues-rendering-large-ply-point-cloud-in-three-js-downsampling-and-background-loading/69135"
       ],
       "id": "13bbb198546b",
-      "created_at": "2025-09-04T09:14:34.782876",
-      "modified_at": "2025-09-04T09:14:34.782877",
+      "created_at": "2025-09-04T23:19:56.344218",
+      "modified_at": "2025-09-04T23:19:56.344219",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1707,6 +1750,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1718,8 +1762,8 @@
         "https://forum.revopoint3d.com/t/revo-scan-share-feature-not-working-on-android/5606"
       ],
       "id": "52dad6b9b3b6",
-      "created_at": "2025-09-04T09:14:34.782889",
-      "modified_at": "2025-09-04T09:14:34.782889",
+      "created_at": "2025-09-04T23:19:56.344228",
+      "modified_at": "2025-09-04T23:19:56.344229",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1730,6 +1774,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1743,8 +1788,8 @@
         "https://www.truenas.com/community/threads/photogrammetry-processing-through-freenas.88468/"
       ],
       "id": "044659ed021f",
-      "created_at": "2025-09-04T09:14:34.782898",
-      "modified_at": "2025-09-04T09:14:34.782899",
+      "created_at": "2025-09-04T23:19:56.344239",
+      "modified_at": "2025-09-04T23:19:56.344240",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1755,6 +1800,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1768,8 +1814,8 @@
         "https://www.reddit.com/r/3Dmodeling/comments/1gq3pny/how_to_convert_an_obj_file_to_stp_without_losing/"
       ],
       "id": "163250f19de8",
-      "created_at": "2025-09-04T09:14:34.782907",
-      "modified_at": "2025-09-04T09:14:34.782908",
+      "created_at": "2025-09-04T23:19:56.344248",
+      "modified_at": "2025-09-04T23:19:56.344249",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1780,6 +1826,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1793,8 +1840,8 @@
         "https://www.agisoft.com/forum/index.php?topic=12522.0"
       ],
       "id": "9c6933f4aaf8",
-      "created_at": "2025-09-04T09:14:34.782917",
-      "modified_at": "2025-09-04T09:14:34.782917",
+      "created_at": "2025-09-04T23:19:56.344258",
+      "modified_at": "2025-09-04T23:19:56.344259",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1805,6 +1852,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1819,8 +1867,8 @@
         "https://meshlib.io/blog/meshlb-vs-meshlab-mesh-simplification/"
       ],
       "id": "0e30eadcc1b3",
-      "created_at": "2025-09-04T09:14:34.782929",
-      "modified_at": "2025-09-04T09:14:34.782930",
+      "created_at": "2025-09-04T23:19:56.344269",
+      "modified_at": "2025-09-04T23:19:56.344269",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1831,6 +1879,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1845,8 +1894,8 @@
         "https://www.reddit.com/r/photogrammetry/comments/1kvesub/photogrammetry_for_3d_printing_models_and_need/"
       ],
       "id": "94a187fe8719",
-      "created_at": "2025-09-04T09:14:34.782938",
-      "modified_at": "2025-09-04T09:14:34.782939",
+      "created_at": "2025-09-04T23:19:56.344278",
+      "modified_at": "2025-09-04T23:19:56.344279",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1857,6 +1906,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1871,8 +1921,8 @@
         "https://www.cloudcompare.org/forum/viewtopic.php?t=6546"
       ],
       "id": "8ce37084e7f9",
-      "created_at": "2025-09-04T09:14:34.782948",
-      "modified_at": "2025-09-04T09:14:34.782949",
+      "created_at": "2025-09-04T23:19:56.344288",
+      "modified_at": "2025-09-04T23:19:56.344288",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1883,6 +1933,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1895,8 +1946,8 @@
         "https://www.whizzystudios.com/post/what-are-the-challenges-of-3d-modeling-for-ar-and-vr"
       ],
       "id": "789e63624bf6",
-      "created_at": "2025-09-04T09:14:34.782957",
-      "modified_at": "2025-09-04T09:14:34.782957",
+      "created_at": "2025-09-04T23:19:56.344296",
+      "modified_at": "2025-09-04T23:19:56.344297",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1907,6 +1958,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1920,8 +1972,8 @@
         "https://www.tandfonline.com/doi/full/10.1080/13467581.2024.2343803"
       ],
       "id": "0ed54e86c3cf",
-      "created_at": "2025-09-04T09:14:34.782966",
-      "modified_at": "2025-09-04T09:14:34.782966",
+      "created_at": "2025-09-04T23:19:56.344306",
+      "modified_at": "2025-09-04T23:19:56.344307",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1932,6 +1984,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1943,8 +1996,8 @@
         "https://geospatial.trimble.com/en/resources/blog/solving-the-survey-data-transfer-dilemma-with-a-connected-workflow"
       ],
       "id": "cba73e185020",
-      "created_at": "2025-09-04T09:14:34.782974",
-      "modified_at": "2025-09-04T09:14:34.782975",
+      "created_at": "2025-09-04T23:19:56.344314",
+      "modified_at": "2025-09-04T23:19:56.344315",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1955,6 +2008,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1969,8 +2023,8 @@
         "https://www.reddit.com/r/cad/comments/2jqjn3/what_do_you_use_for_version_control_collaboration/"
       ],
       "id": "bf25f9a84b4b",
-      "created_at": "2025-09-04T09:14:34.782983",
-      "modified_at": "2025-09-04T09:14:34.782984",
+      "created_at": "2025-09-04T23:19:56.344324",
+      "modified_at": "2025-09-04T23:19:56.344324",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -1981,6 +2035,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -1992,8 +2047,8 @@
         "https://www.simactive.com/hubfs/Photogrammetry_on_the_Cloud_with_Correlator3D_October2024.pdf?hsLang=en"
       ],
       "id": "cb5d684cf35a",
-      "created_at": "2025-09-04T09:14:34.782991",
-      "modified_at": "2025-09-04T09:14:34.782992",
+      "created_at": "2025-09-04T23:19:56.344332",
+      "modified_at": "2025-09-04T23:19:56.344333",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -2004,6 +2059,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -2018,8 +2074,8 @@
         "https://natural-resources.canada.ca/maps-tools-publications/tools-applications/geospatial-standards-operational-policies"
       ],
       "id": "a8e4c0c4c317",
-      "created_at": "2025-09-04T09:14:34.783001",
-      "modified_at": "2025-09-04T09:14:34.783001",
+      "created_at": "2025-09-04T23:19:56.344341",
+      "modified_at": "2025-09-04T23:19:56.344342",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -2030,6 +2086,7 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     },
     {
@@ -2041,8 +2098,8 @@
         "https://www.reddit.com/r/LiDAR/comments/1jnrmry/struggling_to_get_local_survey_companies_to_adopt/"
       ],
       "id": "b6586c2a5274",
-      "created_at": "2025-09-04T09:14:34.783009",
-      "modified_at": "2025-09-04T09:14:34.783010",
+      "created_at": "2025-09-04T23:19:56.344351",
+      "modified_at": "2025-09-04T23:19:56.344352",
       "article": "",
       "voice": "",
       "piece_type": "",
@@ -2053,9 +2110,10 @@
       "length": "",
       "sections": "",
       "call_to_action": "",
+      "scraped_sources": "",
       "article_generated": false
     }
   ],
-  "last_updated": "2025-09-04T09:14:34.786459",
+  "last_updated": "2025-09-04T23:19:56.347357",
   "total_count": 80
 }

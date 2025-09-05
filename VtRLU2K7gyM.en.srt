@@ -1,0 +1,1120 @@
+1
+00:00:00,000 --> 00:00:02,399
+[Music]
+
+2
+00:00:00,480 --> 00:00:04,720
+i want to try this out for a really long
+
+3
+00:00:02,399 --> 00:00:06,560
+time and today is the day i want to find
+
+4
+00:00:04,720 --> 00:00:10,320
+out if a mobile phone is any good for
+
+5
+00:00:06,560 --> 00:00:10,320
+photogrammetry here's the intro
+
+6
+00:00:11,440 --> 00:00:15,360
+in theory a phone should work perfectly
+
+7
+00:00:13,360 --> 00:00:17,359
+fine photogrammetry is creating an
+
+8
+00:00:15,360 --> 00:00:18,960
+object out of multiple images so the
+
+9
+00:00:17,359 --> 00:00:21,840
+lack of resolution from the small phone
+
+10
+00:00:18,960 --> 00:00:23,680
+sensor is not as big of an issue of
+
+11
+00:00:21,840 --> 00:00:26,080
+course that means shooting more images
+
+12
+00:00:23,680 --> 00:00:27,760
+and more close-ups of the object that's
+
+13
+00:00:26,080 --> 00:00:30,560
+the only way to compete with the clarity
+
+14
+00:00:27,760 --> 00:00:32,480
+of a big sensor camera for now though we
+
+15
+00:00:30,560 --> 00:00:34,640
+won't go overboard with the number of
+
+16
+00:00:32,480 --> 00:00:36,880
+photos taken we'll just focus on the
+
+17
+00:00:34,640 --> 00:00:38,879
+basics see what we can get out of a
+
+18
+00:00:36,880 --> 00:00:41,040
+phone in order to properly capture an
+
+19
+00:00:38,879 --> 00:00:43,520
+object surface we need a polarizing
+
+20
+00:00:41,040 --> 00:00:46,000
+filter on both the lens and the light
+
+21
+00:00:43,520 --> 00:00:47,760
+source that ensures no reflections on
+
+22
+00:00:46,000 --> 00:00:49,680
+the surface of the object this will
+
+23
+00:00:47,760 --> 00:00:52,160
+allow us to re-light the object later on
+
+24
+00:00:49,680 --> 00:00:53,680
+without any issues i've covered that in
+
+25
+00:00:52,160 --> 00:00:55,440
+a previous video so if you haven't
+
+26
+00:00:53,680 --> 00:00:57,199
+watched that i'll leave a link in the
+
+27
+00:00:55,440 --> 00:00:58,559
+description below
+
+28
+00:00:57,199 --> 00:01:00,719
+to help with the whole reflection
+
+29
+00:00:58,559 --> 00:01:03,760
+situation i'll use the relatively
+
+30
+00:01:00,719 --> 00:01:06,799
+diffuse objects so the reflections won't
+
+31
+00:01:03,760 --> 00:01:09,360
+be that obvious we'll try three objects
+
+32
+00:01:06,799 --> 00:01:12,320
+a pinecone this wooden stick
+
+33
+00:01:09,360 --> 00:01:15,040
+and this beautiful brick make no
+
+34
+00:01:12,320 --> 00:01:17,360
+mistakes even these diffuse objects have
+
+35
+00:01:15,040 --> 00:01:20,159
+reflections they're just not as visible
+
+36
+00:01:17,360 --> 00:01:21,920
+as shiny reflective surfaces
+
+37
+00:01:20,159 --> 00:01:24,479
+since we want to compare the results
+
+38
+00:01:21,920 --> 00:01:26,400
+i'll be shooting the objects twice once
+
+39
+00:01:24,479 --> 00:01:28,960
+with the iphone 11 pro and once with the
+
+40
+00:01:26,400 --> 00:01:31,360
+gh5 it's an older phone but it's still
+
+41
+00:01:28,960 --> 00:01:33,200
+able to capture a good amount of detail
+
+42
+00:01:31,360 --> 00:01:34,720
+of course with a newer phone the results
+
+43
+00:01:33,200 --> 00:01:36,000
+will be better
+
+44
+00:01:34,720 --> 00:01:37,840
+let's start
+
+45
+00:01:36,000 --> 00:01:39,439
+for lighting the object i'm going very
+
+46
+00:01:37,840 --> 00:01:41,040
+simple i'll take advantage of the
+
+47
+00:01:39,439 --> 00:01:43,280
+natural light and to fill out the
+
+48
+00:01:41,040 --> 00:01:45,600
+remaining shadows i'll use an led light
+
+49
+00:01:43,280 --> 00:01:47,680
+with neutral white balance
+
+50
+00:01:45,600 --> 00:01:50,159
+to reduce the harsh shadows of the sun
+
+51
+00:01:47,680 --> 00:01:51,920
+and make everything as soft as possible
+
+52
+00:01:50,159 --> 00:01:53,600
+we need a diffuser
+
+53
+00:01:51,920 --> 00:01:56,560
+thankfully my currents are white so
+
+54
+00:01:53,600 --> 00:01:58,880
+they're the ultimate light diffuser
+
+55
+00:01:56,560 --> 00:02:00,640
+now let's start taking some pictures
+
+56
+00:01:58,880 --> 00:02:03,680
+right off the bat i've hit the first
+
+57
+00:02:00,640 --> 00:02:06,399
+snag iphone's default lens is way too
+
+58
+00:02:03,680 --> 00:02:09,200
+wide for landscapes it's perfect but for
+
+59
+00:02:06,399 --> 00:02:11,120
+photogrammetry not so much
+
+60
+00:02:09,200 --> 00:02:12,879
+switching to the 2x telephoto lens
+
+61
+00:02:11,120 --> 00:02:14,560
+solves a problem but the quality there
+
+62
+00:02:12,879 --> 00:02:16,640
+is not as good
+
+63
+00:02:14,560 --> 00:02:19,280
+iphone's telephoto lens is not as bright
+
+64
+00:02:16,640 --> 00:02:21,360
+and also has a lower quality ccd so the
+
+65
+00:02:19,280 --> 00:02:23,440
+images won't be as good as the ones
+
+66
+00:02:21,360 --> 00:02:25,599
+taken with a default lens
+
+67
+00:02:23,440 --> 00:02:28,000
+the images will be noisier and won't
+
+68
+00:02:25,599 --> 00:02:30,160
+have a ton of detail but on the other
+
+69
+00:02:28,000 --> 00:02:31,680
+hand that's all we've got so that's what
+
+70
+00:02:30,160 --> 00:02:33,200
+we're going to use
+
+71
+00:02:31,680 --> 00:02:35,519
+the other interesting challenge was
+
+72
+00:02:33,200 --> 00:02:37,280
+finding a way to prop up the phone
+
+73
+00:02:35,519 --> 00:02:39,519
+putting the phone on a tripod would move
+
+74
+00:02:37,280 --> 00:02:41,760
+it too far away from the object so i
+
+75
+00:02:39,519 --> 00:02:44,480
+ended up using a combination of a tripod
+
+76
+00:02:41,760 --> 00:02:46,160
+head and some lens caps
+
+77
+00:02:44,480 --> 00:02:48,480
+a really professional setup but it does
+
+78
+00:02:46,160 --> 00:02:51,200
+a trick so i'm fine with it
+
+79
+00:02:48,480 --> 00:02:52,959
+my other concern was camera shake since
+
+80
+00:02:51,200 --> 00:02:54,640
+i can't remotely trigger the shutter i
+
+81
+00:02:52,959 --> 00:02:57,440
+have to manually press the button on the
+
+82
+00:02:54,640 --> 00:02:59,200
+screen which can result in blurry images
+
+83
+00:02:57,440 --> 00:03:02,159
+but this is where the decision to not
+
+84
+00:02:59,200 --> 00:03:04,560
+shoot with polarized light helps a lot
+
+85
+00:03:02,159 --> 00:03:06,560
+with plenty of natural light further
+
+86
+00:03:04,560 --> 00:03:08,720
+enhanced by the led light the phone
+
+87
+00:03:06,560 --> 00:03:11,120
+won't have to use slow shutter speeds
+
+88
+00:03:08,720 --> 00:03:13,280
+but if we did shoot things the proper
+
+89
+00:03:11,120 --> 00:03:15,680
+way i'm not exactly sure how i would be
+
+90
+00:03:13,280 --> 00:03:17,120
+able to compensate for camera shake
+
+91
+00:03:15,680 --> 00:03:19,360
+the other issue with low light
+
+92
+00:03:17,120 --> 00:03:21,760
+environments is that apple's night mode
+
+93
+00:03:19,360 --> 00:03:24,640
+gets enabled and we definitely don't
+
+94
+00:03:21,760 --> 00:03:26,400
+want that night mode does a lot of post
+
+95
+00:03:24,640 --> 00:03:28,560
+processing which compromises the quality
+
+96
+00:03:26,400 --> 00:03:30,560
+of the image it aggressively reduces
+
+97
+00:03:28,560 --> 00:03:32,319
+noise and over sharpens the image to
+
+98
+00:03:30,560 --> 00:03:33,920
+give the illusion of detail so it's
+
+99
+00:03:32,319 --> 00:03:35,840
+definitely not something we want to
+
+100
+00:03:33,920 --> 00:03:37,680
+introduce to our images
+
+101
+00:03:35,840 --> 00:03:40,000
+i've covered apple's night mode in a
+
+102
+00:03:37,680 --> 00:03:42,400
+previous video so i'll leave that in the
+
+103
+00:03:40,000 --> 00:03:44,000
+description below as well
+
+104
+00:03:42,400 --> 00:03:46,080
+the only way i can think of shooting
+
+105
+00:03:44,000 --> 00:03:48,000
+with a phone and cross polarized light
+
+106
+00:03:46,080 --> 00:03:50,080
+is to have multiple light sources for
+
+107
+00:03:48,000 --> 00:03:53,120
+adequate light but also polarizing
+
+108
+00:03:50,080 --> 00:03:54,799
+filters for all of these lights at that
+
+109
+00:03:53,120 --> 00:03:56,959
+point having spent this much money on
+
+110
+00:03:54,799 --> 00:03:59,200
+equipment i don't know why anyone would
+
+111
+00:03:56,959 --> 00:04:00,959
+use a phone for the actual shoot but
+
+112
+00:03:59,200 --> 00:04:02,239
+that's besides the point let's get back
+
+113
+00:04:00,959 --> 00:04:04,480
+to our shoot
+
+114
+00:04:02,239 --> 00:04:07,040
+it's very important to lock the exposure
+
+115
+00:04:04,480 --> 00:04:08,720
+and focus otherwise each image will be
+
+116
+00:04:07,040 --> 00:04:10,959
+completely different than the last one
+
+117
+00:04:08,720 --> 00:04:12,879
+throwing things out of whack
+
+118
+00:04:10,959 --> 00:04:14,480
+the process is a bit tedious but with
+
+119
+00:04:12,879 --> 00:04:18,120
+the rotations of the object handled
+
+120
+00:04:14,480 --> 00:04:28,960
+automatically it's not as bad
+
+121
+00:04:18,120 --> 00:04:30,720
+[Music]
+
+122
+00:04:28,960 --> 00:04:32,400
+now that the iphone photos are complete
+
+123
+00:04:30,720 --> 00:04:34,800
+it's time to shoot the same thing all
+
+124
+00:04:32,400 --> 00:04:36,800
+over again with the camera things are
+
+125
+00:04:34,800 --> 00:04:39,199
+much easier here because there's a lot
+
+126
+00:04:36,800 --> 00:04:41,600
+more flexibility we can use a tripod
+
+127
+00:04:39,199 --> 00:04:44,880
+change lenses basically set up the shot
+
+128
+00:04:41,600 --> 00:04:44,880
+exactly like we want to
+
+129
+00:04:46,710 --> 00:04:49,930
+[Music]
+
+130
+00:04:53,360 --> 00:04:58,479
+and with the phone cameras photos ready
+
+131
+00:04:55,360 --> 00:05:00,560
+it's time for some processing
+
+132
+00:04:58,479 --> 00:05:02,320
+a few minutes later
+
+133
+00:05:00,560 --> 00:05:04,000
+and here are the results
+
+134
+00:05:02,320 --> 00:05:06,320
+i won't tell you which is which right
+
+135
+00:05:04,000 --> 00:05:09,280
+away have a guess
+
+136
+00:05:06,320 --> 00:05:11,440
+the objects as far as overall shape goes
+
+137
+00:05:09,280 --> 00:05:14,160
+are identical there are some differences
+
+138
+00:05:11,440 --> 00:05:16,320
+in color and detail but both look really
+
+139
+00:05:14,160 --> 00:05:18,479
+good the left cone compared to the right
+
+140
+00:05:16,320 --> 00:05:20,240
+one looks like it has a blurrier texture
+
+141
+00:05:18,479 --> 00:05:22,880
+but that's only if you see the cone side
+
+142
+00:05:20,240 --> 00:05:25,120
+by side if i disable the right one and
+
+143
+00:05:22,880 --> 00:05:28,080
+inspect cone number one on its own the
+
+144
+00:05:25,120 --> 00:05:29,280
+texture feels really nice
+
+145
+00:05:28,080 --> 00:05:30,800
+so
+
+146
+00:05:29,280 --> 00:05:32,320
+which is which
+
+147
+00:05:30,800 --> 00:05:34,479
+cone number two the one on the right
+
+148
+00:05:32,320 --> 00:05:37,520
+side is the one made with the iphone and
+
+149
+00:05:34,479 --> 00:05:39,360
+cone number one is down with the gh5 you
+
+150
+00:05:37,520 --> 00:05:41,919
+might be impressed by how much detail is
+
+151
+00:05:39,360 --> 00:05:44,160
+on the iphone texture but this detail is
+
+152
+00:05:41,919 --> 00:05:46,960
+all artificial it's just the iphone
+
+153
+00:05:44,160 --> 00:05:48,800
+being very aggressive with sharpening
+
+154
+00:05:46,960 --> 00:05:50,880
+you can tell quite easily if we take a
+
+155
+00:05:48,800 --> 00:05:53,199
+look at the bottom of the cone if we
+
+156
+00:05:50,880 --> 00:05:55,039
+zoom in what looked like a lot of detail
+
+157
+00:05:53,199 --> 00:05:57,120
+now looks more like a posterized
+
+158
+00:05:55,039 --> 00:05:59,280
+aggressive sharpening
+
+159
+00:05:57,120 --> 00:06:02,400
+cone number one's texture feels much
+
+160
+00:05:59,280 --> 00:06:04,960
+more natural and on the plus side if we
+
+161
+00:06:02,400 --> 00:06:07,199
+want to sharpen the result we can i'll
+
+162
+00:06:04,960 --> 00:06:10,080
+just apply a non-sharp mask in photoshop
+
+163
+00:06:07,199 --> 00:06:12,240
+and now we have a really sharp result
+
+164
+00:06:10,080 --> 00:06:14,400
+and if we apply that to our cone we have
+
+165
+00:06:12,240 --> 00:06:17,199
+a sharp result that still looks way more
+
+166
+00:06:14,400 --> 00:06:18,720
+natural than the one from the iphone
+
+167
+00:06:17,199 --> 00:06:20,479
+that's the good thing with images taken
+
+168
+00:06:18,720 --> 00:06:22,319
+with a camera the results are very
+
+169
+00:06:20,479 --> 00:06:24,720
+neutral and we can fine tune them the
+
+170
+00:06:22,319 --> 00:06:27,120
+way we want to after the fact with a
+
+171
+00:06:24,720 --> 00:06:29,440
+phone we're getting a pre-decided result
+
+172
+00:06:27,120 --> 00:06:30,800
+that's always punchier and more
+
+173
+00:06:29,440 --> 00:06:33,199
+processed
+
+174
+00:06:30,800 --> 00:06:35,520
+in hindsight i should have used raw for
+
+175
+00:06:33,199 --> 00:06:37,520
+the iphone's images since no pause
+
+176
+00:06:35,520 --> 00:06:39,520
+processing is applied there but that
+
+177
+00:06:37,520 --> 00:06:41,759
+would also involve one extra step
+
+178
+00:06:39,520 --> 00:06:44,400
+converting the raw images to jpeg in
+
+179
+00:06:41,759 --> 00:06:47,360
+order to use them for photogrammetry now
+
+180
+00:06:44,400 --> 00:06:49,840
+let's move on to the next object
+
+181
+00:06:47,360 --> 00:06:51,520
+both look good as far as form goes which
+
+182
+00:06:49,840 --> 00:06:53,759
+is quite encouraging it means that the
+
+183
+00:06:51,520 --> 00:06:56,560
+images had enough detail to accurately
+
+184
+00:06:53,759 --> 00:06:58,560
+describe the object so judging by the
+
+185
+00:06:56,560 --> 00:07:00,720
+form alone it's not easy to tell which
+
+186
+00:06:58,560 --> 00:07:02,479
+is which if we turn on the textures
+
+187
+00:07:00,720 --> 00:07:04,400
+though it's quite obvious which one is
+
+188
+00:07:02,479 --> 00:07:07,039
+taken with the iphone and which one is
+
+189
+00:07:04,400 --> 00:07:08,880
+with the gh5
+
+190
+00:07:07,039 --> 00:07:11,039
+as with the previous object the one that
+
+191
+00:07:08,880 --> 00:07:13,360
+looks more detailed is the one taken
+
+192
+00:07:11,039 --> 00:07:15,759
+with the iphone but like before the
+
+193
+00:07:13,360 --> 00:07:17,280
+detail is an illusion if we zoom in
+
+194
+00:07:15,759 --> 00:07:19,599
+closer you will notice how much the
+
+195
+00:07:17,280 --> 00:07:23,039
+texture falls apart the one taking with
+
+196
+00:07:19,599 --> 00:07:24,479
+the gh5 object number two feels very
+
+197
+00:07:23,039 --> 00:07:26,560
+natural
+
+198
+00:07:24,479 --> 00:07:28,880
+once more the gh5s less aggressive
+
+199
+00:07:26,560 --> 00:07:31,360
+sharpening and higher resolution gives
+
+200
+00:07:28,880 --> 00:07:33,360
+better results and once we apply some
+
+201
+00:07:31,360 --> 00:07:35,120
+sharpening to the image we get some nice
+
+202
+00:07:33,360 --> 00:07:36,960
+sharp details
+
+203
+00:07:35,120 --> 00:07:38,720
+the other dead giveaway is the white
+
+204
+00:07:36,960 --> 00:07:40,960
+balance of the texture
+
+205
+00:07:38,720 --> 00:07:43,919
+iphones ever since i can remember always
+
+206
+00:07:40,960 --> 00:07:45,680
+lean into the yellow end of the spectrum
+
+207
+00:07:43,919 --> 00:07:48,240
+the photos taken with the gh5 have a
+
+208
+00:07:45,680 --> 00:07:50,000
+more correct and neutral white balance
+
+209
+00:07:48,240 --> 00:07:52,400
+the yellowish white balance though can
+
+210
+00:07:50,000 --> 00:07:54,080
+be fixed relatively easily so at least
+
+211
+00:07:52,400 --> 00:07:55,199
+the result in that regard can be
+
+212
+00:07:54,080 --> 00:07:57,360
+adjusted
+
+213
+00:07:55,199 --> 00:07:59,440
+no matter what though the iphone result
+
+214
+00:07:57,360 --> 00:08:01,120
+is quite impressive especially if we
+
+215
+00:07:59,440 --> 00:08:03,759
+consider the fact that a phone's primary
+
+216
+00:08:01,120 --> 00:08:06,479
+function is phone calls and messaging
+
+217
+00:08:03,759 --> 00:08:09,199
+not photogrammetry in that regard this
+
+218
+00:08:06,479 --> 00:08:12,000
+result is mind-blowing
+
+219
+00:08:09,199 --> 00:08:15,039
+and last but not least our final object
+
+220
+00:08:12,000 --> 00:08:17,599
+this beautifully disgusting brick
+
+221
+00:08:15,039 --> 00:08:19,520
+ignore this fail the scan part that was
+
+222
+00:08:17,599 --> 00:08:21,680
+an error on my side
+
+223
+00:08:19,520 --> 00:08:24,160
+i'm sure by now you can tell which model
+
+224
+00:08:21,680 --> 00:08:25,919
+is done with which camera number one is
+
+225
+00:08:24,160 --> 00:08:27,759
+done with the iphone and number two with
+
+226
+00:08:25,919 --> 00:08:29,599
+a gh5
+
+227
+00:08:27,759 --> 00:08:32,000
+here the over sharpening went a little
+
+228
+00:08:29,599 --> 00:08:34,640
+bit too crazy i might have also
+
+229
+00:08:32,000 --> 00:08:36,560
+underexposed the iphone images a tad
+
+230
+00:08:34,640 --> 00:08:38,399
+i'm not sure though if this is my fault
+
+231
+00:08:36,560 --> 00:08:40,560
+no matter what though the over
+
+232
+00:08:38,399 --> 00:08:42,080
+sharpening makes the model look
+
+233
+00:08:40,560 --> 00:08:44,720
+unrealistic
+
+234
+00:08:42,080 --> 00:08:47,120
+the one shot with the gh5 looks much
+
+235
+00:08:44,720 --> 00:08:49,360
+more natural if we compare the images
+
+236
+00:08:47,120 --> 00:08:53,040
+side by side you can see how aggressive
+
+237
+00:08:49,360 --> 00:08:54,959
+the iphone is with the sharpening
+
+238
+00:08:53,040 --> 00:08:57,200
+so if you're planning to shoot something
+
+239
+00:08:54,959 --> 00:08:59,760
+with your phone definitely shoot it with
+
+240
+00:08:57,200 --> 00:09:01,200
+raw and not with a default camera
+
+241
+00:08:59,760 --> 00:09:03,120
+this will ensure that no pause
+
+242
+00:09:01,200 --> 00:09:04,720
+processing is applied it will add one
+
+243
+00:09:03,120 --> 00:09:06,839
+extra step in the process but the
+
+244
+00:09:04,720 --> 00:09:08,640
+results will be infinitely
+
+245
+00:09:06,839 --> 00:09:10,000
+better so
+
+246
+00:09:08,640 --> 00:09:12,720
+what's the verdict
+
+247
+00:09:10,000 --> 00:09:14,480
+i would say if we take the proper steps
+
+248
+00:09:12,720 --> 00:09:16,640
+and ensure lots of light and raw
+
+249
+00:09:14,480 --> 00:09:18,160
+shooting we can get some nice looking
+
+250
+00:09:16,640 --> 00:09:19,760
+objects from a phone
+
+251
+00:09:18,160 --> 00:09:22,720
+but we definitely need to be more
+
+252
+00:09:19,760 --> 00:09:24,480
+careful than with an ordinary camera raw
+
+253
+00:09:22,720 --> 00:09:26,480
+is an absolute must in order to avoid
+
+254
+00:09:24,480 --> 00:09:28,080
+post processing and any other modes like
+
+255
+00:09:26,480 --> 00:09:30,480
+apple's night mode
+
+256
+00:09:28,080 --> 00:09:31,920
+cross polarization with a phone is a tad
+
+257
+00:09:30,480 --> 00:09:34,000
+trickier not only because of the
+
+258
+00:09:31,920 --> 00:09:36,080
+polarizing filter for the phone's lens
+
+259
+00:09:34,000 --> 00:09:39,200
+but also because of the higher noise
+
+260
+00:09:36,080 --> 00:09:41,200
+floor of the phone's small ccd chip
+
+261
+00:09:39,200 --> 00:09:42,320
+unless we have adequate lights and
+
+262
+00:09:41,200 --> 00:09:44,000
+filters
+
+263
+00:09:42,320 --> 00:09:46,959
+with newer phones i'm sure the results
+
+264
+00:09:44,000 --> 00:09:48,880
+will be even better iphone 13's macro
+
+265
+00:09:46,959 --> 00:09:51,519
+lens for example might be able to
+
+266
+00:09:48,880 --> 00:09:53,120
+capture a lot more detail
+
+267
+00:09:51,519 --> 00:09:55,920
+don't forget that more detail means
+
+268
+00:09:53,120 --> 00:09:57,680
+better forms and richer textures
+
+269
+00:09:55,920 --> 00:10:00,320
+is my iphone going to replace my camera
+
+270
+00:09:57,680 --> 00:10:02,320
+for photogrammetry definitely not
+
+271
+00:10:00,320 --> 00:10:04,320
+but it's good to know that if you're in
+
+272
+00:10:02,320 --> 00:10:06,560
+a pinch and you're willing to follow
+
+273
+00:10:04,320 --> 00:10:09,279
+some basic rules you will be able to get
+
+274
+00:10:06,560 --> 00:10:10,800
+some good results out of it
+
+275
+00:10:09,279 --> 00:10:12,640
+and that's about it for this video how
+
+276
+00:10:10,800 --> 00:10:14,399
+do you think the iphone fared would you
+
+277
+00:10:12,640 --> 00:10:16,000
+personally use your phone to do this
+
+278
+00:10:14,399 --> 00:10:18,480
+sort of thing let me know in the
+
+279
+00:10:16,000 --> 00:10:21,959
+comments below take care and i'll see
+
+280
+00:10:18,480 --> 00:10:21,959
+you in the next one
+

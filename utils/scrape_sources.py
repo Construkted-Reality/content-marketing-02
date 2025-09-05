@@ -6,6 +6,7 @@ Handles URL scraping with caching and error handling for blog content generation
 
 import os
 import sys
+import time
 from datetime import datetime
 from typing import List, Dict, Any
 from urllib.parse import urlparse
@@ -56,7 +57,7 @@ def scrape_url(url: str) -> Dict[str, Any]:
             "base_url": os.environ.get("OPENAI_BASE_URL"),
         },
         "verbose": False,
-        "headless": True,
+        "headless": False,
     }
     
     # Generic prompt to extract readable content
@@ -114,7 +115,7 @@ def scrape_url(url: str) -> Dict[str, Any]:
 
 def scrape_urls(urls: List[str]) -> List[Dict[str, Any]]:
     """
-    Scrape multiple URLs with Option A failure policy (continue on errors).
+    Scrape multiple URLs with retry mechanism and Option A failure policy (continue on errors).
     
     Args:
         urls: List of URLs to scrape
@@ -123,6 +124,8 @@ def scrape_urls(urls: List[str]) -> List[Dict[str, Any]]:
         List of ScrapedSource dicts
     """
     results = []
+    max_retries = 3
+    retry_delay = 1.0  # seconds between retries
     
     for url in urls:
         if not url or not url.strip():
@@ -154,12 +157,24 @@ def scrape_urls(urls: List[str]) -> List[Dict[str, Any]]:
             })
             continue
         
-        # Scrape the URL
-        result = scrape_url(url)
+        # Retry mechanism for scraping the URL
+        result = None
+        for attempt in range(max_retries):
+            result = scrape_url(url)
+            
+            # If successful, break out of retry loop
+            if result.get("status") == "ok":
+                break
+            
+            # If this isn't the last attempt, wait before retrying
+            if attempt < max_retries - 1:
+                print(f"  Scraping attempt {attempt + 1} failed for {url}, retrying in {retry_delay}s...")
+                time.sleep(retry_delay)
+        
+        # Append the final result (success or final failure)
         results.append(result)
         
-        # Optional: Add a small delay between requests to be respectful
-        import time
+        # Add a small delay between different URLs to be respectful
         time.sleep(0.5)
     
     return results
