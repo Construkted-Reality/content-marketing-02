@@ -156,6 +156,68 @@ def post_api(payload: Dict[str, Any]) -> Dict[str, Any]:
             sys.exit(1)
 
 
+def call_llm(prompt: str, system_prompt: Optional[str] = None, **kwargs) -> str:
+    """
+    Unified LLM call function that handles both OpenAI and Ollama APIs.
+    
+    Args:
+        prompt: The user prompt to send to the LLM
+        system_prompt: Optional system prompt (for OpenAI) or system context (for Ollama)
+        **kwargs: Additional parameters to override defaults
+        
+    Returns:
+        The text content from the LLM response
+    """
+    # Set standard defaults for all LLM calls
+    defaults = {
+        "temperature": 1,
+        "reasoning_effort": "high",
+        "max_tokens": 64000,
+        "top_p": 1,
+    }
+    # Override defaults with any provided kwargs
+    defaults.update(kwargs)
+    
+    if AI_PROVIDER == "openai":
+        # Build OpenAI chat completions format
+        messages = []
+        if system_prompt:
+            messages.append({"role": "system", "content": system_prompt})
+        messages.append({"role": "user", "content": prompt})
+        
+        payload = {
+            "model": OPENAI_MODEL,
+            "messages": messages,
+            "stream": False,
+        }
+        # Add the standardized parameters
+        payload.update(defaults)
+        
+        result = post_api(payload)
+        
+        # Extract content from OpenAI response
+        try:
+            return result.get("choices", [{}])[0].get("message", {}).get("content", "").strip()
+        except (IndexError, KeyError) as e:
+            sys.stderr.write(f"Failed to extract content from OpenAI response: {e}\n")
+            sys.stderr.write(f"Raw response: {result}\n")
+            return ""
+    else:
+        # Build Ollama format
+        payload = {
+            "model": OLLAMA_MODEL,
+            "prompt": prompt,
+            "stream": False,
+        }
+        if system_prompt:
+            payload["system"] = system_prompt
+            
+        result = post_api(payload)
+        
+        # Extract content from Ollama response
+        return result.get("response", "")
+
+
 def get_batch_diversity_context(processed_ideas: list) -> str:
     """Generate context about previous selections to encourage diversity."""
     if not processed_ideas:
@@ -365,13 +427,13 @@ def get_or_build_scraped_sources(idea: dict) -> List[Dict[str, Any]]:
 
 def build_source_excerpts(scraped_sources: List[Dict[str, Any]]) -> str:
     """
-    Build a text block from scraped sources containing only the extracted text.
+    Build a text block from scraped sources, including each source's URL and extracted text.
     
     Args:
         scraped_sources: List of ScrapedSource dictionaries
         
     Returns:
-        Concatenated text from successful scrapes
+        Concatenated excerpts with URLs from successful scrapes
     """
     if not scraped_sources:
         return ""
@@ -381,9 +443,13 @@ def build_source_excerpts(scraped_sources: List[Dict[str, Any]]) -> str:
     
     for source in scraped_sources:
         if source.get('status') == 'ok' and source.get('text'):
+            url = source.get('url', '')
             text = source['text'].strip()
             if text:
-                excerpts.append(text)
+                if url:
+                    excerpts.append(f"Source URL: {url}\n\n{text}")
+                else:
+                    excerpts.append(text)
                 successful_scrapes += 1
     
     if not excerpts:
@@ -497,6 +563,8 @@ Use ONLY this JSON format for output (no other text):
   "justification": "Explanation of why these choices were made",
   "pain_point": "Summary of the main pain point users are experiencing",
   "length": "Estimated number of words for the final article",
+  "primary_seo_key_word": "Primary SEO keyword for the article",
+  "secondary_seo_key_words": ["Secondary keyword 1", "Secondary keyword 2", "Secondary keyword 3"],
   "title": "A compelling, reader-focused title following the guidance provided"
 }}
 
@@ -540,7 +608,11 @@ Instructions:
    - 1200-1800 words: For multi-faceted problems that require more detailed explanations, examples, comparisons, or a step-by-step process. This is for topics that require evidence and elaboration to be truly helpful.
    - 2500-3000 words: For complex, high-stakes problems that require a comprehensive, in-depth guide. These articles often cover a topic from every angle, include multiple sub-sections, and aim to be the definitive resource on the subject.
 
-10. **Title**: Generate a compelling, reader-focused title following the guidance above:
+10. **primary seo key word**: Select one primary SEO key word which will be used later in the crafting of the blog post for the company marketing website.
+
+11. **secondary seo key words**: Select three to five (2-5) secondary SEO key words which will be used later in the crafting of the blog post for the company marketing website.
+
+12. **Title**: Generate a compelling, reader-focused title following the guidance above:
     - Write the title from the reader's point of view
     - Include one concrete benefit or goal
     - Keep under 15 words if possible
@@ -548,52 +620,24 @@ Instructions:
     - Optionally add target audience or constraint for relevance
 
 Output ONLY the JSON object above with your selections."""
-    # For OpenAI compatibility, we need to use the chat/completions format
-    if AI_PROVIDER == "openai":
-        payload = {
-            "model": OPENAI_MODEL,
-            "messages": [{"role": "user", "content": first_prompt}],
-            "temperature": 0.7,
-            "stream": False,
-        }
-    else:
-        payload = {
-            "model": OLLAMA_MODEL,
-            "prompt": first_prompt,
-            "stream": False,
-        }
-    result = post_api(payload)
+    # Use the unified LLM call function
+    response_text = call_llm(prompt=first_prompt)
     
-    # Handle OpenAI response format (different from Ollama)
-    if AI_PROVIDER == "openai":
-        # OpenAI returns a chat completion response with choices
-        try:
-            # Extract the content from the OpenAI response
-            response_text = result.get("choices", [{}])[0].get("message", {}).get("content", "").strip()
-            # Parse the JSON from the response text
-            return json.loads(response_text)
-        except (json.JSONDecodeError, IndexError) as e:
-            sys.stderr.write(f"Failed to parse OpenAI JSON response: {e}\n")
-            sys.stderr.write(f"Raw response: {result}\n")
+    # Parse the JSON response
+    try:
+        return json.loads(response_text)
+    except json.JSONDecodeError:
+        # Fallback: extract the longest {...} block using regex
+        match = re.search(r'\{.*\}', response_text, re.DOTALL)
+        if not match:
+            sys.stderr.write("Failed to locate JSON object in LLM response.\n")
             sys.exit(1)
-    else:
-        # Original Ollama logic for backward compatibility
-        response_text = result.get("response", "").strip()
-        # Try direct parsing first
+        json_candidate = match.group(0)
         try:
-            return json.loads(response_text)
-        except json.JSONDecodeError:
-            # Fallback: extract the longest {...} block using regex
-            match = re.search(r'\{.*\}', response_text, re.DOTALL)
-            if not match:
-                sys.stderr.write("Failed to locate JSON object in OLLAMA response.\n")
-                sys.exit(1)
-            json_candidate = match.group(0)
-            try:
-                return json.loads(json_candidate)
-            except json.JSONDecodeError as exc:
-                sys.stderr.write(f"JSON parsing error after regex extraction: {exc}\\n")
-                sys.exit(1)
+            return json.loads(json_candidate)
+        except json.JSONDecodeError as exc:
+            sys.stderr.write(f"JSON parsing error after regex extraction: {exc}\n")
+            sys.exit(1)
 
 
 def generate_blog_post(
@@ -621,11 +665,12 @@ def generate_blog_post(
         f"Target Audience: {selected['target_audience']}. "
         f"Technical Depth: {selected['technical_depth']}. "
         f"Article target word count length: {selected['length']} words.\n"
-        f"\n\n**Core Instructions**:\n"
+        f"\n\n**Core Instructions**:\n- Incorporate the primary SEO keyword (`{selected.get('primary_seo_key_word','')}`) prominently in the title and early sections, and naturally weave the secondary SEO keywords (`{', '.join(selected.get('secondary_seo_key_words', []))}`) throughout the article for SEO optimization.\n"
         f"- Mention our product, Construkted Reality, where it naturally fits as a solution to the problems discussed. Do not force it.\n"
         f"- Do not fabricate information about how Construkted Reality works or its features.\n"
         f"- For images, create numeric placeholders in the body of the post (e.g., [IMAGE 1], [IMAGE 2]). At the end of the article, create an 'Image Prompt Summary' section with detailed prompts for an image generation LLM for each placeholder.\n"
-        f"- Follow these formatting rules: {FORMATTING_RULES}"
+        f"- Follow these formatting rules: {FORMATTING_RULES}\n"
+        f"- When referencing information from the provided source excerpts, include the source URL as an inline citation and weave the URLs naturally into the body of the article for credibility and SEO optimization."
     )
 
     prompt = (
@@ -639,46 +684,12 @@ def generate_blog_post(
         f"   If Construkted Reality cannot provide a direct solution, write a statement in bold under the title describing why Construkted Reality cannot provide a solution to the problem/pain point. and continue writing the blog post. \n"
         f"   Also if Construkted Reality does not provide a direct solution, frame Construkted Reality as a tool after the pain point/problem is resolved. Suggestion for positioning Constructed Reality should be in line with 'Company operation details'. Present the most appropriate use of Construkted Reality at the end of the blog post. \n"
         f"3. Write the full blog post, addressing the extracted pain points and integrating solutions."
+        
     )
 
 
-    # For OpenAI compatibility, we need to use the chat/completions format
-    if AI_PROVIDER == "openai":
-        payload = {
-            "model": OPENAI_MODEL,
-            "messages": [
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": prompt}
-            ],
-            "temperature": 0.7,
-            "stream": False,
-            "reasoning_effort": "high",
-            "max_tokens": 64000,
-            "top_p": 1,
-        }
-    else:
-        payload = {
-            "model": OLLAMA_MODEL,
-            "prompt": prompt,
-            "system": system_prompt,
-            "stream": False,
-        }
-    result = post_api(payload)
-    
-    # Handle OpenAI response format for the second API call
-    if AI_PROVIDER == "openai":
-        # OpenAI returns a chat completion response with choices
-        try:
-            # Extract the content from the OpenAI response
-            content = result.get("choices", [{}])[0].get("message", {}).get("content", "").strip()
-            return content
-        except (IndexError, KeyError) as e:
-            sys.stderr.write(f"Failed to extract content from OpenAI response: {e}\n")
-            sys.stderr.write(f"Raw response: {result}\n")
-            return ""
-    else:
-        # Original Ollama logic for backward compatibility
-        return result.get("response", "")
+    # Use the unified LLM call function
+    return call_llm(prompt=prompt, system_prompt=system_prompt)
 
 
 def make_output_path(base_name: str) -> pathlib.Path:
@@ -729,11 +740,20 @@ def load_blog_ideas_from_json() -> list:
 def update_idea_with_api_response(idea: dict, selected: dict) -> None:
     """Update the idea dictionary with fields from the API response."""
     # Only update fields that were returned by the API call
-    for field in ["voice", "piece_type", "marketing_post_type", "primary_goal", "target_audience", 
-                  "technical_depth", "justification", "pain_point", "keywords", "length", 
-                  "sections", "call_to_action", "title"]:
+    for field in ["voice", "piece_type", "marketing_post_type", "primary_goal", "target_audience",
+                  "technical_depth", "justification", "pain_point", "keywords", "length",
+                  "sections", "call_to_action", "title",
+                  "primary_seo_key_word", "secondary_seo_key_words"]:
         if field in selected and selected[field]:  # Only update if field has data
             idea[field] = selected[field]
+
+def set_seo_fields(idea: dict, selected: dict) -> None:
+    """Utility to set primary/secondary SEO fields from LLM response (optional)."""
+    # The LLM may return these fields; if present, store them; otherwise keep defaults.
+    if "primary_seo_key_word" in selected and selected["primary_seo_key_word"]:
+        idea["primary_seo_key_word"] = selected["primary_seo_key_word"]
+    if "secondary_seo_key_words" in selected and isinstance(selected["secondary_seo_key_words"], list):
+        idea["secondary_seo_key_words"] = selected["secondary_seo_key_words"]
 
 
 def update_modified_at(idea: dict) -> None:
@@ -874,6 +894,8 @@ def main() -> None:
 
         # Update JSON file with API response data immediately after first API call
         update_idea_with_api_response(idea, selected)
+        # Optional: capture SEO fields from the LLM response
+        set_seo_fields(idea, selected)
         
         # ---------------------------------------------------------------
         # STEP 3: Refresh modified_at timestamp now that the idea has been

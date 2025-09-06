@@ -249,6 +249,9 @@ The system supports rich metadata fields defined in `metadata_config.json`. Thes
 - **sections**: Major headings
 - **call_to_action**: Reader action request
 - **pain_point**: Core user problem
++
++ **primary seo key word**: Primary SEO keyword for the article (string, optional)
++ **secondary seo key words**: List of secondary SEO keywords (list of strings, optional)
 
 ## Requirements
 

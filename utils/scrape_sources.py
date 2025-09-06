@@ -10,6 +10,8 @@ import time
 from datetime import datetime
 from typing import List, Dict, Any
 from urllib.parse import urlparse
+import contextlib
+import io
 
 try:
     from scrapegraphai.graphs import SmartScraperGraph
@@ -71,7 +73,8 @@ def scrape_url(url: str) -> Dict[str, Any]:
             config=graph_config
         )
         
-        result = smart_scraper_graph.run()
+        with contextlib.redirect_stdout(io.StringIO()):
+            result = smart_scraper_graph.run()
         
         # Extract text from result
         if isinstance(result, dict):

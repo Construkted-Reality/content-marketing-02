@@ -113,8 +113,10 @@ class BlogPostProcessor:
         self.storage_file = "blog_ideas.json"
         # Default enriched fields that should be included
         self.enriched_fields = [
-            'article', 'voice', 'piece_type', 'marketing_post_type', 
-            'primary_goal', 'technical_depth', 'keywords', 'length', 
+            'article', 'voice', 'piece_type', 'marketing_post_type',
+            'primary_goal', 'technical_depth', 'keywords',
+            'primary_seo_key_word', 'secondary_seo_key_words',
+            'length',
             'sections', 'call_to_action', 'scraped_sources'
         ]
     
@@ -271,7 +273,9 @@ class BlogPostProcessor:
             'target_audience': target_audience,
             'content_details': content_details,
             'reference_context': reference_context,
-            'sources': sources
+            'sources': sources,
+            'primary_seo_key_word': '',
+            'secondary_seo_key_words': []
         }
         
         # Validate required fields
@@ -368,7 +372,11 @@ class BlogPostProcessor:
                     # Add default enriched fields if they don't exist
                     for field in self.enriched_fields:
                         if field not in post:
-                            post[field] = ""
+                            # Provide appropriate default based on expected type
+                            if field == 'secondary_seo_key_words':
+                                post[field] = []
+                            else:
+                                post[field] = ""
                     
                     # Set default values for common fields
                     if 'voice' not in post:
@@ -440,7 +448,11 @@ class BlogPostProcessor:
                     # Add default enriched fields if they don't exist
                     for field in self.enriched_fields:
                         if field not in post:
-                            post[field] = ""
+                            # Provide appropriate default based on expected type
+                            if field == 'secondary_seo_key_words':
+                                post[field] = []
+                            else:
+                                post[field] = ""
                     
                     # Set default values for common fields
                     if 'voice' not in post:
