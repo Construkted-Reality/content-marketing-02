@@ -160,6 +160,11 @@ def call_llm(prompt: str, system_prompt: Optional[str] = None, **kwargs) -> str:
     """
     Unified LLM call function that handles both OpenAI and Ollama APIs.
     
+    This function now prints an estimated token count (≈ 0.75 token per word) for the
+    supplied prompt. The estimate is printed to the console for debugging and
+    cost‑monitoring purposes and does **not** affect the request payload or the
+    function's return value.
+    
     Args:
         prompt: The user prompt to send to the LLM
         system_prompt: Optional system prompt (for OpenAI) or system context (for Ollama)
@@ -177,6 +182,13 @@ def call_llm(prompt: str, system_prompt: Optional[str] = None, **kwargs) -> str:
     }
     # Override defaults with any provided kwargs
     defaults.update(kwargs)
+    
+    # Estimate tokens for both prompt and optional system_prompt (≈ 0.75 token per word)
+    combined_text = prompt
+    if system_prompt:
+        combined_text = system_prompt + " " + prompt
+    token_estimate = int(len(combined_text.split()) * 0.75)
+    print(f"[Token Estimate] Approximate tokens to be sent (prompt + system_prompt): {token_estimate}")
     
     if AI_PROVIDER == "openai":
         # Build OpenAI chat completions format
@@ -870,7 +882,7 @@ def main() -> None:
             if args.ideas_id and idea.get("article_generated"):
                 print(f"Idea id '{args.ideas_id}' already has an article written.")
                 sys.exit(0)
-            print(f"  Skipping – article already generated (use --force_article_gen to override)")
+            print(f"[{idx}/{len(ideas)}]  Skipping – article already generated (use --force_article_gen to override)")
             continue
             
         print(f"[{idx}/{len(ideas)}] Processing idea: {idea.get('title', 'Untitled')}")
