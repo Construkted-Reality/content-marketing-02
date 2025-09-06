@@ -55,5 +55,8 @@ Remember: Prioritize user value and search intent over keyword placement. Write 
 
 
 ---
-count the number of words for each first and second prompt to get an idea of how many tokens we are sending.
-- set token count to a value that matches so as to not have the ai forget the begining of the prompts that we are sending.
+-count the number of words for each first and second prompt to get an idea of how many tokens we are sending.
+  - set token count to a value that matches so as to not have the ai forget the begining of the prompts that we are sending.
+  - the ai call prompts do not include all the text that has been scraped.
+- write a deep-research python script to do the deep research locally.
+  - envoke it once to get a list of ideas (like I'm curently doing with Perplexity) to generate a list of ideas based on a generic prompts, then run the same deep-research code on each of the ideas to deeply research them before writing a blog post.

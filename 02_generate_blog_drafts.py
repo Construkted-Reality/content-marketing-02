@@ -127,6 +127,16 @@ def read_file(path: pathlib.Path) -> str:
         sys.stderr.write(f"Error reading {path}: {e}\n")
         sys.exit(1)
 
+def load_prompt_template(template_name: str, **kwargs) -> str:
+    """Load a prompt template from the prompts directory and format it with provided variables."""
+    template_path = pathlib.Path("prompts") / f"{template_name}.md"
+    try:
+        template_content = template_path.read_text(encoding="utf-8")
+        return template_content.format(**kwargs)
+    except Exception as e:
+        sys.stderr.write(f"Error loading prompt template {template_name}: {e}\n")
+        sys.exit(1)
+
 def post_api(payload: Dict[str, Any]) -> Dict[str, Any]:
     """Unified API request function that handles both Ollama and OpenAI APIs."""
     if AI_PROVIDER == "openai":
@@ -188,7 +198,16 @@ def call_llm(prompt: str, system_prompt: Optional[str] = None, **kwargs) -> str:
     if system_prompt:
         combined_text = system_prompt + " " + prompt
     token_estimate = int(len(combined_text.split()) * 0.75)
-    print(f"[Token Estimate] Approximate tokens to be sent (prompt + system_prompt): {token_estimate}")
+    word_estimate = len(combined_text.split())
+    print(f"[Token Estimate] Approximate tokens sent to LLM: {token_estimate} | Approximate words: {word_estimate}")
+    # Display cumulative word count of the blog ideas JSON data
+    try:
+        with open("blog_ideas.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+        json_word_count = len(json.dumps(data).split())
+        print(f"[JSON Word Count] Approximate cumulative words in blog_ideas.json: {json_word_count}")
+    except Exception as e:
+        sys.stderr.write(f"Error counting words in blog_ideas.json: {e}\n")
     
     if AI_PROVIDER == "openai":
         # Build OpenAI chat completions format
@@ -408,6 +427,10 @@ def get_or_build_scraped_sources(idea: dict) -> List[Dict[str, Any]]:
         except Exception as e:
             sys.stderr.write(f"Error scraping web sources: {e}\n")
     
+    # Calculate total word count of successful scraped sources
+    total_words = sum(len(src.get('text', '').split()) for src in scraped_sources if src.get('status') == 'ok')
+    print(f"  👉 Total scraped words: {total_words}")
+
     # Update the idea with scraped sources
     idea['scraped_sources'] = scraped_sources
     
@@ -473,8 +496,14 @@ def build_source_excerpts(scraped_sources: List[Dict[str, Any]]) -> str:
     return "\n\n---\n\n".join(excerpts)
 
 
-def build_idea_context(idea: dict) -> str:
-    """Build idea context without URL lists, including scraped source excerpts.
+def build_idea_context(idea: dict, for_first_call: bool = True) -> str:
+    """Build idea context.
+    This function can generate two variants:
+    * **First‑call** (for_first_call=True): a compact list of source URLs only.
+      This is used for the initial LLM call that selects writing parameters.
+    * **Second‑call** (for_first_call=False): full source excerpts that include
+      each URL followed by its scraped text, enabling the model to cite sources
+      correctly in the final article.
 
     This function now also includes the optional ``reference_context`` field from
     the ``blog_ideas.json`` entry, if present. The field provides additional
@@ -499,9 +528,14 @@ def build_idea_context(idea: dict) -> str:
     if idea.get("content_details"):
         idea_content_parts.append(f"Content Details: {idea['content_details']}")
 
-    # Get scraped source excerpts instead of URL list
-    scraped_sources = get_or_build_scraped_sources(idea)
-    source_excerpts = build_source_excerpts(scraped_sources)
+    if for_first_call:
+        # First call – only need a simple list of URLs.
+        urls = idea.get('sources', [])
+        source_excerpts = "\n".join(urls) if urls else ""
+    else:
+        # Second call – include full excerpts with URL + text.
+        scraped_sources = get_or_build_scraped_sources(idea)
+        source_excerpts = build_source_excerpts(scraped_sources)
 
     if source_excerpts:
         idea_content_parts.append(f"Source Excerpts:\n{source_excerpts}")
@@ -542,97 +576,20 @@ def select_parameters(idea_content: str, context_content: str, content_marketing
     
     batch_context = get_batch_diversity_context(processed_ideas)
     
-    first_prompt = f"""Analyze the following topic research and select the most appropriate writing parameters for content marketing.
-
-**Context Summary**: You will be given: 1) batch diversity context, 2) voice definitions, 3) content marketing guidance, 4) topic research content, 5) title guidance, 6) detailed instructions and JSON schema.
-
-**IMPORTANT**: Vary your parameter selections across different topics. Avoid selecting identical combinations unless truly warranted by the content. Consider how this topic differs from previous topics in the batch.
-{batch_context}
-
-Writing style descriptions:
-New Yorker: {VOICE_DEFINITIONS["TheNewYorker"]}
-The Atlantic: {VOICE_DEFINITIONS["TheAtlantic"]}
-Wired: {VOICE_DEFINITIONS["Wired"]}
-
-Content Marketing Context:
-{content_marketing_guidance_content}
-
-Title Guidance:
-{titles_content}
-
-Topic research content:
-{idea_content}
-Use the provided source excerpts to extract the pain points and guide your research.
-
-Use ONLY this JSON format for output (no other text):
-{{
-  "voice": "Your chosen voice option (e.g., TheNewYorker)",
-  "piece_type": "Your chosen piece type (e.g., explainer)",
-  "marketing_post_type": "Your chosen marketing post type (e.g., educational)",
-  "primary_goal": "Your chosen primary goal (e.g., educate)",
-  "target_audience": "Your chosen target audience (e.g., enterprise)",
-  "technical_depth": "Your chosen technical depth (e.g., med)",
-  "justification": "Explanation of why these choices were made",
-  "pain_point": "Summary of the main pain point users are experiencing",
-  "length": "Estimated number of words for the final article",
-  "primary_seo_key_word": "Primary SEO keyword for the article",
-  "secondary_seo_key_words": ["Secondary keyword 1", "Secondary keyword 2", "Secondary keyword 3"],
-  "title": "A compelling, reader-focused title following the guidance provided"
-}}
-
-Instructions:
-1. **Voice Selection**: Choose the most appropriate voice based on content type and audience:
-   - Technical troubleshooting/how-to guides → Consider Wired (but evaluate other options)
-   - Broader conceptual topics → Consider TheNewYorker
-   - Policy/industry analysis → Consider TheAtlantic
-   - Evaluate which voice truly fits the content and audience best
-
-2. **Piece Type Selection** from: explainer, tutorial, methods deep dive, case study, product update, standards/policy analysis, news reaction
-   - Match the piece type to the content structure and user needs
-   - Consider variety across the batch
-
-3. **Marketing Post Type** - Balance across funnel positions:
-   - Educational (TOFU): For awareness and education - foundational knowledge
-   - Comparison (MOFU): For consideration and evaluation - benefits vs competitors
-   - Conversion-focused (BOFU): For decision-making and purchase - drive action, emphasize ROI
-   - Case Study: For trust-building - showcase real-world results
-   - Product Update: For awareness and conversion - announce new features
-   - Standards/Policy Analysis: For thought leadership - industry insights
-   - News Reaction: For engagement - commentary on trends
-
-4. **Primary Goal** from: educate, persuade, announce, compare, troubleshoot
-   - Match to the core user need and content purpose
-
-5. **Target Audience** from: enterprise, public sector, academic, hobbyist
-   - Consider user sophistication, budget constraints, and use case complexity
-
-6. **Technical Depth** from: low, med, high
-   - Match to audience expertise and content complexity
-
-7. **Justification**: Explain your specific choices and how this topic differs from typical selections
-
-8. **Pain Point**: Extract detailed, specific pain points from the research content and URLs with concrete examples
-
-9. **Length**: Integer value between 800 and 3000
-   - Estimate an article length based on the amount of source material, the amount that should be said 
-     regarding the topic that was researched and the complexity of the pain point/problem being resolved by the article
-   - 600-900 words: For simple problems that can be answered with a quick list, a straightforward definition, or a few direct steps. The solution is not deeply nuanced.
-   - 1200-1800 words: For multi-faceted problems that require more detailed explanations, examples, comparisons, or a step-by-step process. This is for topics that require evidence and elaboration to be truly helpful.
-   - 2500-3000 words: For complex, high-stakes problems that require a comprehensive, in-depth guide. These articles often cover a topic from every angle, include multiple sub-sections, and aim to be the definitive resource on the subject.
-
-10. **primary seo key word**: Select one primary SEO key word which will be used later in the crafting of the blog post for the company marketing website.
-
-11. **secondary seo key words**: Select three to five (2-5) secondary SEO key words which will be used later in the crafting of the blog post for the company marketing website.
-
-12. **Title**: Generate a compelling, reader-focused title following the guidance above:
-    - Write the title from the reader's point of view
-    - Include one concrete benefit or goal
-    - Keep under 15 words if possible
-    - Be truthful and specific
-    - Optionally add target audience or constraint for relevance
-
-Output ONLY the JSON object above with your selections."""
+    # Load and format the prompt template
+    first_prompt = load_prompt_template(
+        "01_select_parameters",
+        batch_context=batch_context,
+        voice_new_yorker=VOICE_DEFINITIONS["TheNewYorker"],
+        voice_atlantic=VOICE_DEFINITIONS["TheAtlantic"],
+        voice_wired=VOICE_DEFINITIONS["Wired"],
+        content_marketing_guidance_content=content_marketing_guidance_content,
+        titles_content=titles_content,
+        idea_content=idea_content
+    )
+    
     # Use the unified LLM call function
+    print("   First call to LLM")
     response_text = call_llm(prompt=first_prompt)
     
     # Parse the JSON response
@@ -662,45 +619,33 @@ def generate_blog_post(
     """Second API call – generate the full blog post using the chosen parameters."""
     voice_key = selected["voice"]
     voice_content = VOICE_DEFINITIONS.get(voice_key, "")
-    voice_prompt = f"Write in the voice of a seasoned journalist at {voice_content}"
-
-    system_prompt = (
-        f"Reasoning: high "
-        f"You are a content creator for Construkted Reality, tasked with writing a blog post. "
-        f"Your writing style is that of a seasoned journalist at {voice_content}. "
-        f"Content Marketing Context: {content_marketing_guidance_content}. "
-        f"Extra context {context_content}. "
-        f"Company operation details: {company_operation_content}. Do **NOT** suggested ideas which do not align with company operation details."
-        f"Article title is: {selected['title']}."
-        f"Piece Type: {selected['piece_type']}. "
-        f"Primary Goal: {selected['primary_goal']}. "
-        f"Target Audience: {selected['target_audience']}. "
-        f"Technical Depth: {selected['technical_depth']}. "
-        f"Article target word count length: {selected['length']} words.\n"
-        f"\n\n**Core Instructions**:\n- Incorporate the primary SEO keyword (`{selected.get('primary_seo_key_word','')}`) prominently in the title and early sections, and naturally weave the secondary SEO keywords (`{', '.join(selected.get('secondary_seo_key_words', []))}`) throughout the article for SEO optimization.\n"
-        f"- Mention our product, Construkted Reality, where it naturally fits as a solution to the problems discussed. Do not force it.\n"
-        f"- Do not fabricate information about how Construkted Reality works or its features.\n"
-        f"- For images, create numeric placeholders in the body of the post (e.g., [IMAGE 1], [IMAGE 2]). At the end of the article, create an 'Image Prompt Summary' section with detailed prompts for an image generation LLM for each placeholder.\n"
-        f"- Follow these formatting rules: {FORMATTING_RULES}\n"
-        f"- When referencing information from the provided source excerpts, include the source URL as an inline citation and weave the URLs naturally into the body of the article for credibility and SEO optimization."
+    
+    # Load and format the system prompt template
+    system_prompt = load_prompt_template(
+        "02_generate_blog_post_system",
+        voice_content=voice_content,
+        content_marketing_guidance_content=content_marketing_guidance_content,
+        context_content=context_content,
+        company_operation_content=company_operation_content,
+        title=selected['title'],
+        piece_type=selected['piece_type'],
+        primary_goal=selected['primary_goal'],
+        target_audience=selected['target_audience'],
+        technical_depth=selected['technical_depth'],
+        length=selected['length'],
+        primary_seo_key_word=selected.get('primary_seo_key_word', ''),
+        secondary_seo_key_words=', '.join(selected.get('secondary_seo_key_words', [])),
+        formatting_rules=FORMATTING_RULES
     )
 
-    prompt = (
-        f"Using the provided research, write a full blog post. \n"
-        f"The primary goal is to validate and suggest solutions to the user pain points identified in the research.\n"
-        f"The secondary goal is to position Construkted Reality as the solution to the user pain point.\n"
-        f"**Article Research and Draft Content**:\n{idea_content}\n\n"
-        f"**Instructions**:\n"
-        f"1. Use the provided source excerpts to deepen your understanding of the pain points.\n"
-        f"2. Evaluate if Construkted Reality is a suitable solution to the pain point/problem statement based on the 'Company operation details' provided. Be conservative: if a capability isn’t explicitly supported, assume it’s not available. \n" 
-        f"   If Construkted Reality cannot provide a direct solution, write a statement in bold under the title describing why Construkted Reality cannot provide a solution to the problem/pain point. and continue writing the blog post. \n"
-        f"   Also if Construkted Reality does not provide a direct solution, frame Construkted Reality as a tool after the pain point/problem is resolved. Suggestion for positioning Constructed Reality should be in line with 'Company operation details'. Present the most appropriate use of Construkted Reality at the end of the blog post. \n"
-        f"3. Write the full blog post, addressing the extracted pain points and integrating solutions."
-        
+    # Load and format the user prompt template
+    prompt = load_prompt_template(
+        "02_generate_blog_post_user",
+        idea_content=idea_content
     )
-
 
     # Use the unified LLM call function
+    print("   Second call to LLM")
     return call_llm(prompt=prompt, system_prompt=system_prompt)
 
 
@@ -887,8 +832,8 @@ def main() -> None:
             
         print(f"[{idx}/{len(ideas)}] Processing idea: {idea.get('title', 'Untitled')}")
         
-        # Build idea content with scraped source excerpts (no URL lists)
-        idea_content = build_idea_context(idea)
+        # Build idea content for the first LLM call (URL list only)
+        idea_content = build_idea_context(idea, for_first_call=True)
         
         # --- First API call -------------------------------------------------
         content_marketing_guidance_content = read_file(CONTENT_MARKETING_GUIDANCE_FILE)
@@ -938,9 +883,11 @@ def main() -> None:
             sys.stderr.write(f"Error updating JSON after first API call: {e}\n")
 
         # --- Second API call -----------------------------------------------
+        # Build full idea content with source excerpts (URL + text) for citation
+        full_idea_content = build_idea_context(idea, for_first_call=False)
         content_marketing_guidance_content = read_file(CONTENT_MARKETING_GUIDANCE_FILE)
         response = generate_blog_post(
-            idea_content,
+        full_idea_content,
             context_content,
             company_operation_content,
             content_marketing_guidance_content,
